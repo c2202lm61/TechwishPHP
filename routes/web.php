@@ -46,3 +46,7 @@ require __DIR__.'/auth.php';
 Route::get('admin/usermanagement', function(){
  return view('/Admin/usermanagement');
 })->name('user_management');
+
+Route::get('addproduct', function(){
+    return view('Admin/AddProduct');
+})->name('addproduct');
