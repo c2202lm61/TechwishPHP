@@ -8,6 +8,37 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\FeedBackController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\DeliveryController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\CategoryController;
+
+
+Route::get('/insert/category',[CategoryController::class,'insert']);
+Route::get('/update/category',[CategoryController::class,'update']);
+Route::get('/delete/category',[CategoryController::class,'delete']);
+Route::get('/show/category',[CategoryController::class,'show']);
+
+Route::get('/insert/order',[OrderController::class,'insert']);
+Route::get('/update/order',[OrderController::class,'update']);
+Route::get('/delete/order',[OrderController::class,'delete']);
+Route::get('/show/order',[OrderController::class,'show']);
+
+Route::get('/insert/delivery',[DeliveryController::class,'insert']);
+Route::get('/update/delivery',[DeliveryController::class,'update']);
+Route::get('/delete/delivery',[DeliveryController::class,'delete']);
+Route::get('/show/delivery',[DeliveryController::class,'show']);
+
+Route::get('/insert/payment',[PaymentController::class,'insert']);
+Route::get('/update/payment',[PaymentController::class,'update']);
+Route::get('/delete/payment',[PaymentController::class,'delete']);
+Route::get('/show/payment',[PaymentController::class,'show']);
+
+Route::get('/insert/review',[ReviewController::class,'insert']);
+Route::get('/update/review',[ReviewController::class,'update']);
+Route::get('/delete/review',[ReviewController::class,'delete']);
+Route::get('/show/review',[ReviewController::class,'show']);
 
 Route::get('/insert/product',[ProductController::class,'insert']);
 Route::get('/update/product',[ProductController::class,'update']);
