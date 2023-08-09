@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class FeedBack extends Model
 {
-    protected $table = "roles";
+    protected $primaryKey = 'FeedbackID';
+    protected $table = 'feedback';
     use HasFactory;
     public $fillable = [
-        'RoleName',
+        'FeedbackContent',
+        'UserID'
     ];
 }

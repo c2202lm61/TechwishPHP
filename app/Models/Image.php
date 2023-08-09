@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Image extends Model
 {
-    protected $table = "roles";
     use HasFactory;
+    protected $primaryKey = 'ImageID';
+    protected $table = 'images';
     public $fillable = [
-        'RoleName',
+        'ImageLink',
+        'Product_ID'
     ];
 }
