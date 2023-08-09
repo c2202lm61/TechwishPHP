@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('Species', 50)->nullable();
             $table->float('Price');
             $table->integer('Discount');
+            $table->integer('quantity');
             $table->string('Description', 255);
             $table->timestamps();
         });
