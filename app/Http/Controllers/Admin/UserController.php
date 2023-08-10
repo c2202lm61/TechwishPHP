@@ -36,8 +36,8 @@ class UserController extends Controller
         $user->save();
         return "Update thanh cong";
     }
-    public function delete(){
-        $user =  User::find(1);
+    public function delete(Request $request){
+        $user =  User::find($request->id);
         $user->delete();
         return "Delete  thanh cong";
     }

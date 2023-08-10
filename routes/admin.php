@@ -55,7 +55,7 @@ Route::get('/show/feedback',[FeedBackController::class,'show']);
 
 Route::get('/insert/user',[UserController::class,'insert']);
 Route::get('/update/user',[UserController::class,'update']);
-Route::get('/delete/user',[UserController::class,'delete']);
+Route::post('/delete/user',[UserController::class,'delete']);
 Route::get('/show/user',[UserController::class,'show']);
 
 Route::get('/insert/role',[RoleController::class,'insert']);
