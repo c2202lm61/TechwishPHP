@@ -13,7 +13,7 @@ class CategoryController extends Controller
     }
     public function insert(Request $request){
         if ($request->isMethod('get')) {
-            return view('Admin.Create.CreateCategoryManagement');
+            return view('Admin.Create.CreateCategory');
         } elseif ($request->isMethod('post')) {
             $category = new Category;
             $category->CategoryName = $request->CategoryName;
@@ -24,7 +24,7 @@ class CategoryController extends Controller
     }
     public function update(Request $request){
         if ($request->isMethod('get')) {
-            return view('Admin.Create.UpdateCategoryManagement');
+            return view('Admin.Create.UpdateCategory');
         } elseif ($request->isMethod('path')) {
             $category = Category::find(3);
             $category->CategoryName = "cay chuoi";

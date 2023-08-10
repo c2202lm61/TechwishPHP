@@ -15,7 +15,7 @@ class OrderController extends Controller
     }
     public function insert(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Create/CreateOrder');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";
