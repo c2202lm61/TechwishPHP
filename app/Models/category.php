@@ -15,4 +15,4 @@ class Category extends Model
     public $fillable = [
         'CategoryName',
     ];
-    }
+}
