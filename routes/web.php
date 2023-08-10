@@ -22,9 +22,6 @@ Route::get('/login_register', function(){
 })->name('login_register');
 
 // ------------------admin---------------------------------------------------------------
-Route::get('/admin', function(){
-    return view('Admin/HomePage');
-});
 
 Route::get('/home', function(){
     return view('home');
@@ -43,10 +40,3 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // -----------------------------------------------------------------------adminUSER-------------------------------------------
-Route::get('admin/usermanagement', function(){
- return view('/Admin/usermanagement');
-})->name('user_management');
-
-Route::get('addproduct', function(){
-    return view('Admin/AddProduct');
-})->name('addproduct');

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class payment extends Model
 {
     use HasFactory;
+    protected $table = 'payments';
     protected $primaryKey = 'PaymentID';
     public $timestamps = false;
 }

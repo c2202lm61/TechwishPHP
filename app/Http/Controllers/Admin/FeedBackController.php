@@ -4,19 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\FeedBack;
+use App\Models\feedback;
 
 class FeedBackController extends Controller
 {
     public  function show(){
-        $feedback = FeedBack::all();
+        
     }
-    public  function insert(){
-        $feedback = new FeedBack;
-        $feedback->FeedbackContent = "do some thing";
-        $feedback->UserID = 1;
+    public function create(){
+        return redirect("dien vao");
+    }
+    public  function insert(Request $request){
+        $feedback = new feedback;
+        $feedback->FeedbackContent = $request->FeedbackContent;
+        $feedback->UserID = session('UserID');
         $feedback->save();
-        return "insert thanh cong";
+        return  redirect()->action([FeedBackController::class],'create');
+    
     }
     public  function update(){
         $feedback = FeedBack::find(2);

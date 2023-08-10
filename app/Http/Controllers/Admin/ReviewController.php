@@ -10,12 +10,15 @@ class ReviewController extends Controller
     public function show(){
 
     }
-    public function insert(){
+    public function create(){
+        return rediect("hhhh");
+    }
+    public function insert(Request $request){
         $review = new Review;
-        $review->Rating = '1';
-        $review->Comment = 'good';
-        $review->UserID = 1;
-        $review->Product_ID = 2;
+        $review->Rating = $request->Rating;
+        $review->Comment = $request->Comment;
+        $review->UserID = session('UserID');
+        $review->Product_ID = $request->Product_ID;
         $review->save();
         return "insert thanh cong";
     }
