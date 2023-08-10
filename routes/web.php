@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/showcart',[CartController::class,'showCart']);
+Route::get('/addtocart',[CartController::class,'addToCart']);
+Route::get('/removecart',[CartController::class,'removeCart']);
+
+
+
 
 Route::get('/', function () {
     return view('home');
@@ -41,9 +47,9 @@ require __DIR__.'/auth.php';
 
 
 // admin-------------------------------------------
-Route::get('admin/usermanagement', function(){
- return view('/Admin/usermanagement');
-})->name('user_management');
+// Route::get('admin/usermanagement', function(){
+//  return view('/Admin/usermanagement');
+// })->name('user_management');
 
 
 

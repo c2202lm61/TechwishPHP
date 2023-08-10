@@ -1,4 +1,4 @@
-@extends('Admin.layoutadmin')
+@extends('Admin.Layout')
 @section('content')
     <div class="col-12">
         <div class="card top-selling overflow-auto">
@@ -28,11 +28,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($feedbacks as $feedback)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Thiss is so freaking goood</td>
-                            <td>Duongngohehe</td>
+                            <th scope="row">{{ $feedback->FeedbackID }}</th>
+                            <td>{{ $feedback->FeedbackContent }}</td>
+                            <td>{{ $feedback->UserID }}</td>
                         </tr>
+                        @endforeach
+                    </tbody>
 
                 </table>
 

@@ -4,19 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\orders;
+use App\Models\Order;
 use Carbon\Carbon;
 
 class OrderController extends Controller
 {
     public function show(){
-
-    }
-    public function create(){
-        return redirect("viet vao sau");
+        $orders = Order::all();
+        return view('Admin.OrderManagement',compact('orders'));
     }
     public function insert(Request $request){
-        $orderID = orders::insertGetId([
+        $orderID = Order::insertGetId([
             'Quantity' => $request->Quantity,
             'OrderDate' => Carbon::now(),
             'total' => $request->Order->total,

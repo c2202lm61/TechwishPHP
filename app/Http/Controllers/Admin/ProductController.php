@@ -11,9 +11,9 @@ class ProductController extends Controller
 {
     public function show(){
 
-    }
-    public function create(){
-        return view('AddProduct');
+        $products = Product::all();
+        return view('Admin.ProductManagement',compact('products'));
+
     }
     public function insert(Request $request){
         $productID = Product::insertGetId([
@@ -34,7 +34,7 @@ class ProductController extends Controller
         }
         return  redirect()->action([PaymentController::class],'create');
     }
-    
+
     public function update(){
         $product = Product::find(2);
         $product->Name = "PhamQuan1";

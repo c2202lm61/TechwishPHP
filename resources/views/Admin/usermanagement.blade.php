@@ -1,10 +1,8 @@
-@extends('Admin.layoutadmin')
+@extends('Admin.Layout')
 @section('content')
     <section class="dashboard section">
         <div class="col-12">
             <div class="card recent-sales overflow-auto">
-
-
 
                 <div class="card-body">
                     <h5 class="card-title">Recent Sales <span>| Today</span></h5>
@@ -17,17 +15,40 @@
                                 <th scope="col">Phone</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Password</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row"><a href="#">1</a></th>
-                                <td>Duong dep trai</td>
-                                <td><a href="#" class="text-primary">0868284726</a>
-                                </td>
-                                <td>duongngo533@gmail.com</td>
-                                <td><span class="badge bg-success">duongquadeptrai</span></td>
-                            </tr>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <th scope="row"><a href="#">{{ $user->UserID }}</a></th>
+                                    <td>{{ $user->name }}</td>
+                                    <td><a href="#" class="text-primary">{{ $user->phone }}</a>
+                                    </td>
+                                    <td>{{ $user->email }}</td>
+                                    <td><span class="badge bg-success">{{ $user->password }}</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                Action
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end" style="">
+                                                <li><a class="dropdown-item text-success" href="#">Edit</a></li>
+                                                <li>
+                                                    <form action="/admin/delete/user" method="post" class="mb-0">
+                                                        <input type="hidden" class="d-inline" name="id"
+                                                            value="{{ $user->UserID }}">
+                                                        <input type="submit"
+                                                            class="btn btn-link text-decoration-none small text-danger"
+                                                            value="Delete">
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -36,74 +57,6 @@
 
             </div>
         </div><!-- End Recent Sales -->
-        <div class="col-12">
-            <div class="card recent-sales overflow-auto">
-                <form class="email-signup" action="{{ route('register') }}" method="POST" enctype='multipart/form-data'>
-                    @csrf
-                    <div class="u-form-group">
-                        <input type="name" for="name" type="text" name="name" :value="old('name')" required
-                            autofocus autocomplete="name" placeholder="User Name" name="name" class="name-input" />
-                        <span class="text-danger">
 
-                            {{-- @error('name')
-                                {{ $message }}
-                            @enderror --}}
-
-
-                        </span>
-                    </div>
-
-                    <div class="u-form-group">
-                        <input for="phone" type="text" name="phone" :value="old('phone')" required autofocus
-                            autocomplete="phone" placeholder="Phone" name="phone" class="name-input" />
-                        <span class="text-danger">
-
-                            {{-- @error('phone')
-                                {{ $message }}
-                            @enderror --}}
-
-
-
-                        </span>
-                    </div>
-
-                    <div class="u-form-group">
-                        <input type="email" :value="old('email')" required autocomplete="username" for="email"
-                            id="email" name="email" placeholder="Email" />
-                        <span class="text-danger">
-
-                            {{-- @error('email')
-                                {{ $message }}
-                            @enderror --}}
-
-                        </span>
-                    </div>
-
-                    <div class="u-form-group">
-                        <input type="password" name="password" placeholder="Password" type="password" name="password"
-                            id="password" required autocomplete="new-password" />
-                        <span class="text-danger">
-
-                            {{-- @error('password')
-                                {{ $message }}
-                            @enderror --}}
-
-
-
-                        </span>
-                    </div>
-
-                    <div class="u-form-group">
-                        <input for="password_confirmation" :value="__('Confirm Password')" type="password"
-                            placeholder="Confirm Password" id="password_confirmation" class="block mt-1 w-full"
-                            type="password" name="password_confirmation" required autocomplete="new-password" />
-                    </div>
-
-                    <div class="u-form-group">
-                        <button>{{ __('ADD') }}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
     </section>
 @endsection
