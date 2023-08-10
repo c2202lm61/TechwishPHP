@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('/', function(){
-    return view('Admin/HomePage');
+    return view('Admin/Home');
 });
 
 Route::get('/insert/category',[CategoryController::class,'insert']);
@@ -65,31 +65,31 @@ Route::get('/show/role',[RoleController::class,'show']);
     // Route::get('/', function () {
     //     return view('Admin.HomePage');
     // });
-    Route::get('/adminLogin', function () {
-        return view('Admin.Auth.login');
-    });
-    Route::get('/adminRegister', function () {
-        return view('Admin.Auth.register');
-    });
-    Route::get('/adminProfile', function () {
-        return view('Admin.Auth.profile');
-    });
-    
-
-    Route::get('/usermanagement', function () {
-        return view('/Admin/usermanagement');
-    })->name('user_management');
-    Route::get('addproduct', function(){
-        return view('Admin/AddProduct');
-    })->name('addproduct');
+    // Route::get('/adminLogin', function () {
+    //     return view('Admin.Auth.login');
+    // });
+    // Route::get('/adminRegister', function () {
+    //     return view('Admin.Auth.register');
+    // });
+    // Route::get('/adminProfile', function () {
+    //     return view('Admin.Auth.profile');
+    // });
 
 
-    Route::get('admin/payment/create', function(){
-        return view('Admin/AddProduct');
-    })->name('payment/create');
-    
+    // Route::get('/usermanagement', function () {
+    //     return view('/Admin/usermanagement');
+    // })->name('user_management');
+    // Route::get('addproduct', function(){
+    //     return view('Admin/AddProduct');
+    // })->name('addproduct');
 
-    Route::match(['get', 'post'], '/adminlogin1', [LoginController::class, 'login'])->name('admin.login');
+
+    // Route::get('admin/payment/create', function(){
+    //     return view('Admin/AddProduct');
+    // })->name('payment/create');
+
+
+    // Route::match(['get', 'post'], '/adminlogin1', [LoginController::class, 'login'])->name('admin.login');
     // Route::middleware('auth:admin')->group(function (){
     //     Route::get('/admin', [HomeController::class, 'index'])->name('dashboard');
     // });

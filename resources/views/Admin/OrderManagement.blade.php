@@ -1,4 +1,4 @@
-@extends('Admin.layoutadmin')
+@extends('Admin.Layout')
 @section('content')
     <div class="card-body pb-0">
         <h5 class="card-title">Orders List</h5>

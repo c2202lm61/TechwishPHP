@@ -1,4 +1,4 @@
-@extends('Admin.layoutadmin')
+@extends('Admin.Layout')
 @section('content')
     <section class="section dashboard">
         <div class="col-12">

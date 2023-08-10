@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 
 {
     public function show(){
         $users = User::all();
-        return "user";
+        return view('Admin.UserManagement',compact('users'));
     }
     public function create(){
         return redirect('rrrrrr');
@@ -22,7 +22,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->RoleID = 1;
-        $user->password = Hash::$request->password;
+     //   $user->password = Hash::$request->password;
         $user->save();
         return "Insert thanh cong";
     }

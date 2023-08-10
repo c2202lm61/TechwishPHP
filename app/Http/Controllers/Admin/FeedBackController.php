@@ -9,7 +9,7 @@ use App\Models\feedback;
 class FeedBackController extends Controller
 {
     public  function show(){
-        
+        return view('Admin.FeedbackManagement');
     }
     public function create(){
         return redirect("dien vao");
@@ -20,7 +20,7 @@ class FeedBackController extends Controller
         $feedback->UserID = session('UserID');
         $feedback->save();
         return  redirect()->action([FeedBackController::class],'create');
-    
+
     }
     public  function update(){
         $feedback = FeedBack::find(2);

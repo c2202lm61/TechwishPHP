@@ -1,4 +1,4 @@
-@extends('Admin.layoutadmin')
+@extends('Admin.Layout')
 @section('content')
     <div class="col-12">
         <div class="card top-selling overflow-auto">
