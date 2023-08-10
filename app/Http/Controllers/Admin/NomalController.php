@@ -13,7 +13,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -29,10 +29,10 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        $payment = new payment;
-        $payment->PaymentName = $request->PaymentName;
-        $payment->save();
-        return redirect()->action([PaymentController::class],'create');
+        // $payment = new payment;
+        // $payment->PaymentName = $request->PaymentName;
+        // $payment->save();
+        // return redirect()->action([PaymentController::class],'create');
     }
 
     /**
