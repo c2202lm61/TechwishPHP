@@ -13,7 +13,6 @@ class product extends Model
     protected $primaryKey = 'Product_ID';
     public $timestamps = false;
 
-    // Define relationships here, if any
     public function images()
     {
         return $this->hasMany(image::class, 'Product_ID');

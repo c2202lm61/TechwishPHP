@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->unsignedBigInteger('RoleID');
-            $table->foreign('RoleID')->references('RoleID')->on('roles');
+            // $table->unsignedBigInteger('RoleID')->default(null);
+            // $table->foreign('RoleID')->references('RoleID')->on('roles');
         });
     }
 
