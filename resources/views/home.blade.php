@@ -60,20 +60,58 @@
 
         <div class="col-md-9 col-sm-12 my-4 justify-content-center ">
             <div class="container d-flex flex-wrap row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-                <!-- Product 1 -->
-                <div class="col-sm-6 col-md-4 col-lg-4 ">
-                    <div class="card resp-3" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary">Buy</a>
+
+                <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="imgBx">
+                            <img src="img\images.jpg" class="object-fit-fill border rounded w-100 h-100" alt="...">
+                        </div>
+                        <div class="contentBx">
+                            <h2>Nike Shoes</h2>
+                            <div class="size">
+                                <h3>Size :</h3>
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                                <span>10</span>
+                            </div>
+                            <div class="color">
+                                <h3>Color :</h3>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <a href="#">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more products here... -->
+                <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="imgBx">
+                            <img src="img\câytest.jpg" class="object-fit-contain w-100 h-100">
+                        </div>
+                        <div class="contentBx">
+                            <h2>Nike Shoes</h2>
+                            <div class="size">
+                                <h3>Size :</h3>
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                                <span>10</span>
+                            </div>
+                            <div class="color">
+                                <h3>Color :</h3>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <a href="#">Buy Now</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Add more products here... -->
                 <!-- Add more products here... -->
 
 
