@@ -5,33 +5,36 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Image;
+use App\Models\image;
 use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     public function show(){
 
     }
-    public function insert(){
+    public function create(){
+        return redirect('dien vao');
+    }
+    public function insert(Request $request){
         $productID = Product::insertGetId([
-            'Name' => 'Janvi Singh',
-            'Species'=> 'species',
-            'Price'=>10,
-            'Discount'=>4,
-            'Description'=>'do some thing'
+            'Name' => $request->Name,
+            'Species'=> $request->species,
+            'Price'=>$request->Price,
+            'Discount'=>$request->Discount,
+            'Description'=> $request->Description
          ]);
 
-        $images = [
-            ['Product_ID' => $productID, 'ImageLink' => 'url_hinh_anh_1'],
-            ['Product_ID' => $productID, 'ImageLink' => 'url_hinh_anh_2'],
-            // ...
-        ];
 
-        foreach ($images as $imageData) {
-            Image::create($imageData);
+
+        foreach ( $request['image'] as $image) {
+            image::create([
+                'imageLink'=>$image->imageLink,
+                'Product_ID'=> $productID,
+            ]);
         }
-        return "insert thanh cong";
+        return  redirect()->action([PaymentController::class],'create');
     }
+    
     public function update(){
         $product = Product::find(2);
         $product->Name = "PhamQuan1";

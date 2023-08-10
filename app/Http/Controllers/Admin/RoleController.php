@@ -12,9 +12,12 @@ class RoleController extends Controller
     public function show(){
 
     }
-    public function insert(){
+    public function create(){
+        return redirect('iiii');
+    }
+    public function insert(Request $request){
         $role =  new Role;
-        $role->RoleName = "Khach hang";
+        $role->RoleName = $request->RoleName;
         $role->save();
         return "insert thanh cong";
     }

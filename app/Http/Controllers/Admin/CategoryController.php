@@ -11,9 +11,12 @@ class CategoryController extends Controller
     public function show(){
         return "";
     }
-    public function insert(){
+    public function create(){
+        return redirect('huhu');
+    }
+    public function insert(Request $request){
         $category = new Category;
-        $category->CategoryName = "cay  canh2";
+        $category->CategoryName = $request->CategoryName;
         $category->save();
         return "insert thanh cong";
     }

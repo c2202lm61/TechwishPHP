@@ -11,11 +11,20 @@ class PaymentController extends Controller
     public function show(){
 
     }
-    public function insert(){
+    public function create()
+    {
+        return redirect("viet vao sau");
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $payment = new Payment;
-        $payment->PaymentName = "Tien  mat";
+        $payment->PaymentName = $request->PaymentName;
         $payment->save();
-        return "Insert thanh cong";
+        return redirect()->action([PaymentController::class],'create');
     }
     public function update(){
         $payment = Payment::find(2);
