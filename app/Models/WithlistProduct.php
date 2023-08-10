@@ -8,16 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class WithlistProduct extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'WishID';
+    protected $primaryKey = 'WishlistProductID';
     public $table = 'wishlist_products';
 
 
     public $fillable = [
-        'name',
-        'email',
-        'phone',
-        'RoleID',
-        'password',
-
+        'WishlistID',
+        'Product_ID',
     ];
 }
