@@ -3,7 +3,7 @@
     <section class="section dashboard">
         <div class="col-12">
             <div class="card recent-sales overflow-auto p-3">
-                <form action="" class="email-signup">
+                <form action="" class="email-signup" enctype="multipart/form-data">
                     <input class="form-control my-3" type="text" placeholder="Product name"
                         aria-label="default input example" id="name" name="name" placeholder="input name"
                         value="{{ old('name') }}">
@@ -25,6 +25,12 @@
                         aria-label="default input example" name="description" class="form-control " id=""
                         placeholder="Description" value="{{ old('description') }}">
                     <div class="u-form-group">
+
+
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label"></label>
+                            <input class="form-control" type="file" id="formFileMultiple" name="images[]" multiple>
+                        </div>
                         <button>{{ __('ADD') }}</button>
                     </div>
                 </form>
@@ -49,7 +55,7 @@
                     </div>
 
                     <div class="card-body pb-0">
-                        <h5 class="card-title">Top Selling <span>| Today</span></h5>
+                        <h5 class="card-title">Products List</h5>
 
                         <table class="table table-borderless">
                             <thead>

@@ -10,9 +10,12 @@ class DeliveryController extends Controller
     public function show(){
 
     }
-    public function insert(){
+    public function create(){
+        return redirect('sdads');
+    }
+    public function insert(Request $request){
         $delivery = new Delivery;
-        $delivery->Name = "devlivery1";
+        $delivery->Name = $request->Name;
         $delivery->save();
         return "insert thanh cong";
         }

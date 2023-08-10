@@ -169,23 +169,30 @@
             </li><!-- End F.A.Q Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-contact.html">
+                <a class="nav-link collapsed" href="{{ route('ordermanagement') }}">
                     <i class="bi bi-envelope"></i>
-                    <span>Contact</span>
+                    <span>ORDER MANAGEMENT</span>
                 </a>
             </li><!-- End Contact Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
+                <a class="nav-link collapsed" href="{{ route('feedback') }}">
                     <i class="bi bi-card-list"></i>
-                    <span>Register</span>
+                    <span>FEEDBACK</span>
                 </a>
             </li><!-- End Register Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
+                <a class="nav-link collapsed" href="pages-blank.html">
+                    <i class="bi bi-file-earmark"></i>
+                    <span>PRODUCT IMAGE</span>
+                </a>
+            </li><!-- End Blank Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="">
                     <i class="bi bi-box-arrow-in-right"></i>
-                    <span>Login</span>
+                    <span>LOGOUT</span>
                 </a>
             </li><!-- End Login Page Nav -->
 
@@ -209,7 +216,7 @@
     <main id="main" class="main">
         @yield('content')
     </main>
-   
+
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">

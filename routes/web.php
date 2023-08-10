@@ -22,9 +22,6 @@ Route::get('/login_register', function(){
 })->name('login_register');
 
 // ------------------admin---------------------------------------------------------------
-Route::get('/admin', function(){
-    return view('Admin/HomePage');
-});
 
 Route::get('/home', function(){
     return view('home');
@@ -42,11 +39,21 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// -----------------------------------------------------------------------adminUSER-------------------------------------------
+
+// admin-------------------------------------------
 Route::get('admin/usermanagement', function(){
  return view('/Admin/usermanagement');
 })->name('user_management');
 
+
 Route::get('addproduct', function(){
     return view('Admin/AddProduct');
 })->name('addproduct');
+
+Route::get('ordermanagement', function(){
+    return view('Admin/OrderManagement');
+})->name('ordermanagement');
+
+Route::get('feedback', function(){
+    return view('Admin/feedback');
+})->name('feedback');
