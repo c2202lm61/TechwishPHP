@@ -13,10 +13,13 @@ class FeedBackController extends Controller
         $feedbacks = ModelsFeedBack::all();
         return view('Admin.FeedbackManagement',compact('feedbacks'));
     }
-    public function create(){
-        return redirect("dien vao");
-    }
     public  function insert(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $feedback = new feedback;
         $feedback->FeedbackContent = $request->FeedbackContent;
         $feedback->UserID = session('UserID');
@@ -24,7 +27,13 @@ class FeedBackController extends Controller
         return  redirect()->action([FeedBackController::class],'create');
 
     }
-    public  function update(){
+    public  function update(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $feedback = FeedBack::find(2);
         $feedback->FeedbackContent = "do some thing1";
         $feedback->UserID = 1;

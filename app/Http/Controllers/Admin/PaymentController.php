@@ -11,22 +11,27 @@ class PaymentController extends Controller
     public function show(){
 
     }
-    public function create()
-    {
-        return redirect("viet vao sau");
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function insert(Request $request)
     {
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $payment = new Payment;
         $payment->PaymentName = $request->PaymentName;
         $payment->save();
         return redirect()->action([PaymentController::class],'create');
     }
-    public function update(){
+    public function update(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $payment = Payment::find(2);
         $payment->PaymentName = "Banking";
         $payment->save();

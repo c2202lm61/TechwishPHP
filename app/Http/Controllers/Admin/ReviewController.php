@@ -10,10 +10,13 @@ class ReviewController extends Controller
     public function show(){
 
     }
-    public function create(){
-        return rediect("hhhh");
-    }
     public function insert(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $review = new Review;
         $review->Rating = $request->Rating;
         $review->Comment = $request->Comment;
@@ -22,7 +25,13 @@ class ReviewController extends Controller
         $review->save();
         return "insert thanh cong";
     }
-    public function update(){
+    public function update(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $review = Review::find(3);
         $review->Rating = '5';
         $review->Comment = 'good';

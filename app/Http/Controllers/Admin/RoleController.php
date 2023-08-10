@@ -16,12 +16,24 @@ class RoleController extends Controller
         return redirect('iiii');
     }
     public function insert(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $role =  new Role;
         $role->RoleName = $request->RoleName;
         $role->save();
         return "insert thanh cong";
     }
-    public function update(){
+    public function update(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         DB::table('roles')
             ->where('RoleID', 1)
             ->update(['RoleName' => "khach"]);

@@ -15,6 +15,12 @@ class ProductController extends Controller
     }
     public function insert(Request $request){
         if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
+        if ($request->isMethod('get')) {
             return view('Admin.Create.CreateProduct');
         } elseif ($request->isMethod('post')) {
             $productID = Product::insertGetId([
@@ -36,7 +42,13 @@ class ProductController extends Controller
 
     }
 
-    public function update(){
+    public function update(Request $request){
+        if ($request->isMethod('get')) {
+            return "This is a GET request.";
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $product = Product::find(2);
         $product->Name = "PhamQuan1";
         $product->Species = "sp";
