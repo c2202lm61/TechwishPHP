@@ -3,7 +3,9 @@
     <section class="section dashboard">
         <div class="col-12">
             <div class="card recent-sales overflow-auto p-3">
-                <form action="" class="email-signup" enctype="multipart/form-data">
+                <form action="/insert/product" method="post" class="email-signup" enctype="multipart/form-data">
+                    @csrf
+
                     <input class="form-control my-3" type="text" placeholder="Product name"
                         aria-label="default input example" id="name" name="name" placeholder="input name"
                         value="{{ old('name') }}">

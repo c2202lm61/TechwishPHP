@@ -46,9 +46,6 @@ Route::get('admin/usermanagement', function(){
 })->name('user_management');
 
 
-Route::get('addproduct', function(){
-    return view('Admin/AddProduct');
-})->name('addproduct');
 
 Route::get('ordermanagement', function(){
     return view('Admin/OrderManagement');

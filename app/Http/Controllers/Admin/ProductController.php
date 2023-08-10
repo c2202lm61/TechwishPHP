@@ -13,7 +13,7 @@ class ProductController extends Controller
 
     }
     public function create(){
-        return redirect('dien vao');
+        return view('AddProduct');
     }
     public function insert(Request $request){
         $productID = Product::insertGetId([
