@@ -2,10 +2,7 @@
 @section('content')
     <section class="section dashboard">
         <div class="col-12">
-           
 
-
-            
             <div class="col-12">
                 <div class="card top-selling overflow-auto">
 

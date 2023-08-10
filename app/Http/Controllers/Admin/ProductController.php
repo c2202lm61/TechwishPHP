@@ -16,23 +16,26 @@ class ProductController extends Controller
 
     }
     public function insert(Request $request){
-        $productID = Product::insertGetId([
-            'Name' => $request->Name,
-            'Species'=> $request->species,
-            'Price'=>$request->Price,
-            'Discount'=>$request->Discount,
-            'Description'=> $request->Description
-         ]);
-
-
-
-        foreach ( $request['image'] as $image) {
-            image::create([
-                'imageLink'=>$image->imageLink,
-                'Product_ID'=> $productID,
-            ]);
+        if ($request->isMethod('get')) {
+            return view('Admin.Create.CreateProduct');
+        } elseif ($request->isMethod('post')) {
+            $productID = Product::insertGetId([
+                'Name' => $request->Name,
+                'Species'=> $request->species,
+                'Price'=>$request->Price,
+                'Discount'=>$request->Discount,
+                'Description'=> $request->Description
+             ]);
+            foreach ( $request['image'] as $image) {
+                image::create([
+                    'imageLink'=>$image->imageLink,
+                    'Product_ID'=> $productID,
+                ]);
+            }
+            return  redirect()->action([PaymentController::class],'create');
         }
-        return  redirect()->action([PaymentController::class],'create');
+
+
     }
 
     public function update(){
