@@ -71,16 +71,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($products as $product)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cay Ot Chuong</td>
-                                    <td>$64</td>
-                                    <td class="fw-bold">124</td>
-                                    <td>20%</td>
-                                    <td>rat la dep</td>
-                                    <td>IMAGE NAO DO</td>
+                                    <th scope="row">{{ $product->Product_ID }}</th>
+                                    <td>{{ $product->Name }}</td>
+                                    <td>${{ $product->Price }}</td>
+                                    <td class="fw-bold">{{ $product->quantity }}</td>
+                                    <td>{{ $product->Description }}%</td>
+                                    <td>img</td>
+                                    <td>{{ $product->Species }}</td>
                                     <td><button class="btn btn-outline-danger">Fix</button></td>
                                 </tr>
+                                @endforeach
+                            </tbody>
 
                         </table>
 

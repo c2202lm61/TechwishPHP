@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\feedback;
+use App\Models\FeedBack as ModelsFeedBack;
 
 class FeedBackController extends Controller
 {
     public  function show(){
-        return view('Admin.FeedbackManagement');
+        $feedbacks = ModelsFeedBack::all();
+        return view('Admin.FeedbackManagement',compact('feedbacks'));
     }
     public function create(){
         return redirect("dien vao");

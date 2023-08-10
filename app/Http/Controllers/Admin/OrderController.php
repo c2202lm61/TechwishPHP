@@ -10,7 +10,8 @@ use Carbon\Carbon;
 class OrderController extends Controller
 {
     public function show(){
-        return view('Admin.OrderManagement');
+        $orders = Order::all();
+        return view('Admin.OrderManagement',compact('orders'));
     }
     public function insert(Request $request){
         $orderID = Order::insertGetId([

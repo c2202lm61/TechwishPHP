@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     public function show(){
-        return view('Admin.ProductManagement');
+        $products = Product::all();
+        return view('Admin.ProductManagement',compact('products'));
     }
     public function insert(Request $request){
         $productID = Product::insertGetId([
