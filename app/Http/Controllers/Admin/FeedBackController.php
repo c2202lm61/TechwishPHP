@@ -15,7 +15,7 @@ class FeedBackController extends Controller
     }
     public  function insert(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Create/CreateFeedback');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";
@@ -29,7 +29,7 @@ class FeedBackController extends Controller
     }
     public  function update(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Update.UpdateFeedback');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";

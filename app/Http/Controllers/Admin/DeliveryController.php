@@ -8,18 +8,25 @@ use App\Models\Delivery;
 class DeliveryController extends Controller
 {
     public function show(){
-
-    }
-    public function create(){
-        return redirect('sdads');
+        return view('Admin.DeliveryManagement');
     }
     public function insert(Request $request){
+        if($request->isMethod('get')){
+            return view('Admin.Create/CreateDelivery');
+        }else if($request->isMethod('post')){
+
+        }
         $delivery = new Delivery;
         $delivery->Name = $request->Name;
         $delivery->save();
         return "insert thanh cong";
         }
-    public function update(){
+    public function update(Request $request){
+        if($request->isMethod('get')){
+            return view('Admin.Update.UpdateDelivery');
+        }else if($request->isMethod('post')){
+
+        }
         $delivery = Delivery::find(2);
         $delivery->Name = "devlivery2";
         $delivery->save();

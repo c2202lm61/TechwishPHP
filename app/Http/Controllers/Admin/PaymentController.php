@@ -9,13 +9,13 @@ use App\Models\Payment;
 class PaymentController extends Controller
 {
     public function show(){
-
+        return view('Admin.PaymentManagement');
     }
 
     public function insert(Request $request)
     {
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Create.CreatePayment');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";
@@ -27,7 +27,7 @@ class PaymentController extends Controller
     }
     public function update(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Update.UpdatePayment');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";

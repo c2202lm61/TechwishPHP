@@ -34,7 +34,7 @@ class OrderController extends Controller
     }
     public function update(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Update.UpdateOrder');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";

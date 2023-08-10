@@ -8,11 +8,11 @@ use  App\Models\Review;
 class ReviewController extends Controller
 {
     public function show(){
-
+        return view('Admin.ReviewManagement');
     }
     public function insert(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Create.CreateReview');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";
@@ -27,7 +27,7 @@ class ReviewController extends Controller
     }
     public function update(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Update.UpdateReview');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";

@@ -14,12 +14,7 @@ class ProductController extends Controller
         return view('Admin.ProductManagement',compact('products'));
     }
     public function insert(Request $request){
-        if ($request->isMethod('get')) {
-            return "This is a GET request.";
-        } elseif ($request->isMethod('post')) {
 
-            return "This is a POST request.";
-        }
         if ($request->isMethod('get')) {
             return view('Admin.Create.CreateProduct');
         } elseif ($request->isMethod('post')) {
@@ -44,7 +39,7 @@ class ProductController extends Controller
 
     public function update(Request $request){
         if ($request->isMethod('get')) {
-            return "This is a GET request.";
+            return view('Admin.Update.UpdateProduct');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";
