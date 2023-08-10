@@ -14,6 +14,12 @@ class OrderController extends Controller
         return view('Admin.OrderManagement',compact('orders'));
     }
     public function insert(Request $request){
+        if ($request->isMethod('get')) {
+            return view('Admin.Create/CreateOrder');
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $orderID = Order::insertGetId([
             'Quantity' => $request->Quantity,
             'OrderDate' => Carbon::now(),
@@ -26,7 +32,13 @@ class OrderController extends Controller
          ]);
         return  redirect()->action([OrderController::class],'create');
     }
-    public function update(){
+    public function update(Request $request){
+        if ($request->isMethod('get')) {
+            return view('Admin.Update.UpdateOrder');
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $order = Order::find(2);
         $order->Quantity = 100;
         $order->OrderDate = "2000-11-12";

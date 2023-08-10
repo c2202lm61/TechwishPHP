@@ -9,24 +9,29 @@ use App\Models\Payment;
 class PaymentController extends Controller
 {
     public function show(){
-
-    }
-    public function create()
-    {
-        return redirect("viet vao sau");
+        return view('Admin.PaymentManagement');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function insert(Request $request)
     {
+        if ($request->isMethod('get')) {
+            return view('Admin.Create.CreatePayment');
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $payment = new Payment;
         $payment->PaymentName = $request->PaymentName;
         $payment->save();
         return redirect()->action([PaymentController::class],'create');
     }
-    public function update(){
+    public function update(Request $request){
+        if ($request->isMethod('get')) {
+            return view('Admin.Update.UpdatePayment');
+        } elseif ($request->isMethod('post')) {
+
+            return "This is a POST request.";
+        }
         $payment = Payment::find(2);
         $payment->PaymentName = "Banking";
         $payment->save();
