@@ -4,22 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\image;
-use App\Models\plant_category;
 
-class product extends Model
+class Product extends Model
 {
     use HasFactory;
+    protected $table = "products";
     protected $primaryKey = 'Product_ID';
-    public $timestamps = false;
+    public $fillable = [
+        'Name',
+        'Species',
+        'Price',
+        'Discount',
+        'Description'
+    ];
 
-    public function images()
-    {
-        return $this->hasMany(image::class, 'Product_ID');
     }
-
-    public function plantCategories()
-    {
-        return $this->hasMany(plant_category::class, 'Product_ID');
-    }
-}

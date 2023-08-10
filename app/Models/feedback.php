@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
-class feedback extends Model
+class FeedBack extends Model
 {
-    use HasFactory;
     protected $primaryKey = 'FeedbackID';
-    public $timestamps = false;
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'UserID');
-    }
+    protected $table = 'feedback';
+    use HasFactory;
+    public $fillable = [
+        'FeedbackContent',
+        'UserID'
+    ];
 }

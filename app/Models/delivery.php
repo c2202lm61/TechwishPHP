@@ -5,9 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class delivery extends Model
+class Delivery extends Model
 {
     use HasFactory;
     protected $primaryKey = 'DeliveryID';
-    public $timestamps = false;
+    protected $table= 'deliveries';
+
+
+    public $fillable = [
+        'Name',
+    ];
 }
