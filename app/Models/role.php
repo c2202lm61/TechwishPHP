@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class role extends Model
+class Role extends Model
 {
+    protected $table = "roles";
     use HasFactory;
-    protected $primaryKey = 'RoleID';
-    public $timestamps = false;
+    public $fillable = [
+        'RoleName',
+    ];
 }

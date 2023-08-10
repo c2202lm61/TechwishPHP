@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\product;
 
 
-class image extends Model
+class Image extends Model
 {
     use HasFactory;
     protected $primaryKey = 'ImageID';
-    public $timestamps = false;
-
-    public function product()
-    {
-        return $this->belongsTo(product::class, 'Product_ID');
-    }
+    protected $table = 'images';
+    public $fillable = [
+        'ImageLink',
+        'Product_ID'
+    ];
 }
