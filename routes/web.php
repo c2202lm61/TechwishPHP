@@ -29,9 +29,13 @@ Route::get('/login_register', function(){
 
 // ------------------admin---------------------------------------------------------------
 
-Route::get('/home', function(){
-    return view('home');
-})->name('home');
+Route::get('/product', function(){
+    return view('product');
+})->name('product');
+
+Route::get('/dashboard', function(){
+    return view('dashboard');
+})->name('dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
