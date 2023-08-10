@@ -44,9 +44,7 @@
                         <input type="name" for="name" type="text" name="name" :value="old('name')" required
                             autofocus autocomplete="name" placeholder="User Name" name="name" class="name-input" />
                         <span class="text-danger">
-                            @error('name')
-                                {{ $message }}
-                            @enderror
+                         
                         </span>
                     </div>
 
@@ -54,9 +52,7 @@
                         <input for="phone" type="text" name="phone" :value="old('phone')" required autofocus
                             autocomplete="phone" placeholder="Phone" name="phone" class="name-input" />
                         <span class="text-danger">
-                            @error('phone')
-                                {{ $message }}
-                            @enderror
+                          
                         </span>
                     </div>
 
@@ -64,9 +60,7 @@
                         <input type="email" :value="old('email')" required autocomplete="username" for="email"
                             id="email" name="email" placeholder="Email" />
                         <span class="text-danger">
-                            @error('email')
-                                {{ $message }}
-                            @enderror
+                            
                         </span>
                     </div>
 
@@ -74,9 +68,7 @@
                         <input type="password" name="password" placeholder="Password" type="password" name="password"
                             id="password" required autocomplete="new-password" />
                         <span class="text-danger">
-                            @error('password')
-                                {{ $message }}
-                            @enderror
+                         
                         </span>
                     </div>
 
