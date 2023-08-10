@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class wishlist extends Model
+use App\Models\User;
+class Wishlist extends Model
 {
     use HasFactory;
     protected $primaryKey = 'WishlistID';

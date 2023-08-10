@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\product;
-use App\Models\order;
+use App\Models\Product;
+use App\Models\Order;
 
-class product_order extends Model
+class ProductOrder extends Model
 {
     use HasFactory;
     protected $primaryKey = 'ProductOrderID';
@@ -15,11 +15,11 @@ class product_order extends Model
 
     public function product()
     {
-        return $this->belongsTo(product::class, 'Product_ID');
+        return $this->belongsTo(Product::class, 'Product_ID');
     }
 
     public function order()
     {
-        return $this->belongsTo(order::class, 'OrderID');
+        return $this->belongsTo(Order::class, 'OrderID');
     }
 }
