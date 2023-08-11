@@ -58,16 +58,16 @@ class ProductController extends Controller
         $product->save();
         return "update thanh cong";
     }
-    public function delete(){
+    public function delete(Request $request){
 
-        $images = DB::table('images')->select('ImageLink')->where('Product_ID', '=', 21)->get();
+        $images = DB::table('images')->select('ImageLink')->where('Product_ID', '=', $request->id)->get();
 
         foreach ($images as $image) {
             $path = storage_path("app/$image->ImageLink");
             unlink($path);
         }
-        DB::table('images')->where('Product_ID', '=', 21)->delete();
-        $product = Product::find(21);
+        DB::table('images')->where('Product_ID', '=', $request->id)->delete();
+        $product = Product::find($request->id);
         $product->delete();
 
        return "delete thanh cong";

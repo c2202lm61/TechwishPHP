@@ -46,7 +46,7 @@ Route::get('/show/review',[ReviewController::class,'show']);
 Route::get('/insert/product',[ProductController::class,'insert']);
 Route::post('/insert/product',[ProductController::class,'insert']);
 Route::get('/update/product',[ProductController::class,'update']);
-Route::get('/delete/product',[ProductController::class,'delete']);
+Route::delete('/delete/product',[ProductController::class,'delete']);
 Route::get('/show/product',[ProductController::class,'show']);
 
 Route::get('/insert/feedback',[FeedBackController::class,'insert']);
@@ -55,6 +55,7 @@ Route::get('/delete/feedback',[FeedBackController::class,'delete']);
 Route::get('/show/feedback',[FeedBackController::class,'show']);
 
 Route::get('/insert/user',[UserController::class,'insert']);
+Route::post('/insert/user',[UserController::class,'insert']);
 Route::get('/update/user',[UserController::class,'update']);
 Route::post('/delete/user',[UserController::class,'delete']);
 Route::get('/show/user',[UserController::class,'show']);

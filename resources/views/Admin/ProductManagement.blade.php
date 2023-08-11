@@ -54,6 +54,8 @@
                                             <li><a class="dropdown-item text-success" href="#">Edit</a></li>
                                             <li>
                                                 <form action="/admin/delete/product" method="post" class="mb-0">
+                                                    @csrf
+                                                    @method('DELETE')
                                                     <input type="hidden" class="d-inline" name="id" value="{{ $product->Product_ID }}">
                                                     <input type="submit" class="btn btn-link text-decoration-none small text-danger" value="Delete">
                                                 </form>

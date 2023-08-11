@@ -162,6 +162,18 @@
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/show/category">
+                    <i class="bi bi-question-circle"></i>
+                    <span>CATEGORY MANAGEMENT</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/show/delivery">
+                    <i class="bi bi-question-circle"></i>
+                    <span>DELIVERY MANAGEMENT</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="/admin/show/product">
                     <i class="bi bi-question-circle"></i>
                     <span>PRODUCT MANAGEMENT</span>

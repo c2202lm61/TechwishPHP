@@ -2,10 +2,10 @@
 @section('content')
 <div class="col-12">
     <div class="card recent-sales overflow-auto">
-        <form class="email-signup" action="{{ route('register') }}" method="POST" enctype='multipart/form-data'>
+        <form class="email-signup" action="/admin/insert/user" method="POST">
             @csrf
             <div class="u-form-group">
-                <input type="name" for="name" type="text" name="name" :value="old('name')" required
+                <input type="name" for="name" type="text" name="name" value="" required
                     autofocus autocomplete="name" placeholder="User Name" name="name" class="name-input" />
                 <span class="text-danger">
                     {{--  @error('name')
@@ -15,7 +15,7 @@
             </div>
 
             <div class="u-form-group">
-                <input for="phone" type="text" name="phone" :value="old('phone')" required autofocus
+                <input for="phone" type="text" name="phone" value="" required autofocus
                     autocomplete="phone" placeholder="Phone" name="phone" class="name-input" />
                 <span class="text-danger">
                     {{--  @error('phone')
@@ -25,7 +25,7 @@
             </div>
 
             <div class="u-form-group">
-                <input type="email" :value="old('email')" required autocomplete="username" for="email"
+                <input type="email" value="" required autocomplete="username" for="email"
                     id="email" name="email" placeholder="Email" />
                 <span class="text-danger">
                     {{--  @error('email')

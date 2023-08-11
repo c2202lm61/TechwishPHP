@@ -21,8 +21,8 @@ class UserController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->phone = $request->phone;
-            $user->RoleID = 1;
-        //   $user->password = Hash::$request->password;
+         //   $user->RoleID = 1;
+            $user->password = Hash::make($request->password);
             $user->save();
             return "Insert thanh cong";
         }
