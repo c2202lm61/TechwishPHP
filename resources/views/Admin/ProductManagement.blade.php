@@ -55,7 +55,7 @@
                                                     Action
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-end" style="">
-                                                    <li><a class="dropdown-item text-success" href="#">Edit</a></li>
+                                                    <li><a class="dropdown-item text-success" href="/admin/update/product/{{ $product->Product_ID }}">Edit</a></li>
                                                     <li>
                                                         <form action="/admin/delete/product" method="post" class="mb-0">
                                                             @csrf

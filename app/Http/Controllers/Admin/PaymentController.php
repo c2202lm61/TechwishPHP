@@ -25,17 +25,16 @@ class PaymentController extends Controller
         }
 
     }
-    public function update(Request $request){
+    public function update(Request $request,$id){
         if ($request->isMethod('get')) {
-            return view('Admin.Update.UpdatePayment');
-        } elseif ($request->isMethod('post')) {
-
-            return "This is a POST request.";
+            $payment = Payment::findOrFail($id);
+            return view('Admin.Update.UpdatePayment',compact('payment'));
+        } elseif ($request->isMethod('patch')) {
+            $payment = Payment::find($id);
+            $payment->PaymentName = $request->name;
+            $payment->save();
+            return redirect("/admin/show/payment");
         }
-        $payment = Payment::find(2);
-        $payment->PaymentName = "Banking";
-        $payment->save();
-        return "Update thanh cong";
     }
     public function delete(Request $request){
         $payment = Payment::find($request->id);

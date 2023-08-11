@@ -22,7 +22,7 @@
                             Action
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" style="">
-                            <li><a class="dropdown-item text-success" href="#">Edit</a></li>
+                            <li><a class="dropdown-item text-success" href="/admin/update/payment/{{ $payments->PaymentID }}">Edit</a></li>
                             <li>
                                 <form action="/admin/delete/payment" method="post" class="mb-0">
                                     @csrf

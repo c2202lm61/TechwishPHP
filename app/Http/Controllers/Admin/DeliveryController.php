@@ -21,16 +21,17 @@ class DeliveryController extends Controller
         }
         return redirect("/admin/insert/delivery");
         }
-    public function update(Request $request){
+    public function update(Request $request,$id){
         if($request->isMethod('get')){
-            return view('Admin.Update.UpdateDelivery');
-        }else if($request->isMethod('post')){
-
+            $delivery = Delivery::findOrFail($id);
+            return view('Admin.Update.UpdateDelivery',compact('delivery'));
+        }else if($request->isMethod('patch')){
+            $delivery = Delivery::find($id);
+            $delivery->Name = $request->name;
+            $delivery->save();
+            return redirect("/admin/show/delivery");
         }
-        $delivery = Delivery::find(2);
-        $delivery->Name = "devlivery2";
-        $delivery->save();
-        return 'update  thanh cong';
+
     }
     public function delete(Request $request){
         $delivery = Delivery::find($request->id);

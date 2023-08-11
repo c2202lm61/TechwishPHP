@@ -40,7 +40,7 @@
                                               Action
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-end" style="">
-                                              <li><a class="dropdown-item text-success" href="#">Edit</a></li>
+                                              <li><a class="dropdown-item text-success" href="/admin/update/delivery/{{  $delivery->DeliveryID }}">Edit</a></li>
                                               <li>
                                                 <form action="/admin/delete/delivery" method="post" class="mb-0">
                                                     @csrf

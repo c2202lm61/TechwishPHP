@@ -20,7 +20,8 @@ Route::get('/', function(){
 
 Route::get('/insert/category',[CategoryController::class,'insert']);
 Route::post('/insert/category',[CategoryController::class,'insert']);
-Route::get('/update/category',[CategoryController::class,'update']);
+Route::get('/update/category/{id}',[CategoryController::class,'update']);
+Route::patch('/update/category/{id}',[CategoryController::class,'update']);
 Route::delete('/delete/category',[CategoryController::class,'delete']);
 Route::get('/show/category',[CategoryController::class,'show']);
 
@@ -32,13 +33,15 @@ Route::get('/show/order',[OrderController::class,'show']);
 
 Route::get('/insert/delivery',[DeliveryController::class,'insert']);
 Route::post('/insert/delivery',[DeliveryController::class,'insert']);
-Route::get('/update/delivery',[DeliveryController::class,'update']);
+Route::get('/update/delivery/{id}',[DeliveryController::class,'update']);
+Route::patch('/update/delivery/{id}',[DeliveryController::class,'update']);
 Route::delete('/delete/delivery',[DeliveryController::class,'delete']);
 Route::get('/show/delivery',[DeliveryController::class,'show']);
 
 Route::get('/insert/payment',[PaymentController::class,'insert']);
 Route::post('/insert/payment',[PaymentController::class,'insert']);
-Route::get('/update/payment',[PaymentController::class,'update']);
+Route::get('/update/payment/{id}',[PaymentController::class,'update']);
+Route::patch('/update/payment/{id}',[PaymentController::class,'update']);
 Route::delete('/delete/payment',[PaymentController::class,'delete']);
 Route::get('/show/payment',[PaymentController::class,'show']);
 
@@ -50,7 +53,8 @@ Route::get('/show/review',[ReviewController::class,'show']);
 Route::get('/addproduct',[ProductController::class,'create'])->name('addproduct');
 Route::get('/insert/product',[ProductController::class,'insert']);
 Route::post('/insert/product',[ProductController::class,'insert']);
-Route::get('/update/product',[ProductController::class,'update']);
+Route::get('/update/product/{id}',[ProductController::class,'update']);
+Route::patch('/update/product/{id}',[ProductController::class,'update']);
 Route::delete('/delete/product',[ProductController::class,'delete']);
 Route::get('/show/product',[ProductController::class,'show']);
 

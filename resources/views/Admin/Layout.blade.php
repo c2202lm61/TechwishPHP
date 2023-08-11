@@ -193,6 +193,12 @@
                     <span>FEEDBACK</span>
                 </a>
             </li><!-- End Register Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/show/payment">
+                    <i class="bi bi-card-list"></i>
+                    <span>PAYMENT MANAGEMENT</span>
+                </a>
+            </li><!-- End Register Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-blank.html">
@@ -200,6 +206,7 @@
                     <span>PRODUCT IMAGE</span>
                 </a>
             </li><!-- End Blank Page Nav -->
+
             // xem san pham
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
@@ -236,7 +243,7 @@
         </ul>
 
     </aside><!-- End Sidebar-->
-    
+
     <main id="main" class="main">
         @yield('content')
     </main>

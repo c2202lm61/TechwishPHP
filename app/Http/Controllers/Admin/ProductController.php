@@ -49,26 +49,43 @@ class ProductController extends Controller
                 "Product_ID"=>$productID
                 ]);
 			}
-            return  redirect("/");
+            return  redirect("/admin/show/product");
         }
 
 
     }
 
-    public function update(Request $request){
+    public function update(Request $request,$id){
         if ($request->isMethod('get')) {
-            return view('Admin.Update.UpdateProduct');
-        } elseif ($request->isMethod('post')) {
+            $product = Product::findOrFail($id);
+            return view('Admin.Update.UpdateProduct',compact('product'));
+        } elseif ($request->isMethod('patch')) {
+            $image1 = DB::table('images')->select('ImageLink')->where('Product_ID', '=', $id)->get();
 
-            return "This is a POST request.";
+            foreach ($image1 as $image) {
+                $path = storage_path("app/public/$image->ImageLink");
+                unlink($path);
+            }
+            DB::table('images')->where('Product_ID', '=', $request->id)->delete();
+            foreach($request->file('images') as $file)
+            {
+                $imagePath = $file->store('/images','public');
+                Image::create([
+                "ImageLink"=>$imagePath,
+                "Product_ID"=>$id
+                ]);
+            }
+
+            $product = Product::find($id);
+            $product->Name = $request->name;
+            $product->Species = $request->species;
+            $product->Price = $request->price;
+            $product->quantity = $request->quantity;
+            $product->Discount = $request->discount;
+            $product->save();
+            return  redirect("/admin/show/product");
         }
-        $product = Product::find(2);
-        $product->Name = "PhamQuan1";
-        $product->Species = "sp";
-        $product->Price = 8;
-        $product->Discount = 2;
-        $product->save();
-        return "update thanh cong";
+
     }
     public function delete(Request $request){
 
@@ -82,6 +99,6 @@ class ProductController extends Controller
         $product = Product::find($request->id);
         $product->delete();
 
-       return "delete thanh cong";
+        return  redirect("/admin/show/product");
     }
 }
