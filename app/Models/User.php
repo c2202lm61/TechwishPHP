@@ -15,10 +15,10 @@ class User extends Authenticatable
     protected $primaryKey = 'UserID';
     public $timestamps = false;
 
-    public function role()
-    {
-        return $this->belongsTo(role::class, 'RoleID');
-    }
+    // public function role()
+    // {
+    //     return $this->belongsTo(role::class, 'RoleID');
+    // }
     public $fillable = [
         'name',
         'email',
