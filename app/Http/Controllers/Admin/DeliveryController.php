@@ -8,18 +8,18 @@ use App\Models\Delivery;
 class DeliveryController extends Controller
 {
     public function show(){
-        return view('Admin.DeliveryManagement');
+        $deliveries = Delivery::all();
+        return view('Admin.DeliveryManagement', compact('deliveries'));
     }
     public function insert(Request $request){
         if($request->isMethod('get')){
             return view('Admin.Create/CreateDelivery');
         }else if($request->isMethod('post')){
-
+            $delivery = new Delivery;
+            $delivery->Name = $request->name;
+            $delivery->save();
         }
-        $delivery = new Delivery;
-        $delivery->Name = $request->Name;
-        $delivery->save();
-        return "insert thanh cong";
+        return redirect("/admin/insert/delivery");
         }
     public function update(Request $request){
         if($request->isMethod('get')){
@@ -32,9 +32,9 @@ class DeliveryController extends Controller
         $delivery->save();
         return 'update  thanh cong';
     }
-    public function delete(){
-        $delivery = Delivery::find(2);
+    public function delete(Request $request){
+        $delivery = Delivery::find($request->id);
         $delivery->delete();
-        return 'delete thanh cong';
+        return redirect('/admin/show/delivery');
     }
 }

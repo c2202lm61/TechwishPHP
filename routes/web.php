@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\DashBoardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,23 +21,16 @@ Route::get('/removecart',[CartController::class,'removeCart']);
 
 
 
+Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('dashboard');
-});
 Route::get('/login_register', function(){
     return view('login_register');
 })->name('login_register');
 
 // ------------------admin---------------------------------------------------------------
 
-Route::get('/product', function(){
-    return view('product');
-})->name('product');
+Route::get('/product',[ProductController::class, 'index'])->name('product');
 
-Route::get('/dashboard', function(){
-    return view('dashboard');
-})->name('dashboard');
 
 Route::get('/dashboard', function () {
     return redirect("/");
@@ -63,6 +58,7 @@ Route::get('ordermanagement', function(){
 
 Route::get('feedback', function(){
     return view('Admin/feedback');
+
 })->name('feedback');
 
 Route::get('cart', function(){
@@ -72,3 +68,4 @@ Route::get('cart', function(){
 Route::get('ProductDetail', function(){
     return view('ProductDetail');
 })->name('ProductDetail');
+

@@ -33,6 +33,24 @@
                             <th scope="row">{{ $feedback->FeedbackID }}</th>
                             <td>{{ $feedback->FeedbackContent }}</td>
                             <td>{{ $feedback->UserID }}</td>
+                            <td>
+                                <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Action
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" style="">
+                                  <li><a class="dropdown-item text-success" href="#">Edit</a></li>
+                                  <li>
+                                    <form action="/admin/delete/feedback" method="post" class="mb-0">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" class="d-inline" name="id" value="{{ $feedback->FeedbackID }}">
+                                        <input type="submit" class="btn btn-link text-decoration-none small text-danger" value="Delete">
+                                    </form>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

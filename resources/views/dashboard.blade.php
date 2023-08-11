@@ -45,75 +45,26 @@
         <div
             class="container d-flex flex-wrap row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 ps-5 me-5 justify-content-center align-item-center">
 
-            <div class="col-sm-6 col-md-4 col-lg-4 mb-4 me-0">
-                <div class="card border-card">
-                    <div class="imgBx">
-                        <img src="img\4.jpg" class="object-fit-fill border rounded w-100 h-100" alt="...">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Cactus</h2>
-                        <div class="size">
-                            10$
+            @foreach ($products as $product)
+                <div class="col-sm-6 col-md-4 col-lg-4 mb-4 me-0">
+                    <div class="card border-card">
+                        <div class="imgBx">
+                            <img src="{{ asset('storage/' . $product->image->ImageLink) }}"
+                                class="object-fit-fill border rounded w-100 h-100" alt="...">
                         </div>
-                        <div class="color">
-                            Very cute and extremely gud for office deco
+                        <div class="contentBx">
+                            <h2>{{ $product->Name }}</h2>
+                            <div class="size">
+                                {{ $product->Price }}$
+                            </div>
+                            <div class="color">
+                                {{ $product->Description }}
+                            </div>
+                            <a href="#" class="mt-2 btn btn-success" role="btn">Buy Now</a>
                         </div>
-                        <a href="#" class="mt-2 btn btn-success" role="btn">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more products here... -->
-            <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
-                <div class="card border-card">
-                    <div class="imgBx">
-                        <img src="img\2.jpg" class="object-fit-contain w-100 h-100">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Nike Shoes</h2>
-                        <div class="size">
-                            <h3>Size :</h3>
-                            <span>7</span>
-                            <span>8</span>
-                            <span>9</span>
-                            <span>10</span>
-                        </div>
-                        <div class="color">
-                            <h3>Color :</h3>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <a href="#" class="mt-2">Buy Now</a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Add more products here... -->
-            <div class="col-sm-6 col-md-4 col-lg-4 mb-4 ">
-                <div class="card border-card">
-                    <div class="imgBx ">
-                        <img src="img\câytest.jpg" class="object-fit-contain w-100 h-100">
-                    </div>
-                    <div class="contentBx">
-                        <h2>Nike Shoes</h2>
-                        <div class="size">
-                            <h3>Size :</h3>
-                            <span>7</span>
-                            <span>8</span>
-                            <span>9</span>
-                            <span>10</span>
-                        </div>
-                        <div class="color">
-                            <h3>Color :</h3>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <a href="#" class="mt-2">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more products here... -->
+            @endforeach
 
 
         </div>

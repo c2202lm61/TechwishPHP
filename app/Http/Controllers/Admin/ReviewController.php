@@ -8,7 +8,8 @@ use  App\Models\Review;
 class ReviewController extends Controller
 {
     public function show(){
-        return view('Admin.ReviewManagement');
+        $reviews = Review::all();
+        return view('Admin.ReviewManagement',compact('reviews'));
     }
     public function insert(Request $request){
         if ($request->isMethod('get')) {

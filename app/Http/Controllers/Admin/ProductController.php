@@ -10,9 +10,21 @@ use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
+    public function index(){
+
+        $products = Product::all();
+        foreach($products as $product){
+            $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
+        }
+        return view('product',compact('products'));
+
+    }
     public function show(){
 
         $products = Product::all();
+        foreach($products as $product){
+            $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
+        }
         return view('Admin.ProductManagement',compact('products'));
 
     }
@@ -31,14 +43,12 @@ class ProductController extends Controller
              ]);
             foreach($request->file('images') as $file)
 			{
-			   $imagePath = $file->store('images');
+			   $imagePath = $file->store('/images','public');
                Image::create([
                 "ImageLink"=>$imagePath,
                 "Product_ID"=>$productID
                 ]);
 			}
-
-
             return  redirect("/");
         }
 
@@ -65,7 +75,7 @@ class ProductController extends Controller
         $images = DB::table('images')->select('ImageLink')->where('Product_ID', '=', $request->id)->get();
 
         foreach ($images as $image) {
-            $path = storage_path("app/$image->ImageLink");
+            $path = storage_path("app/public/$image->ImageLink");
             unlink($path);
         }
         DB::table('images')->where('Product_ID', '=', $request->id)->delete();
