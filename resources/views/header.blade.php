@@ -28,12 +28,12 @@
 
 
                         </ul>
-                        {{-- <form class="d-flex mt-2" role="search">
-                                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                  <button class="btn btn-outline-success" type="submit">Search</button>
-                                </form> --}}
+                        <form class="d-flex mt-2 my-lg-2 my-md-2 mt-sm-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
                     </div>
-                    <div class="btn-group ">
+                    <div class="btn-group mx-3">
                         @auth
                             <button type="button" class="btn btn-outline-light">{{ Auth::user()->name }}</button>
                             <button type="button" class="btn btn-outline-light dropdown-toggle dropdown-toggle-split"

@@ -14,8 +14,10 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/Cards.css') }}">
-   
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,18 +25,20 @@
 </head>
 
 <body class="font-sans antialiased">
-@include('header')
+    @include('header')
 
-<!-- Page Heading -->
-
-
-<!-- Page Content -->
-
-@yield('content')
+    <!-- Page Heading -->
 
 
-<!-- Site footer -->
-@include('footer')
+    <!-- Page Content -->
+    <main class="">
+        @yield('content')
+    </main>
+
+
+
+    <!-- Site footer -->
+    @include('footer')
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

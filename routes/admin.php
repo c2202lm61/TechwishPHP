@@ -44,7 +44,7 @@ Route::get('/delete/review',[ReviewController::class,'delete']);
 Route::get('/show/review',[ReviewController::class,'show']);
 
 Route::get('/addproduct',[ProductController::class,'create'])->name('addproduct');
-Route::post('/insert/product',[ProductController::class,'insert']);
+Route::get('/insert/product',[ProductController::class,'insert']);
 Route::get('/update/product',[ProductController::class,'update']);
 Route::get('/delete/product',[ProductController::class,'delete']);
 Route::get('/show/product',[ProductController::class,'show']);

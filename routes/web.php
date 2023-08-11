@@ -21,7 +21,7 @@ Route::get('/removecart',[CartController::class,'removeCart']);
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('dashboard');
 });
 Route::get('/login_register', function(){
     return view('login_register');

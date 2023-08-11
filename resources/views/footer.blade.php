@@ -1,5 +1,5 @@
-<footer class="site-footer">
-    <div class="container">
+<footer class="site-footer position-absolute w-100">
+    <div class="container ">
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <h6>About</h6>
