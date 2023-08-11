@@ -64,3 +64,11 @@ Route::get('ordermanagement', function(){
 Route::get('feedback', function(){
     return view('Admin/feedback');
 })->name('feedback');
+
+Route::get('cart', function(){
+    return view('cart');
+})->name('cart');
+
+Route::get('ProductDetail', function(){
+    return view('ProductDetail');
+})->name('ProductDetail');
