@@ -20,9 +20,36 @@
 
             <input class="form-control my-3" type="text" placeholder="Description" aria-label="default input example"
                 name="description" class="form-control " id="" placeholder="Description" value="">
+            <div class=" my-3 d-flex flex-wrap ">
+
+                {{-- @foreach ('$category as $item') --}}
+                    <div class="my-2 w-25 ">
+                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
+                            id="toolCheck">
+                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
+                    </div>
+
+                    <div class="my-2 w-25 ">
+                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
+                            id="toolCheck">
+                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
+                    </div>
+
+                    <div class="my-2 w-25 ">
+                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
+                            id="toolCheck">
+                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
+                    </div>
+
+                    <div class="my-2 w-25 ">
+                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
+                            id="toolCheck">
+                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
+                    </div>
+                {{-- @endforeach --}}
+               
+            </div>
             <div class="u-form-group">
-
-
                 <div class="mb-3">
                     <label for="formFileMultiple" class="form-label"></label>
                     <input class="form-control" type="file" id="formFileMultiple" name="images[]" multiple>

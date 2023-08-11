@@ -20,7 +20,9 @@
                                 <a class="nav-link navbarlink nav-link-font" href="#">About Us</a>
                             </li>
                             <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font" href="#">Your cart</a>
+                                <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your cart<span
+                                        class="badge bg-light ms-2
+                                         text-dark">1</span></a>
                             </li>
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Products</a>

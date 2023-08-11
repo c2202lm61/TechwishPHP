@@ -101,4 +101,8 @@ class ProductController extends Controller
 
         return  redirect("/admin/show/product");
     }
+
+    public function DetailIndex($id){
+        
+    }
 }

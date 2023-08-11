@@ -42,7 +42,8 @@
         </button>
     </div>
     <div class="container-fluid  pt-3 bg-fluid">
-        <div class="container d-flex flex-wrap row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 ps-5 me-5 ">
+        <div
+            class="container d-flex flex-wrap row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 ps-5 me-5 justify-content-center align-item-center">
 
             @foreach ($products as $product)
                 <div class="col-sm-6 col-md-4 col-lg-4 mb-4 me-0">
