@@ -45,7 +45,7 @@
                                                 <form action="/admin/delete/delivery" method="post" class="mb-0">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <input type="hidden" class="d-inline" name="id" value="{{ $delivery->Name }}">
+                                                    <input type="hidden" class="d-inline" name="id" value="{{ $delivery->DeliveryID }}">
                                                     <input type="submit" class="btn btn-link text-decoration-none small text-danger" value="Delete">
                                                 </form>
                                               </li>
