@@ -19,18 +19,21 @@ Route::get('/', function(){
 });
 
 Route::get('/insert/category',[CategoryController::class,'insert']);
+Route::post('/insert/category',[CategoryController::class,'insert']);
 Route::get('/update/category',[CategoryController::class,'update']);
-Route::get('/delete/category',[CategoryController::class,'delete']);
+Route::delete('/delete/category',[CategoryController::class,'delete']);
 Route::get('/show/category',[CategoryController::class,'show']);
 
+Route::get('/insert/order',[OrderController::class,'insert']);
 Route::get('/insert/order',[OrderController::class,'insert']);
 Route::get('/update/order',[OrderController::class,'update']);
 Route::get('/delete/order',[OrderController::class,'delete']);
 Route::get('/show/order',[OrderController::class,'show']);
 
 Route::get('/insert/delivery',[DeliveryController::class,'insert']);
+Route::post('/insert/delivery',[DeliveryController::class,'insert']);
 Route::get('/update/delivery',[DeliveryController::class,'update']);
-Route::get('/delete/delivery',[DeliveryController::class,'delete']);
+Route::delete('/delete/delivery',[DeliveryController::class,'delete']);
 Route::get('/show/delivery',[DeliveryController::class,'show']);
 
 Route::get('/insert/payment',[PaymentController::class,'insert']);

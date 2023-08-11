@@ -17,9 +17,9 @@ class CategoryController extends Controller
             return view('Admin.Create.CreateCategory');
         } elseif ($request->isMethod('post')) {
             $category = new Category;
-            $category->CategoryName = $request->CategoryName;
+            $category->CategoryName = $request->name;
             $category->save();
-            return "insert thanh cong";
+            return redirect('/admin/insert/category');
         }
 
     }
@@ -34,9 +34,9 @@ class CategoryController extends Controller
         }
 
     }
-    public function delete(){
-        $category = Category::find(3);
+    public function delete(Request $request){
+        $category = Category::find($request->id);
         $category->delete();
-        return "delete thanh cong";
+        return redirect('/admin/show/category');
     }
 }
