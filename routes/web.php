@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\MailController;
+
+Route::get('send-mail', [MailController::class, 'index']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
