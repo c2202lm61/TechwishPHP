@@ -22,7 +22,7 @@
                     <div class="card-body pb-0">
                         <h5 class="card-title">Products List</h5>
 
-                        <table class="table table-borderless">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
@@ -45,7 +45,22 @@
                                     <td>{{ $product->Description }}%</td>
                                     <td>img</td>
                                     <td>{{ $product->Species }}</td>
-                                    <td><button class="btn btn-outline-danger">Fix</button></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Action
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end" style="">
+                                            <li><a class="dropdown-item text-success" href="#">Edit</a></li>
+                                            <li>
+                                                <form action="/admin/delete/product" method="post" class="mb-0">
+                                                    <input type="hidden" class="d-inline" name="id" value="{{ $product->Product_ID }}">
+                                                    <input type="submit" class="btn btn-link text-decoration-none small text-danger" value="Delete">
+                                                </form>
+                                            </li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
