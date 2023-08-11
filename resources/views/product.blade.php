@@ -57,17 +57,20 @@
 
                     @foreach ($products as $product)
                         <div class="col-sm-12 col-md-4 col-lg-4 mb-4 me-0">
-                            <div class="card border-card">
+                            <div class="card border-card position-relative">
+                                <div class="position-absolute whislist z-3">
+                                    <p>hello</p>
+                                </div>
                                 <div class="imgBx">
-                                    <img src="{{ asset('storage/' . $product->image->ImageLink) }}"
-                                        class="object-fit-fill border rounded w-100 h-100" alt="...">
+                                    <a href=""><img src="{{ asset('storage/' . $product->image->ImageLink) }}"
+                                        class="object-fit-fill border rounded w-100 h-100" alt="..."></a>
                                 </div>
                                 <div class="contentBx">
-                                    <h2>{{ $product->Name }}</h2>
-                                    <div class="size">
+                                    <h2 class="card-text">{{ $product->Name }}</h2>
+                                    <div class="size card-text text-success">
                                         {{ $product->Price }}$
                                     </div>
-                                    <div class="color">
+                                    <div class="color ">
                                         {{ $product->Description }}
                                     </div>
                                     <a href="#" class="mt-2 btn btn-success" role="btn">Buy Now</a>
