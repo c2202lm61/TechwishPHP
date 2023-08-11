@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\feedback;
-use App\Models\FeedBack as ModelsFeedBack;
+use App\Models\Feedback;
 
 class FeedBackController extends Controller
 {
@@ -20,23 +19,19 @@ class FeedBackController extends Controller
 
             return "This is a POST request.";
         }
-        $feedback = new feedback;
+        $feedback = new Feedback;
         $feedback->FeedbackContent = $request->FeedbackContent;
         $feedback->UserID = session('UserID');
         $feedback->save();
-        return  redirect()->action([FeedBackController::class],'create');
+        return  redirect()->route('feedback.get');
 
     }
-    public  function update(Request $request){
-        if ($request->isMethod('get')) {
-            return view('Admin.Update.UpdateFeedback');
-        } elseif ($request->isMethod('post')) {
-
-            return "This is a POST request.";
-        }
-        $feedback = FeedBack::find(2);
-        $feedback->FeedbackContent = "do some thing1";
-        $feedback->UserID = 1;
+    public function edit(Request $request){
+        return view('Admin.Update.UpdateFeedback');
+    }
+    public function update(Request $request, $id){
+        $feedback = FeedBack::find($id);
+        $feedback->FeedbackContent = $request->FeedbackContent;
         $feedback->save();
         return "update thanh cong";
     }

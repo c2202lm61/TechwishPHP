@@ -9,22 +9,15 @@ class WithlistProductController extends Controller
     public function show(){
 
     }
-    public function insert(){
+    public function insert($id){
         $wishlist = new WithlistProduct;
-        $wishlist->WishlistID =1;
-        $wishlist->Product_ID = 1;
+        $wishlist->WishlistID = session('WishlistID');
+        $wishlist->Product_ID = $id;
         $wishlist->save();
         return "insert thanh cong";
     }
-    public function update(){
-        $wishlist = WithlistProduct::find(1);
-        $wishlist->WishlistID =1;
-        $wishlist->Product_ID = 1;
-        $wishlist->save();
-        return "update thanh cong";
-    }
-    public function delete(){
-        $wishlist = WithlistProduct::find(1);
+    public function delete($id){
+        $wishlist = WithlistProduct::find($id);
         $wishlist->delete();
         return "delete thanh cong";
     }
