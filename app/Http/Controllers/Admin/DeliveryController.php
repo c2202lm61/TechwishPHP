@@ -8,7 +8,8 @@ use App\Models\Delivery;
 class DeliveryController extends Controller
 {
     public function show(){
-        return view('Admin.DeliveryManagement');
+        $deliveries = Delivery::all();
+        return view('Admin.DeliveryManagement', compact('deliveries'));
     }
     public function insert(Request $request){
         if($request->isMethod('get')){

@@ -9,7 +9,8 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function show(){
-        return view('Admin.CategoryManagement');
+        $categories = Category::all();
+        return view('Admin.CategoryManagement', compact('categories'));
     }
     public function insert(Request $request){
         if ($request->isMethod('get')) {
