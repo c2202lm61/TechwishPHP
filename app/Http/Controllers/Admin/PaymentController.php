@@ -18,13 +18,12 @@ class PaymentController extends Controller
         if ($request->isMethod('get')) {
             return view('Admin.Create.CreatePayment');
         } elseif ($request->isMethod('post')) {
-
-            return "This is a POST request.";
+            $payment = new Payment;
+            $payment->PaymentName = $request->name;
+            $payment->save();
+            return redirect("/admin/show/payment");
         }
-        $payment = new Payment;
-        $payment->PaymentName = $request->PaymentName;
-        $payment->save();
-        return redirect()->action([PaymentController::class],'create');
+
     }
     public function update(Request $request){
         if ($request->isMethod('get')) {
@@ -38,9 +37,9 @@ class PaymentController extends Controller
         $payment->save();
         return "Update thanh cong";
     }
-    public function delete(){
-        $payment = Payment::find(2);
+    public function delete(Request $request){
+        $payment = Payment::find($request->id);
         $payment->delete();
-        return "Delete thanh cong";
+        return redirect("/admin/show/payment");
     }
 }

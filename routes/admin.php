@@ -37,8 +37,9 @@ Route::delete('/delete/delivery',[DeliveryController::class,'delete']);
 Route::get('/show/delivery',[DeliveryController::class,'show']);
 
 Route::get('/insert/payment',[PaymentController::class,'insert']);
+Route::post('/insert/payment',[PaymentController::class,'insert']);
 Route::get('/update/payment',[PaymentController::class,'update']);
-Route::get('/delete/payment',[PaymentController::class,'delete']);
+Route::delete('/delete/payment',[PaymentController::class,'delete']);
 Route::get('/show/payment',[PaymentController::class,'show']);
 
 Route::get('/insert/review',[ReviewController::class,'insert']);

@@ -22,10 +22,11 @@
                             Action
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" style="">
-                            <li><a class="dropdown-item text-success" href="#">Verify</a></li>
-                            <li><a class="dropdown-item text-warning" href="#">Denied</a></li>
+                            <li><a class="dropdown-item text-success" href="#">Edit</a></li>
                             <li>
-                                <form action="/admin/delete/user" method="post" class="mb-0">
+                                <form action="/admin/delete/payment" method="post" class="mb-0">
+                                    @csrf
+                                    @method('DELETE')
                                     <input type="hidden" class="d-inline" name="id" value="{{ $payments->PaymentID }}">
                                     <input type="submit" class="btn btn-link text-decoration-none small text-danger" value="Delete">
                                 </form>
