@@ -34,7 +34,7 @@ class ProductController extends Controller
              ]);
             foreach($request->file('images') as $file)
 			{
-			   $imagePath = $file->store('public/images');
+			   $imagePath = $file->store('/images','public');
                Image::create([
                 "ImageLink"=>$imagePath,
                 "Product_ID"=>$productID
