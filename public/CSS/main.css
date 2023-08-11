@@ -234,7 +234,9 @@
 
 .border-card{box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px !important;}
 
-.card-text{font-family: 'Lobster Two', cursive;}
+.card-text{font-family: 'Lobster Two', cursive;
+color:#04D9B2;
+font-size: larger;}
 
 
 .bg-filter{background-color: rgba(255, 255, 255, 0.677) !important;}

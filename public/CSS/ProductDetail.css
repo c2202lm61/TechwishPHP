@@ -73,10 +73,10 @@
 	height: 100px;
 }
 .product-name {
-	font-size: 22px;
+   font-size: 3rem;
 	font-weight: 500;
 	line-height: 22px;
-	margin-bottom: 4px;
+	
 }
 .product-price-discount {
 	font-size: 22px;

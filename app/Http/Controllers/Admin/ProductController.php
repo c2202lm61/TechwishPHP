@@ -84,4 +84,8 @@ class ProductController extends Controller
 
        return "delete thanh cong";
     }
+
+    public function DetailIndex($id){
+        
+    }
 }
