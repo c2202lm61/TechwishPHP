@@ -22,103 +22,45 @@
                 name="description" class="form-control " id="" placeholder="Description" value="">
             <div class=" my-3 d-flex flex-wrap ">
 
-                {{-- @foreach ('$category as $item') --}}
+                @foreach ($categories as $category)
                     <div class="my-2 w-25 ">
-                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
-                            id="toolCheck">
-                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
+                        <input class="form-check-input " type="checkbox" name="product_type[]"
+                            value="{{ $category->CategoryID }}" id="toolCheck">
+                        <label class="form-check-label mx-2" for="toolCheck">{{ $category->CategoryName }}</label>
                     </div>
+                @endforeach
 
-                    <div class="my-2 w-25 ">
-                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
-                            id="toolCheck">
-                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
-                    </div>
-
-                    <div class="my-2 w-25 ">
-                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
-                            id="toolCheck">
-                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
-                    </div>
-
-                    <div class="my-2 w-25 ">
-                        <input class="form-check-input " type="checkbox" name="product_type[]" value="tool"
-                            id="toolCheck">
-                        <label class="form-check-label mx-2" for="toolCheck">Hi</label>
-                    </div>
-                {{-- @endforeach --}}
-               
             </div>
             <div class="u-form-group">
                 <div class="mb-3">
                     <label for="formFileMultiple" class="form-label"></label>
                     <input class="form-control" type="file" id="formFileMultiple" name="images[]" multiple>
                 </div>
+                <div id="imageContainer" class="d-flex ">
 
+                </div>
                 <button>ADD</button>
             </div>
         </form>
 
 
     </div>
-@endsection
+    <script>
+        const inputElement = document.getElementById('formFileMultiple');
+        const imageContainer = document.getElementById('imageContainer');
 
-<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-        var addImageButton = document.querySelector('.btn-add-image');
-        addImageButton.addEventListener('click', function() {
-            document.getElementById('file_upload').click();
-        });
+        inputElement.addEventListener('change', (event) => {
+            imageContainer.innerHTML = ''; // Xóa nội dung cũ trong container
 
-        var hiddenInputContainer = document.querySelector('.list-input-hidden-upload');
-        hiddenInputContainer.addEventListener('change', function(event) {
-            var today = new Date();
-            var time = today.getTime();
-            var image = event.target.files[0];
-            var fileName = image.name;
+            const files = event.target.files;
 
-            var boxImage = document.createElement('div');
-            boxImage.className = 'box-image';
-
-            var imgElement = document.createElement('img');
-            imgElement.src = URL.createObjectURL(image);
-            imgElement.className = 'picture-box';
-
-            var deleteButton = document.createElement('span');
-            deleteButton.className = 'btn-delete-image';
-            deleteButton.setAttribute('data-id', time);
-            deleteButton.textContent = 'x';
-
-            var wrapDeleteButton = document.createElement('div');
-            wrapDeleteButton.className = 'wrap-btn-delete';
-            wrapDeleteButton.appendChild(deleteButton);
-
-            boxImage.appendChild(imgElement);
-            boxImage.appendChild(wrapDeleteButton);
-
-            var imageList = document.querySelector('.list-images');
-            imageList.appendChild(boxImage);
-
-            event.target.removeAttribute('id');
-            event.target.setAttribute('id', time);
-
-            var inputTypeFile = document.createElement('input');
-            inputTypeFile.type = 'file';
-            inputTypeFile.name = 'filenames[]';
-            inputTypeFile.id = 'file_upload';
-            inputTypeFile.className = 'myfrm form-control';
-
-            hiddenInputContainer.appendChild(inputTypeFile);
-        });
-
-        var imageList = document.querySelector('.list-images');
-        imageList.addEventListener('click', function(event) {
-            if (event.target.classList.contains('btn-delete-image')) {
-                var id = event.target.getAttribute('data-id');
-                var hiddenInput = document.getElementById(id);
-                hiddenInput.remove();
-                event.target.closest('.box-image').remove();
+            for (const file of files) {
+                const imageElement = document.createElement('img');
+                imageElement.src = URL.createObjectURL(file);
+                imageElement.classList.add('box-image-tungdinh');
+                imageElement.classList.add('mb-3');
+                imageContainer.appendChild(imageElement);
             }
         });
-    });
-</script>
+    </script>
+@endsection

@@ -40,8 +40,8 @@ class FeedBackController extends Controller
         $feedback->save();
         return "update thanh cong";
     }
-    public  function delete(){
-        $feedback = FeedBack::find(2);
+    public  function delete(Request $request){
+        $feedback = FeedBack::find($request->FeedbackID);
         $feedback->delete();
         return "delete thanh cong";
     }

@@ -30,6 +30,7 @@ Route::get('/login_register', function(){
 // ------------------admin---------------------------------------------------------------
 
 Route::get('/product',[ProductController::class, 'index'])->name('product');
+Route::post('/product',[ProductController::class, 'filter'])->name('product');
 
 
 Route::get('/dashboard', function () {

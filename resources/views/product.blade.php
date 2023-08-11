@@ -5,72 +5,32 @@
         <div class="d-flex  px-0 mx-0 res-phone justify-content-center">
             <div class="col-md-3 col-sm-6 my-4 resp-1 d-flex flex-col justify-content-between">
                 <div class="fixed-filter border-filter border-top-none p-4 bg-filter scroll-filter">
-                    <form id="filterForm ">
+                    <form id="filterForm " action="/product" method="post">
                         <!-- ... (các checkbox và nút Apply) ... -->
+                        @csrf
 
 
-                        <div class="form-check">
-
-                            {{-- -------------------------------------------form---------------------- --}}
-                            <input class="form-check-input" type="checkbox" name="product_type[]" value="fertilizer"
-                                id="fertilizerCheck">
-                            <label class="form-check-label" for="fertilizerCheck">
-                                Fertilizer
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="product_type[]" value="tool"
-                                id="toolCheck">
-                            <label class="form-check-label" for="toolCheck">
-                                Tool
-                            </label>
-                        </div>
 
 
-                        <hr class="divider w-100">
+                        {{-- -------------------------------------------form---------------------- --}}
+                        @foreach ($categories as $category)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="product_type[]"
+                                    value="{{ $category->CategoryID }}" id="fertilizerCheck">
+                                <label class="form-check-label" for="fertilizerCheck">
+                                    {{ $category->CategoryName }}
+                                </label>
+                            </div>
+                        @endforeach
 
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="product_type[]" value="fertilizer"
-                                id="fertilizerCheck">
-                            <label class="form-check-label" for="fertilizerCheck">
-                                Green only
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="product_type[]" value="tool"
-                                id="toolCheck">
-                            <label class="form-check-label" for="toolCheck">
-                                Flower
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="product_type[]" value="tool"
-                                id="toolCheck">
-                            <label class="form-check-label" for="toolCheck">
-                                Cactus
-                            </label>
-                        </div>
+
 
 
                         <hr class="divider w-100">
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="product_type[]" value="fertilizer"
-                                id="fertilizerCheck">
-                            <label class="form-check-label" for="fertilizerCheck">
-                                Indoor Plant
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="product_type[]" value="tool"
-                                id="toolCheck">
-                            <label class="form-check-label" for="toolCheck">
-                                Outdoor Plant
-                            </label>
-                        </div>
 
-                        <hr class="divider w-100">
+
 
 
                         <button id="applyFilter" class="btn bg-darkgreen text-whitecoffee mt-3">Apply</button>

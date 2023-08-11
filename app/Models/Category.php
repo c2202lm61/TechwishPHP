@@ -15,6 +15,7 @@ class Category extends Model
 
 
     public $fillable = [
+        'CategoryID',
         'CategoryName',
     ];
 

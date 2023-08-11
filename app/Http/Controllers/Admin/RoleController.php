@@ -39,8 +39,9 @@ class RoleController extends Controller
             ->update(['RoleName' => "khach"]);
         return "update thanh cong";
     }
-    public function delete(){
-        DB::table('roles')->where('RoleID', '=', 2)->delete();
-        return "Delete thanh cong";
+    public function delete(Request $request){
+        $review = Role::find($request->RoleID);
+        $review->delete();
+        return "delete thanh cong";
     }
 }

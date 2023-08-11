@@ -9,6 +9,11 @@ use App\Models\Category;
 class PlantCategory extends Model
 {
     use HasFactory;
+    protected $table = 'plant_categories';
+    public $fillable = [
+        'Product_ID',
+        'CategoryID',
+    ];
     public function product()
     {
         return $this->belongsTo(Product::class, 'Product_ID');

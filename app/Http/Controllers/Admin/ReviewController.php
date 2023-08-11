@@ -41,8 +41,8 @@ class ReviewController extends Controller
         $review->save();
         return "update thanh cong";
     }
-    public function delete(){
-        $review = Review::find(3);
+    public function delete(Request $request){
+        $review = Review::find($request->ReviewID);
         $review->delete();
         return "delete thanh cong";
     }

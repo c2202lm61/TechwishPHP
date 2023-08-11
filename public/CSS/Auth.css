@@ -185,7 +185,40 @@ body {
 .bg-nav {
     background-image: url("");
 }
+/* tungdinh---------------------------- */
+.list-images-tungdinh {
+    width: 50%;
+    margin-top: 20px;
+    display: inline-block;
+}
 
 .hidden-tungdinh {
     display: none;
+}
+
+.box-image-tungdinh {
+    width: 100px;
+    height: 108px;
+    position: relative;
+    float: left;
+    margin-left: 5px;
+}
+
+.box-image-tungdinh img {
+    width: 100px;
+    height: 100px;
+}
+
+.wrap-btn-delete-tungdinh {
+    position: absolute;
+    top: -8px;
+    right: 0;
+    height: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+
+.btn-delete-image-tungdinh {
+    cursor: pointer;
 }

@@ -8,15 +8,18 @@ use App\Models\Product;
 use Illuminate\Http\UploadedFile;
 use App\Models\Image;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
+use App\Models\PlantCategory;
 class ProductController extends Controller
 {
     public function index(){
 
+        $categories = Category::all();
         $products = Product::all();
         foreach($products as $product){
             $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
         }
-        return view('product',compact('products'));
+        return view('product',compact('products','categories'));
 
     }
     public function show(){
@@ -28,11 +31,15 @@ class ProductController extends Controller
         return view('Admin.ProductManagement',compact('products'));
 
     }
+
     public function insert(Request $request){
 
+
         if ($request->isMethod('get')) {
-            return view('Admin.Create.CreateProduct');
+            $categories = Category::all();
+            return view('Admin.Create.CreateProduct',compact('categories'));
         } else if ($request->isMethod('post')) {
+
             $productID = Product::insertGetId([
                 'Name' => $request->name,
                 'Species'=> $request->species,
@@ -41,19 +48,38 @@ class ProductController extends Controller
                 'Discount'=>$request->discount,
                 'Description'=> $request->description
              ]);
-            foreach($request->file('images') as $file)
-			{
-			   $imagePath = $file->store('/images','public');
-               Image::create([
-                "ImageLink"=>$imagePath,
-                "Product_ID"=>$productID
-                ]);
-			}
-            return  redirect("/admin/show/product");
+
+
+			$plantCategories = collect($request->product_type)->map(function ($categoryId) use ($productID) {
+                return [
+                    'CategoryID' => $categoryId,
+                    'Product_ID' => $productID,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            });
+            PlantCategory::insert($plantCategories->toArray());
+
+            $imageRecords = [];
+            foreach ($request->file('images') as $file) {
+                $imagePath = $file->store('/images', 'public');
+                $imageRecords[] = [
+                    "ImageLink" => $imagePath,
+                    "Product_ID" => $productID,
+                    "created_at" => now(),
+                    "updated_at" => now(),
+                ];
+            }
+            Image::insert($imageRecords);
+
+
+            return  redirect("/");
+
         }
 
 
     }
+
 
     public function update(Request $request,$id){
         if ($request->isMethod('get')) {
@@ -101,8 +127,21 @@ class ProductController extends Controller
 
         return  redirect("/admin/show/product");
     }
+    public function filter(Request $request){
+        $categories = Category::all();
+        $products = Product::join('plant_categories', 'products.Product_ID', '=', 'plant_categories.Product_ID')
+        ->whereIn('plant_categories.CategoryID', $request->product_type)
+        ->select('products.*')
+        ->distinct('products.Product_ID') // Loại bỏ các bản ghi trùng lặp dựa trên Product_ID
+        ->get();
+            foreach($products as $product){
+                $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
+            }
+        return view('product',compact('products','categories'));
+    }
+
 
     public function DetailIndex($id){
-        
+
     }
 }
