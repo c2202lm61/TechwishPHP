@@ -46,28 +46,30 @@
             class="container d-flex flex-wrap row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 ps-5 me-5 justify-content-center align-item-center">
 
             @foreach ($products as $product)
-                <div class="col-sm-6 col-md-4 col-lg-4 mb-4 me-0">
-                    <div class="card border-card">
-                        <div class="imgBx">
-                            <a href="/product/{{ $product->Product_ID }}"><img
-                                    src="{{ asset('storage/' . $product->image->ImageLink) }}"
-                                    class="object-fit-fill border rounded w-100 h-100" alt="..."></a>
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-4 me-0">
+                <div class="card border-card position-relative">
+                    <div class="position-absolute whishlist z-3">
+                        <a href=""><button class="button-62"><i class="fa-solid fa-heart"
+                                    style="color: #ffffff;"></i></button></a>
+                    </div>
+                    <div class="imgBx">
+                        <a href=""><img src="{{ asset('storage/' . $product->image->ImageLink) }}"
+                                class="object-fit-fill border rounded w-100 h-100" alt="..."></a>
+                    </div>
+                    <div class="contentBx">
+                        <h2 class="card-text">{{ $product->Name }}</h2>
+                        <div class="size price card-text text-success">
+                            {{ $product->Price }}$
+                        </div>
+                        <div class="color text-dark">
+                            {{ $product->Description }}
+                        </div>
+                        <a href="#" class="mt-2 btn btn-success" role="btn">Buy Now</a>
 
-                        </div>
-                        <div class="contentBx">
-                            <h2>{{ $product->Name }}</h2>
-                            <div class="size">
-                                {{ $product->Price }}$
-                            </div>
-                            <div class="color">
-                                {{ $product->Description }}
-                            </div>
-                            <a href="#" class="mt-2 btn btn-success" role="btn">Buy Now</a>
-                        </div>
                     </div>
                 </div>
-            @endforeach
-
+            </div>
+        @endforeach
 
         </div>
     </div>

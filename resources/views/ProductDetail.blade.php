@@ -42,9 +42,7 @@
     @include('header')
 
     <!-- Page Heading -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-        id="bootstrap-css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
@@ -55,6 +53,12 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+
+<body class="">
+    @include('header')
+
+
     <div class="pd-wrap">
         <div class="container">
             <div class="heading-section">
@@ -62,7 +66,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div id="slider" class="owl-carousel product-slider">
+                    <div id="slider" class="owl-carousel product-slider mb-1 object-fit-cover">
                         @foreach ($product->images as $image)
                             <div class="item">
                                 <img src="{{ asset('storage/' . $image) }}" />
@@ -73,10 +77,10 @@
                         @endforeach
 
                     </div>
-                    <div id="thumb" class="owl-carousel product-thumb">
+                    <div id="thumb" class="owl-carousel product-thumb ">
                         @foreach ($product->images as $image)
-                            <div class="item">
-                                <img src="{{ asset('storage/' . $image) }}" />
+                            <div class="item px-3 object-fit-cover br06">
+                                <img src="{{ asset('storage/' . $image) }}" class="" />
 
 
 
