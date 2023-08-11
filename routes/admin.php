@@ -19,8 +19,9 @@ Route::get('/', function(){
 });
 
 Route::get('/insert/category',[CategoryController::class,'insert']);
+Route::post('/insert/category',[CategoryController::class,'insert']);
 Route::get('/update/category',[CategoryController::class,'update']);
-Route::get('/delete/category',[CategoryController::class,'delete']);
+Route::delete('/delete/category',[CategoryController::class,'delete']);
 Route::get('/show/category',[CategoryController::class,'show']);
 
 Route::get('/insert/order',[OrderController::class,'insert']);
