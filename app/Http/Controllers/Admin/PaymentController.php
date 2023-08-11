@@ -9,7 +9,8 @@ use App\Models\Payment;
 class PaymentController extends Controller
 {
     public function show(){
-        return view('Admin.PaymentManagement');
+        $payments = Payment::all();
+        return view('Admin.PaymentManagement',compact('payments'));
     }
 
     public function insert(Request $request)
