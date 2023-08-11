@@ -16,6 +16,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->Species = $request->Species;
         $product->Price = $request->Price;
+        
         $product->quantity = $request->quantity;
         $product->Discount = $request->Discount;
         $product->Description = $request->Description;

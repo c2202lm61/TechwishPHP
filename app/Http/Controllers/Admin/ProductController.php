@@ -13,6 +13,9 @@ class ProductController extends Controller
     public function show(){
 
         $products = Product::all();
+        foreach($products as $product){
+            $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
+        }
         return view('Admin.ProductManagement',compact('products'));
 
     }
@@ -37,8 +40,6 @@ class ProductController extends Controller
                 "Product_ID"=>$productID
                 ]);
 			}
-
-
             return  redirect("/");
         }
 
@@ -64,10 +65,10 @@ class ProductController extends Controller
 
         $images = DB::table('images')->select('ImageLink')->where('Product_ID', '=', $request->id)->get();
 
-        foreach ($images as $image) {
-            $path = storage_path("$image->ImageLink");
-            unlink($path);
-        }
+        // foreach ($images as $image) {
+        //     $path = storage_path("$image->ImageLink");
+        //     unlink($path);
+        // }
         DB::table('images')->where('Product_ID', '=', $request->id)->delete();
         $product = Product::find($request->id);
         $product->delete();
