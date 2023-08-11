@@ -26,13 +26,10 @@ class ReviewController extends Controller
         $review->save();
         return "insert thanh cong";
     }
+    public function edit(Request $request){
+        return view('Admin.Update.UpdateReview');
+    }
     public function update(Request $request, $id){
-        if ($request->isMethod('get')) {
-            return view('Admin.Update.UpdateReview');
-        } elseif ($request->isMethod('post')) {
-
-            return "This is a POST request.";
-        }
         $review = Review::find($id);
         $review->Rating = $request->Rating;
         $review->Comment = $request->Comment;

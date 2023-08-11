@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\Admin\FeedBackController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DashBoardController;
 /*
@@ -35,12 +35,16 @@ Route::get('/product/{id}',[ProductController::class, 'DetailIndex'])->name('pro
 
 
 
+// FeedBack -------------------------------------------------------
+Route::get('/insert/feedback', [FeedBackController::class , 'insert'])->name('insert/feedback.get');
+Route::post('/insert/feedback', [FeedBackController::class , 'insert'])->name('insert/feedback.post');
+Route::get('/update/feedback', [FeedBackController::class , 'edit'])->name('update/feedback.get');
+Route::patch('/update/feedback/{id}', [FeedBackController::class , 'update'])->name('update/feedback.post');
+Route::get('/delete/feedback', [FeedBackController::class , 'delete'])->name('delete/feedback.get');
+Route::delete('/delete/feedback/{id}', [FeedBackController::class , 'delete'])->name('delete/feedback.post');
 
-
-
-Route::get('/dashboard', function () {
-    return redirect("/");
-})->middleware(['auth', 'verified'])->name('dashboard');
+// -------------------dashboard------------------------------------
+Route::get('/dashboard', [DashBoardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -62,15 +66,8 @@ Route::get('ordermanagement', function(){
     return view('Admin/OrderManagement');
 })->name('ordermanagement');
 
-Route::get('feedback', function(){
-    return view('Admin/feedback');
 
-})->name('feedback');
 
 Route::get('cart', function(){
     return view('cart');
 })->name('cart');
-
-Route::get('ProductDetail', function(){
-    return view('ProductDetail');
-})->name('ProductDetail');
