@@ -37,33 +37,39 @@
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
-                                <tr>
-                                    <th scope="row">{{ $product->Product_ID }}</th>
-                                    <td>{{ $product->Name }}</td>
-                                    <td>${{ $product->Price }}</td>
-                                    <td class="fw-bold">{{ $product->quantity }}</td>
-                                    <td>{{ $product->Description }}%</td>
-                                    <td>img</td>
-                                    <td>{{ $product->Species }}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                              Action
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end" style="">
-                                              <li><a class="dropdown-item text-success" href="#">Edit</a></li>
-                                              <li>
-                                                <form action="/admin/delete/product" method="post" class="mb-0">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <input type="hidden" class="d-inline" name="id" value="{{ $product->Product_ID }}">
-                                                    <input type="submit" class="btn btn-link text-decoration-none small text-danger" value="Delete">
-                                                </form>
-                                              </li>
-                                            </ul>
-                                          </div>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td scope="row">{{ $product->Product_ID }}</td>
+                                        <td>{{ $product->Name }}</td>
+                                        <td>${{ $product->Price }}</td>
+                                        <td class="fw-bold">{{ $product->quantity }}</td>
+                                        <td>{{ $product->Discount }}%</td>
+                                        <td>{{ $product->Description }}</td>
+                                        <td>{{ $product->image->ImageLink }}
+                                        </td>
+                                        <td>{{ $product->Species }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Action
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end" style="">
+                                                    <li><a class="dropdown-item text-success" href="#">Edit</a></li>
+                                                    <li>
+                                                        <form action="/admin/delete/product" method="post" class="mb-0">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <input type="hidden" class="d-inline" name="id"
+                                                                value="{{ $product->Product_ID }}">
+                                                            <input type="submit"
+                                                                class="btn btn-link text-decoration-none small text-danger"
+                                                                value="Delete">
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
 
