@@ -203,42 +203,61 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-blank.html">
                     <i class="bi bi-file-earmark"></i>
-                    <span>PRODUCT IMAGE</span>
+                    <span>REVIEW MANAGEMENT</span>
                 </a>
             </li><!-- End Blank Page Nav -->
 
-            // xem san pham
+
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
-                  <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"
+                    aria-expanded="false">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>INSERT</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
-                  <li>
-                    <a href="tables-general.html">
-                      <i class="bi bi-circle"></i><span>General Tables</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="tables-data.html">
-                      <i class="bi bi-circle"></i><span>Data Tables</span>
-                    </a>
-                  </li>
+                    <li>
+                        <a href="/admin/insert/product">
+                            <i class="bi bi-circle"></i><span>INSERT PRODUCT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/user">
+                            <i class="bi bi-circle"></i><span>INSERT USER</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/category">
+                            <i class="bi bi-circle"></i><span>INSERT CATEGORY</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/order">
+                            <i class="bi bi-circle"></i><span>INSERT ORDER</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/feedback">
+                            <i class="bi bi-circle"></i><span>INSERT FEEDBACK</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/review">
+                            <i class="bi bi-circle"></i><span>INSERT REVIEW</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/payment">
+                            <i class="bi bi-circle"></i><span>INSERT PAYMENT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/delivery">
+                            <i class="bi bi-circle"></i><span>INSERT DELIVERY</span>
+                        </a>
+                    </li>
                 </ul>
-              </li>
+            </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-error-404.html">
-                    <i class="bi bi-dash-circle"></i>
-                    <span>Error 404</span>
-                </a>
-            </li><!-- End Error 404 Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
-                    <i class="bi bi-file-earmark"></i>
-                    <span>Blank</span>
-                </a>
-            </li><!-- End Blank Page Nav -->
 
         </ul>
 

@@ -402,5 +402,7 @@ top: 100%;}
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem #04B2D9, .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
-.whishlist{top: 10%;
+.whishlist{top: 5%;
 right: 10%;}
+
+.text-blue{color: #04B2D9;}
