@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Feedback;
+use App\Models\FeedBack;
 
 class FeedBackController extends Controller
 {
     public  function show(){
-        $feedbacks = ModelsFeedBack::all();
+        $feedbacks = FeedBack::all();
         return view('Admin.FeedbackManagement',compact('feedbacks'));
     }
     public  function insert(Request $request){
@@ -19,7 +19,7 @@ class FeedBackController extends Controller
 
             return "This is a POST request.";
         }
-        $feedback = new Feedback;
+        $feedback = new FeedBack;
         $feedback->FeedbackContent = $request->FeedbackContent;
         $feedback->UserID = session('UserID');
         $feedback->save();
