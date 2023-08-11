@@ -49,8 +49,10 @@
                 <div class="col-sm-6 col-md-4 col-lg-4 mb-4 me-0">
                     <div class="card border-card">
                         <div class="imgBx">
-                            <img src="{{ asset('storage/' . $product->image->ImageLink) }}"
-                                class="object-fit-fill border rounded w-100 h-100" alt="...">
+                            <a href="/product/{{ $product->Product_ID }}"><img
+                                    src="{{ asset('storage/' . $product->image->ImageLink) }}"
+                                    class="object-fit-fill border rounded w-100 h-100" alt="..."></a>
+
                         </div>
                         <div class="contentBx">
                             <h2>{{ $product->Name }}</h2>

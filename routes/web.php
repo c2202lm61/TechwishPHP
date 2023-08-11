@@ -27,10 +27,15 @@ Route::get('/login_register', function(){
     return view('login_register');
 })->name('login_register');
 
-// ------------------admin---------------------------------------------------------------
+// ------------------product---------------------------------------------------------------
 
 Route::get('/product',[ProductController::class, 'index'])->name('product');
 Route::post('/product',[ProductController::class, 'filter'])->name('product');
+Route::get('/product/{id}',[ProductController::class, 'DetailIndex'])->name('product/detail');
+
+
+
+
 
 
 Route::get('/dashboard', function () {
@@ -69,4 +74,3 @@ Route::get('cart', function(){
 Route::get('ProductDetail', function(){
     return view('ProductDetail');
 })->name('ProductDetail');
-

@@ -62,8 +62,9 @@
                                     <p>hello</p>
                                 </div>
                                 <div class="imgBx">
-                                    <a href=""><img src="{{ asset('storage/' . $product->image->ImageLink) }}"
-                                        class="object-fit-fill border rounded w-100 h-100" alt="..."></a>
+                                    <a href="product/{{ $product->Product_ID }}"><img
+                                            src="{{ asset('storage/' . $product->image->ImageLink) }}"
+                                            class="object-fit-fill border rounded w-100 h-100" alt="..."></a>
                                 </div>
                                 <div class="contentBx">
                                     <h2 class="card-text">{{ $product->Name }}</h2>

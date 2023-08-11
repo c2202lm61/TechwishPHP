@@ -143,5 +143,14 @@ class ProductController extends Controller
 
     public function DetailIndex($id){
 
+        $product = Product::find($id);
+        $product['categories'] = (PlantCategory::join('categories', 'plant_categories.CategoryID', '=', 'categories.CategoryID')
+    ->where('plant_categories.Product_ID', $id)
+    ->pluck('categories.CategoryName', 'categories.CategoryID')
+    ->toArray()) ;
+    
+        $product['images'] = Image::where('Product_ID', $id)->pluck('ImageLink')->toArray(); 
+        
+        return View('ProductDetail',compact('product'));
     }
 }
