@@ -10,6 +10,15 @@ use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
+    public function index(){
+
+        $products = Product::all();
+        foreach($products as $product){
+            $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
+        }
+        return view('product',compact('products'));
+
+    }
     public function show(){
 
         $products = Product::all();
