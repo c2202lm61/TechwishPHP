@@ -22,7 +22,7 @@
                     <div class="card-body pb-0">
                         <h5 class="card-title">Products List</h5>
 
-                        <table class="table table-borderless">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
@@ -37,16 +37,16 @@
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
-                                    <tr>
-                                        <th scope="row">{{ $product->Product_ID }}</th>
-                                        <td>{{ $product->Name }}</td>
-                                        <td>${{ $product->Price }}</td>
-                                        <td class="fw-bold">{{ $product->quantity }}</td>
-                                        <td>{{ $product->Description }}%</td>
-                                        <td>img</td>
-                                        <td>{{ $product->Species }}</td>
-                                        <td><button class="btn btn-outline-danger">Fix</button></td>
-                                    </tr>
+                                <tr>
+                                    <th scope="row">{{ $product->Product_ID }}</th>
+                                    <td>{{ $product->Name }}</td>
+                                    <td>${{ $product->Price }}</td>
+                                    <td class="fw-bold">{{ $product->quantity }}</td>
+                                    <td>{{ $product->Description }}%</td>
+                                    <td>img</td>
+                                    <td>{{ $product->Species }}</td>
+                                    <td><button class="btn btn-outline-danger">Fix</button></td>
+                                </tr>
                                 @endforeach
                             </tbody>
 

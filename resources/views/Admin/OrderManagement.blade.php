@@ -3,13 +3,13 @@
     <div class="card-body pb-0">
         <h5 class="card-title">Orders List</h5>
 
-        <table class="table table-borderless" style="border-radius: 10px">
+        <table class="table table-striped" style="border-radius: 10px">
             <thead>
                 <tr>
-                    <th scope="col">Order id</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Total</th>
-                    <th scope="col">Order Date</th>
+                    <th scope="col">Date</th>
                     <th scope="col">UserName</th>
                     <th scope="col">UserPhone</th>
                     <th scope="col">Delivery</th>
@@ -24,18 +24,30 @@
                 <tr>
                     <th scope="row">{{ $order->OrderID }}</th>
                     <td>${{ $order->Quantity }}</td>
-                    <td>{{ $order->OrderDate }}</td>
-                    <td class="fw-bold">{{ $order->total }}</td>
+                    <td>{{ $order->total }}</td>
+                    <td class="fw-bold">{{ $order->OrderDate }}</td>
                     <td>tui</td>
                     <td>0123456789</td>
                     <td>{{ $order->DeliveryID }}</td>
                     <td>{{ $order->PaymentID }}</td>
                     <td>{{ $order->total }}</td>
                     <td>{{ $order->StatusBill }}</td>
-                    <td class="d-flex flex-wrap justify-content-center">
-                        <span><button class="btn btn-success mx-1">Verify</button></span>
-                        <span><button class="btn btn-warning mx-1">Denied</button></span>
-                        <button class="btn btn-danger mx-1 my-1">Delete</button>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Action
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" style="">
+                            <li><a class="dropdown-item text-success" href="#">Verify</a></li>
+                            <li><a class="dropdown-item text-warning" href="#">Denied</a></li>
+                            <li>
+                                <form action="/admin/delete/user" method="post" class="mb-0">
+                                    <input type="hidden" class="d-inline" name="id" value="{{ $order->OrderID }}">
+                                    <input type="submit" class="btn btn-link text-decoration-none small text-danger" value="Delete">
+                                </form>
+                            </li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
                 @endforeach

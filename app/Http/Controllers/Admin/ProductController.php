@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\image;
+use Illuminate\Http\UploadedFile;
+use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
@@ -19,21 +20,26 @@ class ProductController extends Controller
 
         if ($request->isMethod('get')) {
             return view('Admin.Create.CreateProduct');
-        } elseif ($request->isMethod('post')) {
+        } else if ($request->isMethod('post')) {
             $productID = Product::insertGetId([
-                'Name' => $request->Name,
+                'Name' => $request->name,
                 'Species'=> $request->species,
-                'Price'=>$request->Price,
-                'Discount'=>$request->Discount,
-                'Description'=> $request->Description
+                'Price'=>$request->price,
+                'quantity'=>$request->quantity,
+                'Discount'=>$request->discount,
+                'Description'=> $request->description
              ]);
-            foreach ( $request['image'] as $image) {
-                image::create([
-                    'imageLink'=>$image->imageLink,
-                    'Product_ID'=> $productID,
+            foreach($request->file('images') as $file)
+			{
+			   $imagePath = $file->store('images');
+               Image::create([
+                "ImageLink"=>$imagePath,
+                "Product_ID"=>$productID
                 ]);
-            }
-            return  redirect()->action([PaymentController::class],'create');
+			}
+
+
+            return  redirect("/");
         }
 
 
@@ -54,11 +60,18 @@ class ProductController extends Controller
         $product->save();
         return "update thanh cong";
     }
-    public function delete(){
-        DB::table('images')->where('Product_ID', '=', 5)->delete();
-        $product = Product::find(5);
+    public function delete(Request $request){
+
+        $images = DB::table('images')->select('ImageLink')->where('Product_ID', '=', $request->id)->get();
+
+        foreach ($images as $image) {
+            $path = storage_path("app/$image->ImageLink");
+            unlink($path);
+        }
+        DB::table('images')->where('Product_ID', '=', $request->id)->delete();
+        $product = Product::find($request->id);
         $product->delete();
 
-        return "delete thanh cong";
+       return "delete thanh cong";
     }
 }

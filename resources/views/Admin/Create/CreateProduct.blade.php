@@ -2,27 +2,28 @@
 @extends('Admin.Layout')
 @section('content')
 <div class="card recent-sales overflow-auto p-3">
-    <form action="" class="email-signup" enctype="multipart/form-data">
+    <form action="/admin/insert/product" method="POST" class="email-signup" enctype="multipart/form-data">
+        @csrf
         <input class="form-control my-3" type="text" placeholder="Product name"
             aria-label="default input example" id="name" name="name" placeholder="input name"
-            value="{{ old('name') }}">
+            value="">
 
         <input class="form-control my-3" type="text" placeholder="Species" aria-label="default input example"
-            name="Species" value="{{ old('Species') }}">
+            name="species" value="">
 
         <input class="form-control my-3" type="text" placeholder="Price" aria-label="default input example"
-            name="price" id="" placeholder="input price" value="{{ old('price') }}">
+            name="price" id="" placeholder="input price" value="">
 
         <input class="form-control my-3" type="text" placeholder="Quatity" aria-label="default input example"
-            name="price" id="" placeholder="input price" value="{{ old('Quantity') }}">
+            name="quantity" id="" placeholder="input price" value="">
 
         <input class="form-control my-3" type="text" placeholder="Discount"
-            aria-label="default input example" name="Discount" placeholder="discount"
-            value="{{ old('Discount') }}">
+            aria-label="default input example" name="discount" placeholder="discount"
+            value="">
 
         <input class="form-control my-3" type="text" placeholder="Description"
             aria-label="default input example" name="description" class="form-control " id=""
-            placeholder="Description" value="{{ old('description') }}">
+            placeholder="Description" value="">
         <div class="u-form-group">
 
 
@@ -30,7 +31,7 @@
                 <label for="formFileMultiple" class="form-label"></label>
                 <input class="form-control" type="file" id="formFileMultiple" name="images[]" multiple>
             </div>
-            <button>{{ __('ADD') }}</button>
+            <button>ADD</button>
         </div>
     </form>
 
