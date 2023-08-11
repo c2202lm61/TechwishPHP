@@ -16,7 +16,7 @@
             <div class="u-form-group">
                 <button>{{ __('ADD') }}</button>
             </div>
-            <img src="{{ asset('storage/images/tzGHhMArjZAecZQRMc9ezZ7k5MXrEHVxXBNMidVg.jpg') }}"/>
+            <img src="{{ asset('storage/images/wNAkRzXET1UhMmOWHUWwQpRzAsyF90GBu7lF5jXX.jpg') }}"/>
         </form>
     </div>
 </div>

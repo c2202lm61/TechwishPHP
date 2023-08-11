@@ -31,7 +31,7 @@ class ProductController extends Controller
              ]);
             foreach($request->file('images') as $file)
 			{
-			   $imagePath = $file->store('public/images');
+			   $imagePath = $file->store('/images','public');
                Image::create([
                 "ImageLink"=>$imagePath,
                 "Product_ID"=>$productID
@@ -65,7 +65,7 @@ class ProductController extends Controller
         $images = DB::table('images')->select('ImageLink')->where('Product_ID', '=', $request->id)->get();
 
         foreach ($images as $image) {
-            $path = storage_path("app/$image->ImageLink");
+            $path = storage_path("$image->ImageLink");
             unlink($path);
         }
         DB::table('images')->where('Product_ID', '=', $request->id)->delete();
