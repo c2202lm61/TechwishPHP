@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('OrderID');
-            $table->integer('Quantity');
             $table->date('OrderDate');
             $table->float('total');
             $table->enum('StatusBill', ['non_accept', 'accept']);

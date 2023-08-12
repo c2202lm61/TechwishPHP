@@ -10,6 +10,11 @@ use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\PlantCategory;
+use Illuminate\Support\Facades\Auth;
+use App\Models\ProductOrder;
+use App\Models\Delivery;
+use App\Models\Payment;
+use App\Models\Order;
 class ProductController extends Controller
 {
     public function index(){
@@ -134,7 +139,7 @@ class ProductController extends Controller
         ->select('products.*')
         ->distinct('products.Product_ID') // Loại bỏ các bản ghi trùng lặp dựa trên Product_ID
         ->get();
-            
+
         return view('product',compact('products','categories'));
     }
 
@@ -146,9 +151,9 @@ class ProductController extends Controller
     ->where('plant_categories.Product_ID', $id)
     ->pluck('categories.CategoryName', 'categories.CategoryID')
     ->toArray()) ;
-    
-        
-        
+
+
+
         return View('ProductDetail',compact('product'));
     }
     public function search(Request $request){
@@ -158,9 +163,60 @@ class ProductController extends Controller
         ->where('products.Name','like',$request->ProductName .'%' )
         ->select('products.*')
         ->get();
-            
+
         return view('product',compact('products','categories'));
-    
-        
+
+
+    }
+    public function orderPlace(Request $req){
+        $userId = Auth::User()->UserID;
+        // $allCart = Session('cart')['Product_ID'];
+        // $cart = session('cart');
+        // foreach($cart as $id => $detail){
+        //     print("hello");
+        // }
+        // if(session()->has('cart')){
+        //     $cartItems = session('cart');
+        //     foreach($cartItems as $id => $details){
+        //         $name = $details['name'];
+        //         $price = $details['price'];
+        //         $quantity = $details['quantity'];
+        //         $Product_ID = $id;
+        //         echo $Product_ID;
+
+        //         $ProductOrder = new ProductOrder;
+        //         $ProductOrder->ProductOrderID = $id;
+        //         $ProductOrder->Quantity = $details['quantity'];
+        //         $ProductOrder->Price = $details['price'];
+        //         $ProductOrder->
+        //      }
+        // }
+
+        return "<h1>$userId </h1>";
+    }
+    public function orderNow(){
+
+    }
+    public function CheckOut(){
+        $deliveries = Delivery::all();
+        $payments = Payment::all();
+        return view("Checkout",compact('deliveries','payments'));
+    }
+    public function CheckIn(Request $request){
+        // $request->validate([
+        //     'quantity' => 'required',
+        // ]);
+
+        $Orders = new Order();
+        $Orders->OrderDate = $request->OrderDate;
+        $Orders->total = $request->total;
+        $Orders->StatusBill = 'non_accept';
+        $Orders->StatusDilevery	 = 'prepare';
+        $Orders->UserID = Auth::User()->UserID;
+        $Orders->DeliveryID = $request->DeliveryID;
+        $Orders->PaymentID = $request->PaymentID;
+        $Orders->save();
+        return redirect("/dashboard");
+
     }
 }

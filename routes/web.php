@@ -111,8 +111,12 @@ Route::get('ProductDetail', function(){
 
 
 
-Route::get('Checkout', function(){
-    return view('Checkout');
-})->name('checkout');
+// Route::get('Checkout', function(){
+//     return view('Checkout');
+// })->name('checkout');
+Route::get('Checkout',[ProductController::class,'CheckOut']);
+Route::post('/CheckIn',[ProductController::class,'CheckIn'])->name('CheckIn');
 
 Route::get('whishlist', function(){return view('whishlist');})->name('whishlist');
+
+Route::get('/aaaa',[ProductController::class,'orderPlace']);
