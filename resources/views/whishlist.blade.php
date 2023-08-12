@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid">
-        <div class="container">
-            <div class="bg-whitelight br-6px my-4">
+    <div class="container-fluid " style="background-image: url('img/5.jpg');">
+        <div class="container py-4">
+            <div class="bg-whitelight br-6px ">
                 <table class="table">
                     <thead>
                         <tr>

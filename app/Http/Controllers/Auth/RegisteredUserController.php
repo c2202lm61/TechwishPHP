@@ -49,6 +49,7 @@ class RegisteredUserController extends Controller
         $WishlistID = Wishlist::insertGetId([
             'UserID' => $userID,
         ]);
+        
         $user = User::find($userID);
         
 
