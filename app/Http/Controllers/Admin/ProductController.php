@@ -133,6 +133,7 @@ class ProductController extends Controller
             unlink($path);
         }
         DB::table('images')->where('Product_ID', '=', $request->id)->delete();
+        DB::table('plant_categories')->where('Product_ID',  '=', $request->id)->delete();
         $product = Product::find($request->id);
         $product->delete();
 
