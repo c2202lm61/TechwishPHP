@@ -62,7 +62,7 @@ Route::get('/dashboard', [DashBoardController::class, 'index'])->middleware(['au
 
 
 //----------------------------review--------------------------------------
-Route::get('/review', [ReviewController::class, 'insert']);
+Route::post('/review', [ReviewController::class, 'insert']);
 
 
 //---------------------------------------------------------------------

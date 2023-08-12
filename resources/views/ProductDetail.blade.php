@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/Cards.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/Cart.css') }}">
+    {{--  <link rel="stylesheet" type="text/css" href="{{ url('/CSS/ProductDetail.css') }}">  --}}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +42,8 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-    <div class="pd-wrap">
-        <style>
+    <div>
+        {{--  <style>
             input[type="number"]::-webkit-inner-spin-button,
             input[type="number"]::-webkit-outer-spin-button {
                 -webkit-appearance: none;
@@ -53,7 +54,7 @@
             input[type="number"] {
                 -moz-appearance: textfield;
             }
-        </style>
+        </style>  --}}
 </head>
 
 
@@ -64,7 +65,7 @@
 
 
 <body class="">
-    @include('header')
+
 
 
     <div class="pd-wrap">
@@ -170,15 +171,15 @@
                                 <label>Your rating</label>
                                 <div class="reviews-counter">
                                     <div class="rate">
-                                        <input type="radio" id="star5" name="Rating" value="5" />
+                                        <input type="radio" id="star5" name="rate" value="5" />
                                         <label for="star5" title="text">5 stars</label>
-                                        <input type="radio" id="star4" name="Rating" value="4" />
+                                        <input type="radio" id="star4" name="rate" value="4" />
                                         <label for="star4" title="text">4 stars</label>
-                                        <input type="radio" id="star3" name="Rating" value="3" />
+                                        <input type="radio" id="star3" name="rate" value="3" />
                                         <label for="star3" title="text">3 stars</label>
-                                        <input type="radio" id="star2" name="Rating" value="2" />
+                                        <input type="radio" id="star2" name="rate" value="2" />
                                         <label for="star2" title="text">2 stars</label>
-                                        <input type="radio" id="star1" name="Rating" value="1" />
+                                        <input type="radio" id="star1" name="rate" value="1" />
                                         <label for="star1" title="text">1 star</label>
                                     </div>
                                 </div>
@@ -190,7 +191,7 @@
                                 value="{{ $product->Product_ID }}">
 
 
-                            <button class="round-black-btn">Submit Review</button>
+                            <button type="submit" class="round-black-btn">Submit Review</button>
                         </form>
                     </div>
                     <div class="row">
@@ -216,7 +217,7 @@
         $(document).ready(function() {
             var slider = $("#slider");
             var thumb = $("#thumb");
-            var slidesPerPage = 4; //globaly define number of elements per page
+            var slidesPerPage = 4;
             var syncedSecondary = true;
             slider.owlCarousel({
                 items: 1,
@@ -300,7 +301,7 @@
                 }
             });
         });
-    </script> <!-- Site footer -->
+    </script>
     @include('footer')
 
 </body>

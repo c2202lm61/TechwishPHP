@@ -23,6 +23,7 @@ class OrderController extends Controller
             $payments = Payment::all();
             return view('Admin.Create/CreateOrder',['users'=>$users,'deliveries'=>$deliveries,'payments'=>$payments]);
         } elseif ($request->isMethod('post')) {
+           
 
             return "This is a POST request.";
         }
@@ -42,7 +43,7 @@ class OrderController extends Controller
         if ($request->isMethod('get')) {
             return view('Admin.Update.UpdateOrder');
         } elseif ($request->isMethod('post')) {
-
+            
             return "This is a POST request.";
         }
         $order = Order::find(2);

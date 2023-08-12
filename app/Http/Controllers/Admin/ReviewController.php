@@ -18,15 +18,13 @@ class ReviewController extends Controller
             return view('Admin.Create.CreateReview');
         } elseif ($request->isMethod('post')) {
             $review = new Review;
-            $review->Rating = $request->Rating;
+            $review->Rating = $request->rate;
             $review->Comment = $request->Comment;
             $review->UserID = Auth::user()->UserID;
             $review->Product_ID = $request->Product_ID;
             $review->save();
             return "insert thanh cong";
         }
-
-
     }
     public function edit(Request $request){
         return view('Admin.Update.UpdateReview');
