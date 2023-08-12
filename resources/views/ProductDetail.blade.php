@@ -65,10 +65,10 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div id="slider" class="owl-carousel product-slider mb-1 object-fit-cover">
+                    <div id="slider" class="owl-carousel product-slider mb-3 object-fit-cover">
                         @foreach ($product->images as $image)
                             <div class="item">
-                                <img src="{{ asset('storage/' . $image) }}" />
+                                <img src="{{ asset('storage/' . $image) }}" height="560px" class="w-100" />
 
 
 
@@ -107,9 +107,14 @@
                                 </div>
 
                             </div>
-                            <div><span class="price card-text text-success m-2">{{ $product->Price }}</span><span
-                                    class="text-decoration-line-through card-text text-dark">
-                                    $29.00</span></div>
+                            <div>
+                                <p class="d-none">{{ $total = $product['Price'] }}</p>
+
+                                <span class="text-decoration-line-through card-text text-dark">
+                                    ${{ $total += $product['Price'] - $product['discount'] }}
+                                </span>
+                                <span class="price card-text text-success m-2">${{ $product->Price }}</span>
+                            </div>
                         </div>
                         <p class="description text-dark">{{ $product->Description }}</p>
 
@@ -196,9 +201,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
     <!-- Page Content -->

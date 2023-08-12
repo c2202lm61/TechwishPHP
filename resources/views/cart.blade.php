@@ -39,6 +39,31 @@
                         </div>
                         <div class="product-line-price price card-text text-center p-3 text-success ">2524.00</div>
                     </div>
+
+
+                    <div class="product">
+                        <div class="product-image text-center p-3">
+                            <img src="https://webdevtrick.com/wp-content/uploads/predator.jpg" class=" img-thumbnail">
+                        </div>
+                        <div class="product-details">
+                            <div class="product-title card-text text-success bold text-center ">Asus Predator</div>
+                            <p class="product-description card-text text-center ">Predator is the new product series
+                                dedicated to PC
+                                Gaming
+                                from
+                                Acer: Desktop, Notebook, Tablet and Monitors for a complete gaming experience.</p>
+                        </div>
+                        <div class="product-price price card-text text-center p-3 text-success">1262.00</div>
+                        <div class="product-quantity text-center px-3 py-4">
+                            <input type="number" value="2" min="1">
+                        </div>
+                        <div class="product-removal text-center p-3">
+                            <button class="remove-product button-62">
+                                Remove
+                            </button>
+                        </div>
+                        <div class="product-line-price price card-text text-center p-3 text-success ">2524.00</div>
+                    </div>
                     {{-- --------------------------------------------------------------------------------------------------------------------- --}}
 
                     {{-- --------------------------------------------------------------------------------------------------------------------- --}}

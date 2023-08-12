@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function(){
         return view('Admin/Home');
     });
+
     Route::get('/insert/category',[CategoryController::class,'insert']);
     Route::post('/insert/category',[CategoryController::class,'insert']);
     Route::get('/update/category/{id}',[CategoryController::class,'update']);

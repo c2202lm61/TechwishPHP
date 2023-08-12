@@ -36,16 +36,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $totalQuantity = 0;
+                                @endphp
                                 @foreach ($products as $product)
                                     <tr>
                                         <td scope="row">{{ $product->Product_ID }}</td>
                                         <td>{{ $product->Name }}</td>
                                         <td>${{ $product->Price }}</td>
                                         <td class="fw-bold">{{ $product->quantity }}</td>
-                                        <td>{{ $product->Discount }}%</td>
+
+                                        @php
+                                            $totalQuantity += $product->quantity;
+                                        @endphp
+                                        <td>{{ $product->Discount }}</td>
                                         <td>{{ $product->Description }}</td>
-                                        <td><img src="{{asset('storage/' . $product->image->ImageLink)}}" alt=""
-                                               >
+                                        <td><img src="{{ asset('storage/' . $product->image->ImageLink) }}" alt="">
                                         </td>
                                         <td>{{ $product->Species }}</td>
                                         <td>
@@ -55,7 +61,9 @@
                                                     Action
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-end" style="">
-                                                    <li><a class="dropdown-item text-success" href="/admin/update/product/{{ $product->Product_ID }}">Edit</a></li>
+                                                    <li><a class="dropdown-item text-success"
+                                                            href="/admin/update/product/{{ $product->Product_ID }}">Edit</a>
+                                                    </li>
                                                     <li>
                                                         <form action="/admin/delete/product" method="post" class="mb-0">
                                                             @csrf
@@ -73,7 +81,10 @@
                                     </tr>
                                 @endforeach
                             </tbody>
+                            <p><span class="text-success card-title">Total quantity : <span class="text-warning card-title">
+                                        {{ $totalQuantity }}</span></span>
 
+                            </p>
                         </table>
 
                     </div>
