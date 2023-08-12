@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Wishlist;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+
 
 class RegisteredUserController extends Controller
 {
@@ -38,15 +40,17 @@ class RegisteredUserController extends Controller
 
         ]);
 
-        $user = User::create([
+        $userID = User::insertGetId([
             'name' => $request->name,
-            'phone'=>$request->phone,
+            'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            
         ]);
-
-
+        $WishlistID = Wishlist::insertGetId([
+            'UserID' => $userID,
+        ]);
+        $user = User::find($userID);
+        
 
         event(new Registered($user));
 

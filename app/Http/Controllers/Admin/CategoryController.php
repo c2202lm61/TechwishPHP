@@ -15,7 +15,10 @@ class CategoryController extends Controller
     public function insert(Request $request){
         if ($request->isMethod('get')) {
             return view('Admin.Create.CreateCategory');
-        } elseif ($request->isMethod('post')) {
+        } else if ($request->isMethod('post')) {
+            $request->validate([
+                'name'=>'required'
+            ]);
             $category = new Category;
             $category->CategoryName = $request->name;
             $category->save();
@@ -27,7 +30,10 @@ class CategoryController extends Controller
         if ($request->isMethod('get')) {
             $category =  Category::findOrFail($id);
             return view('Admin.Update.UpdateCategory',compact('category'));
-        } elseif ($request->isMethod('patch')) {
+        } else if($request->isMethod('patch')) {
+            $request->validate([
+                'name'=>'required'
+            ]);
             $category = Category::find($id);
             $category->CategoryName = $request->name;
             $category->save();
