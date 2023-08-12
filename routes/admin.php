@@ -13,10 +13,13 @@ use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\Auth\AuthController;
 
 
 
-Route::middleware('auth')->group(function () {
+Route::get('/login',[AuthController::class,'viewLogin']);
+
+Route::middleware('checkadmin')->group(function () {
     Route::get('/', function(){
         return view('Admin/Home');
     });

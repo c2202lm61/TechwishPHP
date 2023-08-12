@@ -126,7 +126,9 @@
                                     max="{{ $product->quantity }}">
                                 <div class="qtyplus">+</div>
                             </form>
-                            <a href="#"> <button class="button-63 mt-4">Add to Cart</button></a>
+                            <a href="/add-to-cart/{{ $product->Product_ID }}"> <button class="button-63 mt-4">Add to
+                                    Cart</button></a>
+
                         </div>
                     </div>
                 </div>
