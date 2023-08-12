@@ -55,7 +55,7 @@
                                     Aptech
                                     C5 Thuy Loi</span></span>
                     </div>
-                    <div class="d-flex col-md-6 col-sm-12 bg-warning-light p-3 ">
+                    <div class="d-flex col-md-6 col-sm-12 bg-whitelight p-3 ">
                         <div class="mapouter">
                             <div class="gmap_canvas"><iframe width="500" height="500" id="gmap_canvas"
                                     src="https://maps.google.com/maps?q=Hoang%20Mai&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -83,11 +83,11 @@
                 </div>
                 <div class="d-flex flex-column p-3 bg-whitelight col-12 my-4 justify-content-center">
                     <h2 class="text-center text-blue">FEEDBACK</h2>
-                    <form action="" class="">
+                    <form action="" class="" method="">
 
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">FEEDBACK</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="FeedbackContent" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 
                         <button type="submit" class="button-63"> Submit feedback</button>

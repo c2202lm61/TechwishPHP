@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CartController;
+use  App\Http\Controllers\Admin\ReviewController;
 
 Route::get('send-mail', [MailController::class, 'index']);
 /*
@@ -40,15 +41,24 @@ Route::get('/product/{id}',[ProductController::class, 'DetailIndex'])->name('pro
 
 
 // FeedBack -------------------------------------------------------
-Route::get('/insert/feedback', [FeedBackController::class , 'insert'])->name('insert/feedback.get');
+
+Route::get('/ContactUs', [FeedBackController::class , 'insert'])->name('contactus');
 Route::post('/insert/feedback', [FeedBackController::class , 'insert'])->name('insert/feedback.post');
-Route::get('/update/feedback', [FeedBackController::class , 'edit'])->name('update/feedback.get');
-Route::patch('/update/feedback/{id}', [FeedBackController::class , 'update'])->name('update/feedback.post');
+// Route::get('/update/feedback', [FeedBackController::class , 'edit'])->name('update/feedback.get');
+// Route::patch('/update/feedback/{id}', [FeedBackController::class , 'update'])->name('update/feedback.post');
 Route::get('/delete/feedback', [FeedBackController::class , 'delete'])->name('delete/feedback.get');
 Route::delete('/delete/feedback/{id}', [FeedBackController::class , 'delete'])->name('delete/feedback.post');
 
 // -------------------dashboard------------------------------------
 Route::get('/dashboard', [DashBoardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+//----------------------------review--------------------------------------
+Route::get('/review', [ReviewController::class, 'insert']);
+
+
+//---------------------------------------------------------------------
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -93,11 +103,8 @@ Route::get('ProductDetail', function(){
 })->name('ProductDetail');
 
 
-Route::get('ContactUs', function(){
-    return view('ContactUs');
-})->name('contactus');
+
 
 Route::get('Checkout', function(){
     return view('Checkout');
 })->name('checkout');
-
