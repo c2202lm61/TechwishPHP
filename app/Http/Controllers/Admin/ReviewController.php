@@ -18,6 +18,7 @@ class ReviewController extends Controller
 
             return "This is a POST request.";
         }
+        
         $review = new Review;
         $review->Rating = $request->Rating;
         $review->Comment = $request->Comment;
@@ -31,7 +32,7 @@ class ReviewController extends Controller
     }
     public function update(Request $request, $id){
         $review = Review::find($id);
-        $review->Rating = $request->Rating;
+        $review->Rating = Str($request->Rating);
         $review->Comment = $request->Comment;
         $review->UserID = session('UserID');
         $review->Product_ID = $request->Product_ID;

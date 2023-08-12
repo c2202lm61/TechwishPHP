@@ -48,6 +48,7 @@ Route::delete('/delete/feedback/{id}', [FeedBackController::class , 'delete'])->
 
 // -------------------dashboard------------------------------------
 Route::get('/dashboard', [DashBoardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/review', [ReviewController::class, 'insert']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -68,23 +69,3 @@ require __DIR__.'/auth.php';
 Route::get('ordermanagement', function(){
     return view('Admin/OrderManagement');
 })->name('ordermanagement');
-
-
-
-Route::get('cart', function(){
-    return view('cart');
-})->name('cart');
-
-Route::get('ProductDetail', function(){
-    return view('ProductDetail');
-})->name('ProductDetail');
-
-
-Route::get('ContactUs', function(){
-    return view('ContactUs');
-})->name('contactus');
-
-Route::get('Checkout', function(){
-    return view('Checkout');
-})->name('checkout');
-
