@@ -54,8 +54,11 @@
 
 
                         </ul>
-                        <form class="d-flex mt-2 my-lg-2 my-md-2 mt-sm-3" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <form class="d-flex mt-2 my-lg-2 my-md-2 mt-sm-3" role="search" method="POST"
+                            action="/search">
+                            @csrf
+                            <input class="form-control me-2" type="search" name="ProductName" placeholder="Search"
+                                aria-label="Search">
                             <button class="btn btn-outline-light" type="submit">Search</button>
                         </form>
                     </div>

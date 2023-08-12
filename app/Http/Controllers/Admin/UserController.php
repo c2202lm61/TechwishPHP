@@ -17,6 +17,12 @@ class UserController extends Controller
         if ($request->isMethod('get')) {
             return view('Admin.Create.CreateUser');
         }elseif ($request->isMethod('post')) {
+            $request->validate([
+                'name'=>'required',
+                'email'=>'required',
+                'phone'=>'required',
+                'password'=>'required'
+            ]);
             $user =  new User;
             $user->name = $request->name;
             $user->email = $request->email;
@@ -31,6 +37,12 @@ class UserController extends Controller
         if ($request->isMethod('get')) {
             return view('Admin.Update.UpdateUser');
         }elseif ($request->isMethod('post')) {
+            $request->validate([
+                'name'=>'required',
+                'email'=>'required',
+                'phone'=>'required',
+                'password'=>'required'
+            ]);
             $user =  User::find(1);
             $user->name = "PhamQuan1";
             $user->email = "quanqqq11@gmail.com";

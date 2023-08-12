@@ -30,6 +30,8 @@ Route::get('/delete',[CartControllerBeta::class,'deleteToCart']);
 Route::get('/deleteall',[CartControllerBeta::class,'deleteAllCart']);
 
 
+
+
 Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
 Route::get('/login_register', function(){
@@ -41,7 +43,7 @@ Route::get('/login_register', function(){
 Route::get('/product',[ProductController::class, 'index'])->name('product');
 Route::post('/product',[ProductController::class, 'filter'])->name('product');
 Route::get('/product/{id}',[ProductController::class, 'DetailIndex'])->name('product/detail');
-
+Route::post('/search',[ProductController::class,'search'])->name('search');
 
 
 // FeedBack -------------------------------------------------------

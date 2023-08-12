@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/Cards.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/Cart.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('/CSS/ProductDetail.css') }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap"
@@ -40,6 +40,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
     <div class="pd-wrap">
         <style>
             input[type="number"]::-webkit-inner-spin-button,
@@ -47,6 +48,7 @@
                 -webkit-appearance: none;
                 margin: 0;
             }
+
 
             input[type="number"] {
                 -moz-appearance: textfield;
@@ -126,11 +128,14 @@
                         <p class="description text-dark">{{ $product->Description }}</p>
 
                         <div class="product-count">
-                            <label for="size">Quantity</label>
+                            <label for="size">Quantity:
+                            </label>
+
+
                             <form action="#" class="display-flex">
                                 <div class="qtyminus">-</div>
-                                <input type="number" name="quantity" value="1" class="qty" min="1"
-                                    max="{{ $product->quantity }}">
+                                <input type="number" name="quantity" value="1" class="qty"
+                                    min="1" />
                                 <div class="qtyplus">+</div>
                             </form>
                             <a href="/add-to-cart/{{ $product->Product_ID }}"> <button class="button-63 mt-4">Add to
@@ -201,6 +206,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity=" sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
     <!-- Page Content -->

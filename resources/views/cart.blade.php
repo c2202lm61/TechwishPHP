@@ -22,13 +22,13 @@
 
                             <div class="product">
                                 <div class="product-image text-center p-3">
-                                    <img src="https://webdevtrick.com/wp-content/uploads/predator.jpg"
-                                        class=" img-thumbnail">
+                                    <img src="{{ asset('storage/' . $details['image']) }}" class=" img-thumbnail">
                                 </div>
                                 <div class="product-details">
-                                    <div class="product-title card-text text-success bold text-center ">Asus Predator</div>
+                                    <div class="product-title card-text text-success bold text-center ">
+                                        {{ $details['name'] }}</div>
                                     <p class="product-description card-text text-center ">
-                                        {{ $details['name'] }}
+                                        {{ $details['description'] }}
                                     </p>
                                 </div>
                                 <div class="product-price price card-text text-center p-3 text-success">
@@ -37,7 +37,8 @@
                                     <input type="number" value="{{ $details['quantity'] }}" min="1">
                                 </div>
                                 <div class="product-removal text-center p-3">
-                                    <button class="remove-product button-62 remove-from-cart delete" data-id="{{ $id }}">
+                                    <button class="remove-product button-62 remove-from-cart delete"
+                                        data-id="{{ $id }}">
                                         Remove
                                     </button>
                                 </div>
@@ -51,18 +52,18 @@
 
                     {{-- --------------------------------------------------------------------------------------------------------------------- --}}
                     <!-- <div class="totals">
-                                                        <div class="totals-item">
-                                                            <label>Subtotal</label>
-                                                            <div class="totals-value  text-success card-text" id="cart-subtotal">3696.99</div>
-                                                        </div>
-                                                        <div class="totals-item">
-                                                            <label>Tax (5%)</label>
-                                                            <div class="totals-value  text-success card-text" id="cart-tax">3.60</div>
-                                                        </div>
-                                                        <div class="totals-item">
-                                                            <label>Shipping</label>
-                                                            <div class="totals-value  text-success card-text" id="cart-shipping">15.00</div>
-                                                        </div> -->
+                                                                    <div class="totals-item">
+                                                                        <label>Subtotal</label>
+                                                                        <div class="totals-value  text-success card-text" id="cart-subtotal">3696.99</div>
+                                                                    </div>
+                                                                    <div class="totals-item">
+                                                                        <label>Tax (5%)</label>
+                                                                        <div class="totals-value  text-success card-text" id="cart-tax">3.60</div>
+                                                                    </div>
+                                                                    <div class="totals-item">
+                                                                        <label>Shipping</label>
+                                                                        <div class="totals-value  text-success card-text" id="cart-shipping">15.00</div>
+                                                                    </div> -->
                     <div class="totals-item totals-item-total">
                         <label>Grand Total</label>
                         <div class="totals-value  text-success card-text" id="cart-total "></div>
@@ -90,43 +91,46 @@
 @endsection
 
 @section('scripts')
-
-
     <script type="text/javascript">
-// this function is for update card
-        $(".update-cart").click(function (e) {
-           e.preventDefault();
-
-           var ele = $(this);
-
-            $.ajax({
-               url: '{{ url('update-cart') }}',
-               method: "patch",
-               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
-               success: function (response) {
-                   window.location.reload();
-               }
-            });
-        });
-
-        $(".remove-from-cart").click(function (e) {
+        // this function is for update card
+        $(".update-cart").click(function(e) {
             e.preventDefault();
 
             var ele = $(this);
 
-            if(confirm("Are you sure")) {
+            $.ajax({
+                url: '{{ url('update-cart') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.attr("data-id"),
+                    quantity: ele.parents("tr").find(".quantity").val()
+                },
+                success: function(response) {
+                    window.location.reload();
+                }
+            });
+        });
+
+        $(".remove-from-cart").click(function(e) {
+            e.preventDefault();
+
+            var ele = $(this);
+
+            if (confirm("Are you sure")) {
                 $.ajax({
                     url: '{{ url('remove-from-cart') }}',
                     method: "DELETE",
-                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
-                    success: function (response) {
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.attr("data-id")
+                    },
+                    success: function(response) {
                         window.location.reload();
 
                     }
                 });
             }
         });
-
     </script>
-
 @endsection
