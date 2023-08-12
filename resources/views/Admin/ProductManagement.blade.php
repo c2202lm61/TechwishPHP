@@ -44,8 +44,8 @@
                                         <td class="fw-bold">{{ $product->quantity }}</td>
                                         <td>{{ $product->Discount }}%</td>
                                         <td>{{ $product->Description }}</td>
-                                        <td><img src="{{ asset('storage/' . $product->image->ImageLink) }}" alt=""
-                                                srcset="">
+                                        <td><img src="{{asset('storage/' . $product->image->ImageLink)}}" alt=""
+                                               >
                                         </td>
                                         <td>{{ $product->Species }}</td>
                                         <td>

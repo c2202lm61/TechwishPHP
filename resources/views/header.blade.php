@@ -17,7 +17,8 @@
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('dashboard') }}">Home</a>
                             </li>
                             <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font" href="#">About Us</a>
+                                <a class="nav-link navbarlink nav-link-font" href="{{ route('contactus') }}">Contact
+                                    Us</a>
                             </li>
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your cart<span

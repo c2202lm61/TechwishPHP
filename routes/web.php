@@ -74,3 +74,11 @@ Route::get('cart', function(){
 Route::get('ProductDetail', function(){
     return view('ProductDetail');
 })->name('ProductDetail');
+
+Route::get('ContactUs', function(){
+    return view('ContactUs');
+})->name('contactus');
+
+Route::get('Checkout', function(){
+    return view('Checkout');
+})->name('checkout');
