@@ -59,7 +59,7 @@
                         <div class="col-sm-12 col-md-4 col-lg-4 mb-4 me-0">
                             <div class="card border-card position-relative">
                                 <div class="position-absolute whishlist z-3">
-                                    <a href=""><button class="button-62"><i class="fa-solid fa-heart"
+                                    <a href="/product/{{ $product->Product_ID }}"><button class="button-62"><i class="fa-solid fa-heart"
                                                 style="color: #ffffff;"></i></button></a>
                                 </div>
                                 <div class="imgBx">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use  App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 class ReviewController extends Controller
 {
     public function show(){
@@ -15,17 +16,17 @@ class ReviewController extends Controller
         if ($request->isMethod('get')) {
             return view('Admin.Create.CreateReview');
         } elseif ($request->isMethod('post')) {
-
-            return "This is a POST request.";
+            $request->validate(['Rating'=>'required']);
+            $request->validate(['Comment'=>'required']);
+            $review = new Review;
+            // $review->Rating = str($request->Rating);
+            $review->Comment = $request->Comment;
+            $review->UserID = Auth::user()->UserID;
+            $review->Product_ID = $request->Product_ID;
+            $review->save();
+            return "insert thanh cong";        
         }
-        
-        $review = new Review;
-        $review->Rating = $request->Rating;
-        $review->Comment = $request->Comment;
-        $review->UserID = session('UserID');
-        $review->Product_ID = $request->Product_ID;
-        $review->save();
-        return "insert thanh cong";
+       
     }
     public function edit(Request $request){
         return view('Admin.Update.UpdateReview');

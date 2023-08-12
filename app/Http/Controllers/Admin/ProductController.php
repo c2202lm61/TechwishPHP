@@ -39,6 +39,12 @@ class ProductController extends Controller
             $categories = Category::all();
             return view('Admin.Create.CreateProduct',compact('categories'));
         } else if ($request->isMethod('post')) {
+            $request->validate(['name'=>'required']);
+            $request->validate(['species'=>'required']);
+            $request->validate(['price'=>'required']);
+            $request->validate(['quantity'=>'required']);
+            $request->validate(['discount'=>'required']);
+            $request->validate(['description'=>'required']);
 
             $productID = Product::insertGetId([
                 'Name' => $request->name,

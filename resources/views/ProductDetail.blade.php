@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/Cards.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/CSS/Cart.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/CSS/ProductDetail.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +42,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-    <div class="pd-wrap">
+    <div>
         <style>
             input[type="number"]::-webkit-inner-spin-button,
             input[type="number"]::-webkit-outer-spin-button {
@@ -64,7 +65,7 @@
 
 
 <body class="">
-    @include('header')
+
 
 
     <div class="pd-wrap">
@@ -190,7 +191,7 @@
                                 value="{{ $product->Product_ID }}">
 
 
-                            <button class="round-black-btn">Submit Review</button>
+                            <button type="submit" class="round-black-btn">Submit Review</button>
                         </form>
                     </div>
                     <div class="row">
@@ -216,7 +217,7 @@
         $(document).ready(function() {
             var slider = $("#slider");
             var thumb = $("#thumb");
-            var slidesPerPage = 4; //globaly define number of elements per page
+            var slidesPerPage = 4;
             var syncedSecondary = true;
             slider.owlCarousel({
                 items: 1,
@@ -300,7 +301,7 @@
                 }
             });
         });
-    </script> <!-- Site footer -->
+    </script>
     @include('footer')
 
 </body>
