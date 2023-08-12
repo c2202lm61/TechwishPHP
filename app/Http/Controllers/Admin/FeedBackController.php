@@ -14,7 +14,7 @@ class FeedBackController extends Controller
     }
     public  function insert(Request $request){
         if ($request->isMethod('get')) {
-            return view('Admin.Create/CreateFeedback');
+            return view('ContactUs');
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";
