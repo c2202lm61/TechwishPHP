@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CartControllerBeta;
+
 use  App\Http\Controllers\Admin\ReviewController;
 
 Route::get('send-mail', [MailController::class, 'index']);
@@ -20,10 +22,12 @@ Route::get('send-mail', [MailController::class, 'index']);
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::get('/showcart',[CartController::class,'showCart']);
-// Route::get('/addtocart',[CartController::class,'addToCart']);
-// Route::get('/removecart',[CartController::class,'removeCart']);
-
+//cart console
+Route::get('/show',[CartControllerBeta::class,'showCart']);
+Route::get('/add',[CartControllerBeta::class,'addToCart']);
+Route::get('/update',[CartControllerBeta::class,'updateToCart']);
+Route::get('/delete',[CartControllerBeta::class,'deleteToCart']);
+Route::get('/deleteall',[CartControllerBeta::class,'deleteAllCart']);
 
 
 Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
