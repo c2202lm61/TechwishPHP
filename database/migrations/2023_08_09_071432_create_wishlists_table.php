@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('WishlistID');
             $table->unsignedBigInteger('UserID');
             $table->foreign('UserID')->references('UserID')->on('users');
-            $table->unsignedBigInteger('Product_ID')->unique();
+            $table->unsignedBigInteger('Product_ID');
             $table->foreign('Product_ID')->references("Product_ID")->on('products');
             $table->timestamps();
         });
