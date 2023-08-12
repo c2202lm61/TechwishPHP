@@ -154,9 +154,9 @@ class ProductController extends Controller
 
         $product = Product::with('images')->find($id);
         $product['categories'] = (PlantCategory::join('categories', 'plant_categories.CategoryID', '=', 'categories.CategoryID')
-    ->where('plant_categories.Product_ID', $id)
-    ->pluck('categories.CategoryName', 'categories.CategoryID')
-    ->toArray()) ;
+        ->where('plant_categories.Product_ID', $id)
+        ->pluck('categories.CategoryName', 'categories.CategoryID')
+        ->toArray()) ;
 
 
 

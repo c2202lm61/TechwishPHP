@@ -25,19 +25,18 @@
 
 
                             <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
+                                <a class="nav-link navbarlink nav-link-font" href="/show">Your
                                     cart
-                                    @if (session('cart'))
-                                        <span
-                                            class="badge bg-light ms-2
-                                         text-dark">
-                                            {{ count(session('cart')) }}</span>
+                                    {{--  @if (session('cart'))
+
+                                            {{ count(session('cart')) }}
                                     @else
                                         <span
                                             class="badge bg-light ms-2
                                          text-dark">
                                             0</span>
-                                    @endif
+                                    @endif  --}}
+                                    <span class="badge bg-light ms-2 text-dark">{{ count(Session::get('Cart', [])) }}</span>
                                 </a>
                             </li>
 

@@ -25,9 +25,9 @@ Route::get('send-mail', [MailController::class, 'index']);
 */
 //cart console
 Route::get('/show',[CartControllerBeta::class,'showCart']);
-Route::get('/add',[CartControllerBeta::class,'addToCart']);
-Route::get('/update',[CartControllerBeta::class,'updateToCart']);
-Route::get('/delete',[CartControllerBeta::class,'deleteToCart']);
+Route::get('/add/{id}/{quantity}',[CartControllerBeta::class,'addToCart']);
+Route::get('/update/{id}/{quantity}',[CartControllerBeta::class,'updateToCart']);
+Route::get('/delete/{id}',[CartControllerBeta::class,'deleteToCart']);
 Route::get('/deleteall',[CartControllerBeta::class,'deleteAllCart']);
 
 
@@ -82,7 +82,7 @@ require __DIR__.'/auth.php';
 // })->name('user_management');
 
 
-Route::middleware('checkadmin')->group(function () {
+Route::middleware('checkadmin')->group(function () {});
     Route::get('ordermanagement', function(){
         return view('Admin/OrderManagement');
     })->name('ordermanagement');
@@ -91,7 +91,7 @@ Route::middleware('checkadmin')->group(function () {
 
     Route::get('add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
 
-    Route::patch('update-cart', [CartController::class,'update']);
+    Route::get('/cart/{id}', [CartController::class,'update']);
 
     Route::delete('remove-from-cart', [CartController::class,'remove']);
 
