@@ -40,16 +40,12 @@ class RegisteredUserController extends Controller
 
         ]);
 
-        $userID = User::insertGetId([
+        $user  = User::insert([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        $WishlistID = Wishlist::insertGetId([
-            'UserID' => $userID,
-        ]);
-        $user = User::find($userID);
         
 
         event(new Registered($user));

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('Product_ID');
             $table->string('Name', 50);
             $table->string('Species', 50)->nullable();
-            $table->float('Price');
+            $table->double('Price');
             $table->integer('Discount');
             $table->integer('quantity');
             $table->string('Description', 255);

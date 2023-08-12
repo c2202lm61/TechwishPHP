@@ -15,7 +15,8 @@ class ProductController extends Controller
     public function index(){
 
         $categories = Category::all();
-        $products = Product::all();
+        $products = Product::leftJoin('wishlists','wishlists.Product_ID','products.Product_ID')
+        ->select('products.*','wishlists.WishlistID')->get();
         foreach($products as $product){
             $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
         }
@@ -130,11 +131,24 @@ class ProductController extends Controller
     public function filter(Request $request){
         $categories = Category::all();
         $products = Product::with('image')->join('plant_categories', 'products.Product_ID', '=', 'plant_categories.Product_ID')
-        ->whereIn('plant_categories.CategoryID', $request->product_type)
-        ->select('products.*')
-        ->distinct('products.Product_ID') // Loại bỏ các bản ghi trùng lặp dựa trên Product_ID
+        ->select('products.*')->distinct('products.Product_ID')
+         // Loại bỏ các bản ghi trùng lặp dựa trên Product_ID
         ->get();
+
+        if($request->product_type != null){
+            $products->whereIn('plant_categories.CategoryID', $request->product_type);
+        }
             
+        if($request->sort == 'A_Z'){
+            $sortedProducts = $products->sortBy(function ($item) {
+            return $item->name;
+        });
+        }elseif($request->sort == 'Z_A'){
+            $sortedProducts = $products->sortByDesc(function ($item) {
+            return $item->name;
+            });
+        }
+        
         return view('product',compact('products','categories'));
     }
 
@@ -162,5 +176,8 @@ class ProductController extends Controller
         return view('product',compact('products','categories'));
     
         
+    
     }
+ 
+    
 }

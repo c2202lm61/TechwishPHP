@@ -8,8 +8,8 @@ use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartControllerBeta;
-
-use  App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\WithlistProductController;
+use App\Http\Controllers\Admin\ReviewController;
 
 Route::get('send-mail', [MailController::class, 'index']);
 /*
@@ -62,8 +62,11 @@ Route::get('/dashboard', [DashBoardController::class, 'index'])->middleware(['au
 
 //----------------------------review--------------------------------------
 Route::get('/review', [ReviewController::class, 'insert']);
+Route::post('/review', [ReviewController::class, 'insert']);
 
-
+Route::get('/whislist', [WithlistProductController::class, 'show'])->name('whislist');
+Route::get('/whislist/insert/{id}', [WithlistProductController::class, 'insert'])->name('whislist/insert');
+Route::get('/whislist/delete/{id}', [WithlistProductController::class, 'delete'])->name('whislist/delete');
 //---------------------------------------------------------------------
 
 Route::middleware('auth')->group(function () {
@@ -82,9 +85,9 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('ordermanagement', function(){
+Route::get('/ordermanagement', function(){
     return view('Admin/OrderManagement');
-})->name('ordermanagement');
+})->name('/ordermanagement');
 
 
 
@@ -94,25 +97,19 @@ Route::get('ordermanagement', function(){
 
 
 
-Route::get('cart', [CartController::class,'cart'])->name('cart');
+Route::get('/cart', [CartController::class,'cart'])->name('cart');
 
 // Route::get('cartt', [CartController::class,'cartt']);
 
-Route::get('add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
+Route::get('/add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
 
-Route::patch('update-cart', [CartController::class,'update']);
+Route::patch('/update-cart', [CartController::class,'update']);
 
-Route::delete('remove-from-cart', [CartController::class,'remove']);
-
-Route::get('ProductDetail', function(){
-    return view('ProductDetail');
-})->name('ProductDetail');
+Route::delete('/remove-from-cart', [CartController::class,'remove']);
 
 
 
 
-Route::get('Checkout', function(){
+Route::get('/Checkout', function(){
     return view('Checkout');
 })->name('checkout');
-
-Route::get('whishlist', function(){return view('whishlist');})->name('whishlist');

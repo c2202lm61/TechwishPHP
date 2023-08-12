@@ -16,8 +16,8 @@
                         @foreach ($categories as $category)
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="product_type[]"
-                                    value="{{ $category->CategoryID }}" id="fertilizerCheck">
-                                <label class="form-check-label" for="fertilizerCheck">
+                                    value="{{ $category->CategoryID }}" id="{{ $category->CategoryID }}">
+                                <label class="form-check-label" for="{{ $category->CategoryID }}">
                                     {{ $category->CategoryName }}
                                 </label>
                             </div>
@@ -29,9 +29,21 @@
 
                         <hr class="divider w-100">
 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sort" value="A_Z" id="A_Z">
+                            <label class="form-check-label" for="A_Z">
+                                A to Z
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sort" value="Z_A" id="Z_A">
+                            <label class="form-check-label" for="Z_A">
+                                Z to A
+                            </label>
+                        </div>
 
-
-
+                        <label for="customRange1" class="form-label">Example range</label>
+                        <input type="range" class="form-range" id="customRange1">
 
                         <button id="applyFilter" class="btn bg-darkgreen text-whitecoffee mt-3">Apply</button>
                     </form>
@@ -59,8 +71,11 @@
                         <div class="col-sm-12 col-md-4 col-lg-4 mb-4 me-0">
                             <div class="card border-card position-relative">
                                 <div class="position-absolute whishlist z-3">
-                                    <a href=""><button class="button-62"><i class="fa-solid fa-heart"
-                                                style="color: #ffffff;"></i></button></a>
+                                    @if ($product->WishlistID == null)
+                                        <a href="/wishlistp/{{ $product->Product_ID }}"><button class="button-62"><i
+                                                    class="fa-solid fa-heart" style="color: #ffffff;"></i></button></a>
+                                    @endif
+
                                 </div>
                                 <div class="imgBx">
 
@@ -98,6 +113,9 @@
 
     <script>
         // ... (các tác vụ JavaScript khác)
+
+
+
 
         const resetFilterButton = document.getElementById('resetFilter');
 
