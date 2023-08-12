@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FeedBackController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\CartController;
 
 Route::get('send-mail', [MailController::class, 'index']);
 /*
@@ -18,9 +19,9 @@ Route::get('send-mail', [MailController::class, 'index']);
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/showcart',[CartController::class,'showCart']);
-Route::get('/addtocart',[CartController::class,'addToCart']);
-Route::get('/removecart',[CartController::class,'removeCart']);
+// Route::get('/showcart',[CartController::class,'showCart']);
+// Route::get('/addtocart',[CartController::class,'addToCart']);
+// Route::get('/removecart',[CartController::class,'removeCart']);
 
 
 
@@ -71,9 +72,21 @@ Route::get('ordermanagement', function(){
 
 
 
-Route::get('cart', function(){
-    return view('cart');
-})->name('cart');
+// Route::get('cart', function(){
+//     return view('cart');
+// })->name('cart');
+
+
+
+Route::get('cart', [CartController::class,'cart'])->name('cart');
+
+Route::get('cartt', [CartController::class,'cartt']);
+
+Route::get('add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
+
+Route::patch('update-cart', [CartController::class,'update']);
+
+Route::delete('remove-from-cart', [CartController::class,'remove']);
 
 Route::get('ProductDetail', function(){
     return view('ProductDetail');
