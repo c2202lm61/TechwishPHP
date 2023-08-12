@@ -27,7 +27,9 @@ Route::get('send-mail', [MailController::class, 'index']);
 //Wishlist
 
 Route::get('/wishlist', [WishlistController::class,'show']);
-Route::get('/heart/{id}', [WishlistController::class, 'changeFavorite']);
+Route::get('/wishlist/update/{id}', [WishlistController::class, 'changeFavorite']);
+Route::get('/wishlist/delete/{id}', [WishlistController::class, 'delete']);
+
 
 //cart console
 Route::get('/show',[CartControllerBeta::class,'showCart']);

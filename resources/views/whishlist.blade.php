@@ -15,20 +15,18 @@
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                           <div>fghjk</div>
-                        @endforeach
                         <tr>
-                            <td scope="col" class="text-center card-text">cay viet quat</td>
-                            <td scope="col" class="text-center "><img src="/img/5.jpg" alt="" height="60px"
+                            <td scope="col" class="text-center card-text">{{ $product->Name }}</td>
+                            <td scope="col" class="text-center "><img src="{{ asset('storage/' . $product->image->ImageLink) }}" alt="" height="60px"
                                     width="60px"></td>
-                            <td scope="col" class="text-center lobster-font">Rat la dep</td>
-                            <td scope="col" class="text-center price text-success">123$</td>
+                            <td scope="col" class="text-center lobster-font">{{ $product->Description }}</td>
+                            <td scope="col" class="text-center price text-success">${{ $product->Price }}</td>
                             <td scope="col" class="text-center"><span class="mx-1"><button
                                         class="button-62">Delete</button></span>
                                 <span class="mx-1"><button class="button-63">Add to cart</button></span>
                             </td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
