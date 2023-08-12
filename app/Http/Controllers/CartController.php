@@ -48,7 +48,7 @@ class CartController extends Controller
 
     public function addToCart($id) // by this function we add product of choose in card
     {
-        $product = Product::find($id);
+        $product = Product::with('image')->find($id);
 
         if(!$product) {
 
@@ -69,6 +69,8 @@ class CartController extends Controller
                         "name" => $product->Name,
                         "quantity" => 1,
                         "price" => $product->Price,
+                        "description" => $product->Description,
+                        "image"=>$product->image->ImageLink,
                         // "photo" => $product->photo
                     ]
             ];
@@ -94,6 +96,8 @@ class CartController extends Controller
             "name" => $product->Name,
             "quantity" => 1,
             "price" => $product->Price,
+            "description" => $product->Description,
+            "image"=>$product->image->ImageLink,
             // "photo" => $product->photo
         ];
 
