@@ -41,7 +41,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="container-fluid  pt-3 bg-fluid">
+    <div class="container-fluid  pt-3 bg-fluid mx-auto">
         <div
             class="container d-flex flex-wrap row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 ps-5 me-5 justify-content-center align-item-center">
 
@@ -65,7 +65,8 @@
                             <div class="color text-dark">
                                 {{ $product->Description }}
                             </div>
-                            <a href="{{ url('add-to-cart/'.$product->Product_ID) }}" class="mt-2 btn btn-success" role="button">Buy Now</a>
+                            <a href="{{ url('add-to-cart/' . $product->Product_ID) }}" class="mt-2 btn btn-success"
+                                role="button">Buy Now</a>
 
                         </div>
                     </div>

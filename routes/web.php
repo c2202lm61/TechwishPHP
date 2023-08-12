@@ -73,9 +73,21 @@ Route::get('ordermanagement', function(){
 
 
 
-Route::get('cart', function(){
-    return view('cart');
-})->name('cart');
+// Route::get('cart', function(){
+//     return view('cart');
+// })->name('cart');
+
+
+
+Route::get('cart', [CartController::class,'cart'])->name('cart');
+
+// Route::get('cartt', [CartController::class,'cartt']);
+
+Route::get('add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
+
+Route::patch('update-cart', [CartController::class,'update']);
+
+Route::delete('remove-from-cart', [CartController::class,'remove']);
 
 Route::get('ProductDetail', function(){
     return view('ProductDetail');

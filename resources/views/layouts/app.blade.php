@@ -28,16 +28,16 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="font-sans antialiased">
+<body class="">
     @include('header')
 
     <!-- Page Heading -->
 
 
     <!-- Page Content -->
-    <main class="">
-        @yield('content')
-    </main>
+
+    @yield('content')
+
 
 
 

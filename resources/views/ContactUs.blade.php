@@ -83,12 +83,8 @@
                 </div>
                 <div class="d-flex flex-column p-3 bg-whitelight col-12 my-4 justify-content-center">
                     <h2 class="text-center text-blue">FEEDBACK</h2>
-                    <form action="">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com">
-                        </div>
+                    <form action="" class="">
+
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">FEEDBACK</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
