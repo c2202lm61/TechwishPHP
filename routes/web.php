@@ -108,3 +108,5 @@ Route::get('ProductDetail', function(){
 Route::get('Checkout', function(){
     return view('Checkout');
 })->name('checkout');
+
+Route::get('whishlist', function(){return view('whishlist');})->name('whishlist');

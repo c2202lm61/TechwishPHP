@@ -1,4 +1,4 @@
-<header>
+<header class="">
     <div class="container-fluid bg-nav">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-nav py-2">
