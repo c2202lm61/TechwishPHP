@@ -38,6 +38,6 @@ class FeedBackController extends Controller
     public  function delete(Request $request){
         $feedback = FeedBack::find($request->FeedbackID);
         $feedback->delete();
-        return "delete thanh cong";
+        return redirect('/admin/show/feedback');
     }
 }

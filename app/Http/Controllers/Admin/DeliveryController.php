@@ -15,6 +15,9 @@ class DeliveryController extends Controller
         if($request->isMethod('get')){
             return view('Admin.Create/CreateDelivery');
         }else if($request->isMethod('post')){
+            $request->validate([
+                'name'=>'required'
+            ]);
             $delivery = new Delivery;
             $delivery->Name = $request->name;
             $delivery->save();
@@ -26,6 +29,9 @@ class DeliveryController extends Controller
             $delivery = Delivery::findOrFail($id);
             return view('Admin.Update.UpdateDelivery',compact('delivery'));
         }else if($request->isMethod('patch')){
+            $request->validate([
+                'name'=>'required'
+            ]);
             $delivery = Delivery::find($id);
             $delivery->Name = $request->name;
             $delivery->save();

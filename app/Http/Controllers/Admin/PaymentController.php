@@ -18,6 +18,9 @@ class PaymentController extends Controller
         if ($request->isMethod('get')) {
             return view('Admin.Create.CreatePayment');
         } elseif ($request->isMethod('post')) {
+            $request->validate([
+                'name'=>'required'
+            ]);
             $payment = new Payment;
             $payment->PaymentName = $request->name;
             $payment->save();
@@ -30,6 +33,9 @@ class PaymentController extends Controller
             $payment = Payment::findOrFail($id);
             return view('Admin.Update.UpdatePayment',compact('payment'));
         } elseif ($request->isMethod('patch')) {
+            $request->validate([
+                'name'=>'required'
+            ]);
             $payment = Payment::find($id);
             $payment->PaymentName = $request->name;
             $payment->save();
