@@ -66,7 +66,6 @@
 
                                     <a href="/product/{{ $product->Product_ID }}"><img
                                             src="{{ asset('storage/' . $product->image->ImageLink) }}"
-
                                             class="object-fit-fill border rounded w-100 h-100" alt="..."></a>
                                 </div>
                                 <div class="contentBx">
@@ -77,7 +76,8 @@
                                     <div class="color text-dark">
                                         {{ $product->Description }}
                                     </div>
-                                    <a href="{{ url('add-to-cart/'.$product->id) }}" class="mt-2 btn btn-success" role="btn">Buy Now</a>
+                                    <a href="add-to-cart/{{ $product->Product_ID }}" class="mt-2 btn btn-success"
+                                        role="btn">Buy Now</a>
 
                                 </div>
                             </div>

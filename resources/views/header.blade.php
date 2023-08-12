@@ -22,7 +22,7 @@
                             </li>
                             <!-- code cart -->
 
-<<<<<<< HEAD
+
                                 <li class="nav-item navbarlink">
                                     <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
                                         cart
@@ -36,19 +36,7 @@
                                             @endif
                                     </a>
                                 </li>
-=======
-                            <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
-                                    cart
-                                    @if (session('cart'))
-                                        <span
-                                            class="badge bg-light ms-2
-                                         text-dark">
-                                            {{ count(session('cart')) }}</span>
-                                    @endif
-                                </a>
-                            </li>
->>>>>>> c92614776ecd971e7075db993bf1bf85ee1cbcc2
+
 
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Products</a>
