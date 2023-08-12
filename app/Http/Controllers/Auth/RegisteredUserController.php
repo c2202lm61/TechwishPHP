@@ -46,6 +46,10 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $WishlistID = Wishlist::insertGetId([
+            'UserID' => $userID,
+        ]);
+        $user = User::find($userID);
         
 
         event(new Registered($user));

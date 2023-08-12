@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\FeedBack;
+use Illuminate\Support\Facades\Auth;
 
 class FeedBackController extends Controller
 {
@@ -17,13 +18,15 @@ class FeedBackController extends Controller
             return view('ContactUs');
         } elseif ($request->isMethod('post')) {
 
-            return "This is a POST request.";
+            $request -> validate(['content'=>'required']);
+            $feedback = new FeedBack;
+            $feedback->FeedbackContent = $request->content;
+            $feedback->UserID = Auth::user()->UserID;
+            $feedback->save();
+            return view('ContactUs');
         }
-        $feedback = new FeedBack;
-        $feedback->FeedbackContent = $request->FeedbackContent;
-        $feedback->UserID = session('UserID');
-        $feedback->save();
-        return  redirect()->route('feedback.get');
+       
+        
 
     }
     public function edit(Request $request){

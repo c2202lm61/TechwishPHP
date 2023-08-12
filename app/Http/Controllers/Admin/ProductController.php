@@ -10,6 +10,11 @@ use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\PlantCategory;
+use Illuminate\Support\Facades\Auth;
+use App\Models\ProductOrder;
+use App\Models\Delivery;
+use App\Models\Payment;
+use App\Models\Order;
 class ProductController extends Controller
 {
     public function index(){
@@ -40,6 +45,12 @@ class ProductController extends Controller
             $categories = Category::all();
             return view('Admin.Create.CreateProduct',compact('categories'));
         } else if ($request->isMethod('post')) {
+            $request->validate(['name'=>'required']);
+            $request->validate(['species'=>'required']);
+            $request->validate(['price'=>'required']);
+            $request->validate(['quantity'=>'required']);
+            $request->validate(['discount'=>'required']);
+            $request->validate(['description'=>'required']);
 
             $productID = Product::insertGetId([
                 'Name' => $request->name,
@@ -160,9 +171,9 @@ class ProductController extends Controller
     ->where('plant_categories.Product_ID', $id)
     ->pluck('categories.CategoryName', 'categories.CategoryID')
     ->toArray()) ;
-    
-        
-        
+
+
+
         return View('ProductDetail',compact('product'));
     }
     public function search(Request $request){
@@ -172,12 +183,9 @@ class ProductController extends Controller
         ->where('products.Name','like',$request->ProductName .'%' )
         ->select('products.*')
         ->get();
-            
+
         return view('product',compact('products','categories'));
     
         
-    
     }
- 
-    
 }

@@ -44,7 +44,12 @@
 
 
                             <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Products</a>
+                                <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Shop</a>
+                            </li>
+
+                            <li class="nav-item navbarlink">
+                                <a class="nav-link navbarlink nav-link-font"
+                                    href="{{ route('whishlist') }}">Whishlist</a>
                             </li>
 
 

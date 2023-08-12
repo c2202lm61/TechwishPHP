@@ -11,6 +11,7 @@ use App\Http\Controllers\CartControllerBeta;
 use App\Http\Controllers\WithlistProductController;
 use App\Http\Controllers\Admin\ReviewController;
 
+Route::post('review', [ReviewController::class, 'insert']);
 Route::get('send-mail', [MailController::class, 'index']);
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +62,6 @@ Route::get('/dashboard', [DashBoardController::class, 'index'])->middleware(['au
 
 
 //----------------------------review--------------------------------------
-Route::get('/review', [ReviewController::class, 'insert']);
 Route::post('/review', [ReviewController::class, 'insert']);
 
 Route::get('/whislist', [WithlistProductController::class, 'show'])->name('whislist');
@@ -85,9 +85,9 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/ordermanagement', function(){
+Route::get('ordermanagement', function(){
     return view('Admin/OrderManagement');
-})->name('/ordermanagement');
+})->name('ordermanagement');
 
 
 
@@ -97,19 +97,25 @@ Route::get('/ordermanagement', function(){
 
 
 
-Route::get('/cart', [CartController::class,'cart'])->name('cart');
+Route::get('cart', [CartController::class,'cart'])->name('cart');
 
 // Route::get('cartt', [CartController::class,'cartt']);
 
-Route::get('/add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
+Route::get('add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
 
-Route::patch('/update-cart', [CartController::class,'update']);
+Route::patch('update-cart', [CartController::class,'update']);
 
-Route::delete('/remove-from-cart', [CartController::class,'remove']);
+Route::delete('remove-from-cart', [CartController::class,'remove']);
+
+Route::get('ProductDetail', function(){
+    return view('ProductDetail');
+})->name('ProductDetail');
 
 
 
 
-Route::get('/Checkout', function(){
+Route::get('Checkout', function(){
     return view('Checkout');
 })->name('checkout');
+
+Route::get('whishlist', function(){return view('whishlist');})->name('whishlist');

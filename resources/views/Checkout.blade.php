@@ -30,16 +30,8 @@
                                 Acer: Desktop, Notebook, Tablet and Monitors for a complete gaming experience.</p>
                         </div>
                         <div class="product-price price card-text text-center p-3 text-success">1262.00</div>
-                        <div class="input-group mb-3">
-                            <label class="input-group-text col-2" for="inputGroupSelect01">Options</label>
-                            <select class="form-select w-25" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="product-quantity text-center px-3 py-4">
+
+                        <div class="product-quantity text-center py-4">
                             <input type="number" value="2" min="1">
                         </div>
                         <div class="product-removal text-center p-3">
@@ -75,23 +67,44 @@
 
                 </div>
                 <div class="col-12">
-                    <form action="" enctype="multipart/form-data" method="">
-                        <input class="form-control my-2" type="email" placeholder="Email"
+                    <form action="/CheckIn"  method="post">
+                        @csrf
+
+                        <input class="form-control my-2" type="date" placeholder="Order Date"
+                            aria-label="default input example" name="OrderDate">
+                        <input class="form-control  my-2" type="number" placeholder="Total"
+                            aria-label="default input example" name="total">
+                            <input type="hidden" name="StatusBill" value="accept">
+                        <input class="form-control  my-2" type="text" placeholder="Status Delivery" value="done"
                             aria-label="default input example">
-                        <input class="form-control my-2" type="text" placeholder="Name"
-                            aria-label="default input example">
-                        <input class="form-control  my-2" type="text" placeholder="Phone Number"
-                            aria-label="default input example">
-                        <input class="form-control  my-2" type="text" placeholder="Address"
-                            aria-label="default input example">
-                        <button type="submit" class="checkout button-63 mb-3">Checkout</button><br>
+
+                        <select class="form-select w-25 my-3" id="inputGroupSelect01" name="DeliveryID">
+                           
+                            @foreach($deliveries as $delivery)
+
+                                  <option value="{{$delivery->Name}}">{{$delivery->Name}}</option>
+                            @endforeach
+
+                        </select>
+
+
+                        <select class="form-select w-25" id="inputGroupSelect01" name="PaymentID">
+
+                            @foreach($payments as $payment)
+                            <option value="{{$payment->PaymentID}}">{{$payment->PaymentName}}</option>
+                            @endforeach
+                        </select>
+                        <!-- <button type="submit" class="checkout button-63 mb-3">Checkout</button>-->
+                        <input type="submit" class="checkout button-63 mb-3">
+                        <br>
+                        </form>
                 </div>
 
 
 
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
                 <script src="function.js"></script>
-            </form>
+
             <br>
         </div>
     </div>
