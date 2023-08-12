@@ -20,11 +20,14 @@
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('contactus') }}">Contact
                                     Us</a>
                             </li>
+                            <!-- code cart -->
+                            @if(session('cart'))
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your cart<span
                                         class="badge bg-light ms-2
-                                         text-dark">1</span></a>
+                                         text-dark">{{ count(session('cart')) }}</span></a>
                             </li>
+                            @endif
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Products</a>
                             </li>

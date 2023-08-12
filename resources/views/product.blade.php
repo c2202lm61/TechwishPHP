@@ -77,7 +77,7 @@
                                     <div class="color text-dark">
                                         {{ $product->Description }}
                                     </div>
-                                    <a href="#" class="mt-2 btn btn-success" role="btn">Buy Now</a>
+                                    <a href="{{ url('add-to-cart/'.$product->id) }}" class="mt-2 btn btn-success" role="btn">Buy Now</a>
 
                                 </div>
                             </div>

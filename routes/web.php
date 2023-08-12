@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FeedBackController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\CartController;
 
 Route::get('send-mail', [MailController::class, 'index']);
 /*
@@ -18,9 +19,9 @@ Route::get('send-mail', [MailController::class, 'index']);
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/showcart',[CartController::class,'showCart']);
-Route::get('/addtocart',[CartController::class,'addToCart']);
-Route::get('/removecart',[CartController::class,'removeCart']);
+// Route::get('/showcart',[CartController::class,'showCart']);
+// Route::get('/addtocart',[CartController::class,'addToCart']);
+// Route::get('/removecart',[CartController::class,'removeCart']);
 
 
 
@@ -69,3 +70,22 @@ require __DIR__.'/auth.php';
 Route::get('ordermanagement', function(){
     return view('Admin/OrderManagement');
 })->name('ordermanagement');
+
+
+
+Route::get('cart', function(){
+    return view('cart');
+})->name('cart');
+
+Route::get('ProductDetail', function(){
+    return view('ProductDetail');
+})->name('ProductDetail');
+
+
+Route::get('ContactUs', function(){
+    return view('ContactUs');
+})->name('contactus');
+
+Route::get('Checkout', function(){
+    return view('Checkout');
+})->name('checkout');

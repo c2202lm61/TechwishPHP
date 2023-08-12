@@ -15,34 +15,37 @@
                         <label class="product-removal text-center">Remove</label>
                         <label class="product-line-price text-center">Total</label>
                     </div>
-
+                    <?php $total = 0 ?>
+                    @if(session('cart'))
+            @foreach(session('cart') as $id => $details)
+            <?php $total += $details['price'] * $details['quantity'] ?>
                     <div class="product">
                         <div class="product-image text-center p-3">
                             <img src="https://webdevtrick.com/wp-content/uploads/predator.jpg" class=" img-thumbnail">
                         </div>
                         <div class="product-details">
                             <div class="product-title card-text text-success bold text-center ">Asus Predator</div>
-                            <p class="product-description card-text text-center ">Predator is the new product series
-                                dedicated to PC
-                                Gaming
-                                from
-                                Acer: Desktop, Notebook, Tablet and Monitors for a complete gaming experience.</p>
+                            <p class="product-description card-text text-center ">
+                            {{ $details['name'] }}
+                            </p>
                         </div>
-                        <div class="product-price price card-text text-center p-3 text-success">1262.00</div>
+                        <div class="product-price price card-text text-center p-3 text-success">${{ $details['price'] }}</div>
                         <div class="product-quantity text-center px-3 py-4">
-                            <input type="number" value="2" min="1">
+                            <input type="number" value="{{ $details['quantity'] }}" min="1">
                         </div>
                         <div class="product-removal text-center p-3">
-                            <button class="remove-product button-62">
+                            <button class="remove-product button-62" data-id="{{ $id }}">
                                 Remove
                             </button>
                         </div>
-                        <div class="product-line-price price card-text text-center p-3 text-success ">2524.00</div>
+                        <div class="product-line-price price card-text text-center p-3 text-success ">${{ $details['price'] * $details['quantity'] }}</div>
                     </div>
+                    @endforeach
+        @endif
                     {{-- --------------------------------------------------------------------------------------------------------------------- --}}
 
                     {{-- --------------------------------------------------------------------------------------------------------------------- --}}
-                    <div class="totals">
+                    <!-- <div class="totals">
                         <div class="totals-item">
                             <label>Subtotal</label>
                             <div class="totals-value  text-success card-text" id="cart-subtotal">3696.99</div>
@@ -54,7 +57,7 @@
                         <div class="totals-item">
                             <label>Shipping</label>
                             <div class="totals-value  text-success card-text" id="cart-shipping">15.00</div>
-                        </div>
+                        </div> -->
                         <div class="totals-item totals-item-total">
                             <label>Grand Total</label>
                             <div class="totals-value  text-success card-text" id="cart-total ">4079.16</div>
