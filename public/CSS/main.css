@@ -238,6 +238,7 @@
 color:#0e5145;
 font-size: 2rem;}
 
+.lobster-font{font-family: 'Lobster Two', cursive;}
 
 .bg-filter{background-color: rgba(255, 255, 255, 0.677) !important;}
 
@@ -369,7 +370,8 @@ font-size: 2rem;}
 
 .footer-1{bottom: 0%;
 top: 100%;}
-.price{font-size: 2rem;}
+.price{font-size: 2rem;
+font-family: "Lobster Two", cursive;}
 
 
 .button-63 {
@@ -408,4 +410,5 @@ right: 10%;}
 .text-blue{color: #04B2D9;}
 
 .bg-whitelight {background-color: #f0f0f0c1;}
-.text-stylish-big{}
+.border-table{ border: 1px solid #04B2D9;}
+.br-6px{border-radius: 6px;}

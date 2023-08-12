@@ -19,11 +19,14 @@ class Product extends Model
         'Discount',
         'Description'
     ];
-    public function images()
+    public function image()
     {
-        return $this->hasMany(Image::class, 'Product_ID');
+        return $this->hasOne(Image::class, 'Product_ID')->select(['Product_ID', 'ImageLink']);
     }
-
+    public function images()
+        {
+            return $this->hasMany(Image::class, 'Product_ID')->select(['Product_ID', 'ImageLink']);
+        }
     public function plantCategories()
     {
         return $this->hasMany(PlantCategory::class, 'Product_ID');
