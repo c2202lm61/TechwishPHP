@@ -48,7 +48,7 @@
 
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font"
-                                    href="{{ route('whishlist') }}">Whishlist</a>
+                                    href="/wishlist">Whishlist</a>
                             </li>
 
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartControllerBeta;
 
 use  App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\WishlistController;
 
 Route::post('review', [ReviewController::class, 'insert']);
 Route::get('send-mail', [MailController::class, 'index']);
@@ -23,6 +24,11 @@ Route::get('send-mail', [MailController::class, 'index']);
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Wishlist
+
+Route::get('/wishlist', [WishlistController::class,'show']);
+Route::get('/heart/{id}', [WishlistController::class, 'changeFavorite']);
+
 //cart console
 Route::get('/show',[CartControllerBeta::class,'showCart']);
 Route::get('/add/{id}/{quantity}',[CartControllerBeta::class,'addToCart']);
@@ -109,7 +115,6 @@ Route::middleware('checkadmin')->group(function () {});
 Route::get('Checkout',[ProductController::class,'CheckOut']);
 Route::post('/CheckIn',[ProductController::class,'CheckIn'])->name('CheckIn');
 
-Route::get('whishlist', function(){return view('whishlist');})->name('whishlist');
 
 Route::get('/aaaa',[ProductController::class,'orderPlace']);
 

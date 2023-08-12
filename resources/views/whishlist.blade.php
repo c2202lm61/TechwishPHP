@@ -14,6 +14,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($products as $product)
+                           <div>fghjk</div>
+                        @endforeach
                         <tr>
                             <td scope="col" class="text-center card-text">cay viet quat</td>
                             <td scope="col" class="text-center "><img src="/img/5.jpg" alt="" height="60px"
