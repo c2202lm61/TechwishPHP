@@ -43,6 +43,16 @@
 
     <!-- Site footer -->
     @include('footer')
+    @yield('scripts')
+    <script>
+
+
+$("a").click(function () {
+      $(".session").visibility(2);
+    });
+
+
+    </script>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
