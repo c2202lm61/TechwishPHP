@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                             <label>Your message</label>
-                            <textarea class="form-control" rows="10"></textarea>
+                            <textarea name="Comment" class="form-control" rows="10"></textarea>
 
                             <input type="text" name="Product_ID" class="d-none" placeholder=""
                                 value="{{ $product->Product_ID }}">

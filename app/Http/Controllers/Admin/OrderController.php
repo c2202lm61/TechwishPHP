@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Payment;
+use App\Models\User;
 use Carbon\Carbon;
 
 class OrderController extends Controller
@@ -15,7 +18,10 @@ class OrderController extends Controller
     }
     public function insert(Request $request){
         if ($request->isMethod('get')) {
-            return view('Admin.Create/CreateOrder');
+            $users = User::all();
+            $deliveries = Delivery::all();
+            $payments = Payment::all();
+            return view('Admin.Create/CreateOrder',['users'=>$users,'deliveries'=>$deliveries,'payments'=>$payments]);
         } elseif ($request->isMethod('post')) {
 
             return "This is a POST request.";
