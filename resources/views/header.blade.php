@@ -24,24 +24,32 @@
 
 
 
-                                <li class="nav-item navbarlink">
-                                    <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
-                                        cart
-                                        @if (session('cart')) <span class="badge bg-light ms-2
+                            <li class="nav-item navbarlink">
+                                <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
+                                    cart
+                                    @if (session('cart'))
+                                        <span
+                                            class="badge bg-light ms-2
                                          text-dark">
                                             {{ count(session('cart')) }}</span>
-                                            @else
-                                            <span class="badge bg-light ms-2
+                                    @else
+                                        <span
+                                            class="badge bg-light ms-2
                                          text-dark">
                                             0</span>
-                                            @endif
-                                    </a>
-                                </li>
+                                    @endif
+                                </a>
+                            </li>
 
 
 
                             <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Products</a>
+                                <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Shop</a>
+                            </li>
+
+                            <li class="nav-item navbarlink">
+                                <a class="nav-link navbarlink nav-link-font"
+                                    href="{{ route('whishlist') }}">Whishlist</a>
                             </li>
 
 

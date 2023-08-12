@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    {{-- <div class="container-fluid">
+    <div class="container-fluid">
         <div class="container">
             <div class="bg-whitelight br-6px my-4">
                 <table class="table">
@@ -31,5 +31,5 @@
             </div>
 
         </div>
-    </div> --}}
+    </div>
 @endsection

@@ -11,7 +11,7 @@
                         <label class="product-image text-center">Image</label>
                         <label class="product-details text-center">Product</label>
                         <label class="product-price text-center">Price</label>
-                        <label for="" class="product-price text-center">Delivery</label>
+
                         <label class="product-quantity text-center">Quantity</label>
                         <label class="product-removal text-center">Remove</label>
                         <label class="product-line-price text-center">Total</label>
@@ -30,16 +30,8 @@
                                 Acer: Desktop, Notebook, Tablet and Monitors for a complete gaming experience.</p>
                         </div>
                         <div class="product-price price card-text text-center p-3 text-success">1262.00</div>
-                        <div class="input-group mb-3">
-                            <label class="input-group-text col-2" for="inputGroupSelect01">Options</label>
-                            <select class="form-select w-25" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="product-quantity text-center px-3 py-4">
+
+                        <div class="product-quantity text-center py-4">
                             <input type="number" value="2" min="1">
                         </div>
                         <div class="product-removal text-center p-3">
@@ -84,6 +76,21 @@
                             aria-label="default input example">
                         <input class="form-control  my-2" type="text" placeholder="Address"
                             aria-label="default input example">
+
+                        <select class="form-select w-25 my-3" id="inputGroupSelect01">
+                            <option selected>Delivery</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+
+
+                        <select class="form-select w-25" id="inputGroupSelect01">
+                            <option selected>Payment</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
                         <button type="submit" class="checkout button-63 mb-3">Checkout</button><br>
                 </div>
 
