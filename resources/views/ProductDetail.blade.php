@@ -68,7 +68,7 @@
                     <div id="slider" class="owl-carousel product-slider mb-3 object-fit-cover">
                         @foreach ($product->images as $image)
                             <div class="item">
-                                <img src="{{ asset('storage/' . $image) }}" height="560px" class="w-100" />
+                                <img src="{{ asset('storage/' . $image->ImageLink) }}" height="560px" class="w-100" />
 
 
 
@@ -79,7 +79,7 @@
                     <div id="thumb" class="owl-carousel product-thumb ">
                         @foreach ($product->images as $image)
                             <div class="item px-3 object-fit-cover br06">
-                                <img src="{{ asset('storage/' . $image) }}" class="" />
+                                <img src="{{ asset('storage/' . $image->ImageLink) }}" class="" />
 
 
 
