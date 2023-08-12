@@ -55,7 +55,7 @@
                                     Aptech
                                     C5 Thuy Loi</span></span>
                     </div>
-                    <div class="d-flex col-md-6 col-sm-12 bg-warning-light p-3 ">
+                    <div class="d-flex col-md-6 col-sm-12 bg-whitelight p-3 ">
                         <div class="mapouter">
                             <div class="gmap_canvas"><iframe width="500" height="500" id="gmap_canvas"
                                     src="https://maps.google.com/maps?q=Hoang%20Mai&t=&z=13&ie=UTF8&iwloc=&output=embed"

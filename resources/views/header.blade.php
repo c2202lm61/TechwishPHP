@@ -21,16 +21,19 @@
                                     Us</a>
                             </li>
                             <!-- code cart -->
-                            
-                                <li class="nav-item navbarlink">
-                                    <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
-                                        cart
-                                        @if (session('cart')) <span class="badge bg-light ms-2
+
+                            <li class="nav-item navbarlink">
+                                <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
+                                    cart
+                                    @if (session('cart'))
+                                        <span
+                                            class="badge bg-light ms-2
                                          text-dark">
-                                            {{ count(session('cart')) }}</span> @endif
-                                    </a>
-                                </li>
-                           
+                                            {{ count(session('cart')) }}</span>
+                                    @endif
+                                </a>
+                            </li>
+
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Products</a>
                             </li>
