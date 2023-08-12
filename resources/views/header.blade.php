@@ -23,6 +23,7 @@
                             <!-- code cart -->
 
 
+
                                 <li class="nav-item navbarlink">
                                     <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
                                         cart
@@ -36,6 +37,7 @@
                                             @endif
                                     </a>
                                 </li>
+
 
 
                             <li class="nav-item navbarlink">
