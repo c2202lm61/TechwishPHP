@@ -54,6 +54,7 @@ Route::middleware('checkadmin')->group(function () {
     Route::get('/insert/review',[ReviewController::class,'insert']);
     Route::get('/update/review',[ReviewController::class,'update']);
     Route::get('/delete/review',[ReviewController::class,'delete']);
+    Route::delete('/delete/review',[ReviewController::class,'delete']);
     Route::get('/show/review',[ReviewController::class,'show']);
 
     Route::get('/addproduct',[ProductController::class,'create'])->name('addproduct');
