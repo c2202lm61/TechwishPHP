@@ -21,9 +21,9 @@
                                     width="60px"></td>
                             <td scope="col" class="text-center lobster-font">{{ $product->Description }}</td>
                             <td scope="col" class="text-center price text-success">${{ $product->Price }}</td>
-                            <td scope="col" class="text-center"><span class="mx-1"><button
-                                        class="button-62">Delete</button></span>
-                                <span class="mx-1"><button class="button-63">Add to cart</button></span>
+                            <td scope="col" class="text-center"><span class="mx-1"><a href="/wishlist/delete/{{ $product->Product_ID }}"
+                                        class="button-62">Delete</a></span>
+                                <span class="mx-1"><a href="/add/{{ $product->Product_ID }}/1" class="button-63">Add to cart</a></span>
                             </td>
                         </tr>
                         @endforeach
