@@ -46,7 +46,13 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+<<<<<<< HEAD
         
+=======
+
+        $user = User::find($userID);
+
+>>>>>>> 824b59c43afde2fdde76b6893713526e7cb8850e
 
         event(new Registered($user));
 

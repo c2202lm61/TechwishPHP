@@ -8,9 +8,12 @@ use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartControllerBeta;
-use App\Http\Controllers\WithlistProductController;
+// use App\Http\Controllers\WithlistProductController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\OrderController;
+
+use  App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\WishlistController;
 
 Route::post('review', [ReviewController::class, 'insert']);
 Route::get('send-mail', [MailController::class, 'index']);
@@ -24,11 +27,18 @@ Route::get('send-mail', [MailController::class, 'index']);
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Wishlist
+
+Route::get('/wishlist', [WishlistController::class,'show']);
+Route::get('/wishlist/update/{id}', [WishlistController::class, 'changeFavorite']);
+Route::get('/wishlist/delete/{id}', [WishlistController::class, 'delete']);
+
+
 //cart console
 Route::get('/show',[CartControllerBeta::class,'showCart']);
-Route::get('/add',[CartControllerBeta::class,'addToCart']);
-Route::get('/update',[CartControllerBeta::class,'updateToCart']);
-Route::get('/delete',[CartControllerBeta::class,'deleteToCart']);
+Route::get('/add/{id}/{quantity}',[CartControllerBeta::class,'addToCart']);
+Route::get('/update/{id}/{quantity}',[CartControllerBeta::class,'updateToCart']);
+Route::get('/delete/{id}',[CartControllerBeta::class,'deleteToCart']);
 Route::get('/deleteall',[CartControllerBeta::class,'deleteAllCart']);
 
 Route::post('/submit', [OrderController::class, 'submit']);
@@ -85,11 +95,14 @@ require __DIR__.'/auth.php';
 // })->name('user_management');
 
 
+Route::middleware('checkadmin')->group(function () {});
+    Route::get('ordermanagement', function(){
+        return view('Admin/OrderManagement');
+    })->name('ordermanagement');
 
 Route::get('ordermanagement', function(){
     return view('Admin/OrderManagement');
 })->name('ordermanagement');
-
 
 
 // Route::get('cart', function(){
@@ -122,4 +135,11 @@ Route::get('ProductDetail', function(){
 
 Route::post('/checkout',[OrderController::class, 'show'] )->name('checkout');
 
-Route::get('whishlist', function(){return view('whishlist');})->name('whishlist');
+// Route::get('Checkout', function(){
+//     return view('Checkout');
+// })->name('checkout');
+Route::get('Checkout',[ProductController::class,'CheckOut']);
+Route::post('/CheckIn',[ProductController::class,'CheckIn'])->name('CheckIn');
+
+
+Route::get('/aaaa',[ProductController::class,'orderPlace']);

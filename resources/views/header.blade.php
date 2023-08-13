@@ -35,6 +35,8 @@
                                     @endif  --}}
                                     <span
                                         class="badge bg-light ms-2 text-dark">{{ count(Session::get('Cart', [])) }}</span>
+                                    <span
+                                        class="badge bg-light ms-2 text-dark">{{ count(Session::get('Cart', [])) }}</span>
                                 </a>
                             </li>
                             <li class="nav-item navbarlink">
@@ -42,6 +44,7 @@
                             </li>
 
                             <li class="nav-item navbarlink">
+                                <a class="nav-link navbarlink nav-link-font" href="/wishlist">Whishlist</a>
                                 <a class="nav-link navbarlink nav-link-font" href="/wishlist">Whishlist</a>
                             </li>
                         </ul>

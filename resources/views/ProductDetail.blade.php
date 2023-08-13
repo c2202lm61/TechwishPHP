@@ -139,7 +139,7 @@
                                     min="1" />
                                 <div class="qtyplus">+</div>
                             </form>
-                            <a href="/add-to-cart/{{ $product->Product_ID }}"> <button class="button-63 mt-4">Add to
+                            <a href="/add/{{ $product->Product_ID }}/1"> <button class="button-63 mt-4">Add to
                                     Cart</button></a>
 
                         </div>

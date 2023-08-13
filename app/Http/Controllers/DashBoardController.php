@@ -11,7 +11,7 @@ class DashBoardController extends Controller
 {
 
     public function index(Request $request){
-        
+
         $products = Product::all();
         foreach($products as $product){
             $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
@@ -19,4 +19,8 @@ class DashBoardController extends Controller
         return view('dashboard',compact('products'));
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 824b59c43afde2fdde76b6893713526e7cb8850e

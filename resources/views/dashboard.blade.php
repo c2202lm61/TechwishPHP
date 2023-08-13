@@ -49,12 +49,17 @@
                 <div class="col-sm-12 col-md-4 col-lg-4 mb-4 me-0">
                     <div class="card border-card position-relative">
                         <div class="position-absolute whishlist z-3">
+<<<<<<< HEAD
                             @if ($product->WishlistID == null)
                                 <a href="/whislist/insert/{{ $product->Product_ID }}"><button class="button-62"><i
                                             class="fa-solid fa-heart" style="color: #ffffff;"></i></button></a>
                             @endif
                             <button class="button-62" value="{{ $product->Product_ID }}" onclick="tym(this)"><i
                                     class="fa-solid fa-heart" style="color: #ffffff;"></i></button>
+=======
+                            <button class="button-62" value="{{ $product->Product_ID }}" onclick="tym(this)"><i class="fa-solid fa-heart"
+                                        style="color: #ffffff;"></i></button>
+>>>>>>> 824b59c43afde2fdde76b6893713526e7cb8850e
                         </div>
                         <div class="imgBx">
                             <a href="/product/{{ $product->Product_ID }}"><img
@@ -69,8 +74,13 @@
                             <div class="color text-dark">
                                 {{ $product->Description }}
                             </div>
+<<<<<<< HEAD
                             <a href="/add/{{ $product->Product_ID }}/1" class="mt-2 btn btn-success" role="button">Buy
                                 Now</a>
+=======
+                            <a href="/add/{{ $product->Product_ID }}/1" class="mt-2 btn btn-success"
+                                role="button">Buy Now</a>
+>>>>>>> 824b59c43afde2fdde76b6893713526e7cb8850e
 
                         </div>
                     </div>
@@ -79,11 +89,21 @@
 
         </div>
     </div>
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="text/javascript">
         function tym(obj) {
             $.ajax({
                 url: "http://127.0.0.1:8000/wishlist/update/" + obj.value,
+=======
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js">
+
+    </script>
+    <script type="text/javascript">
+        function  tym(obj){
+            $.ajax({
+                url: "http://127.0.0.1:8000/wishlist/update/"+obj.value,
+>>>>>>> 824b59c43afde2fdde76b6893713526e7cb8850e
                 type: "GET",
                 dataType: "json",
                 success: function(response) {
@@ -98,5 +118,9 @@
                 }
             });
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 824b59c43afde2fdde76b6893713526e7cb8850e
     </script>
 @endsection
