@@ -19,14 +19,13 @@ procedures.
 1. Terminal  
 <code>"git clone https://github.com/c2202lm61/TechwishPHP.git "</code>
 <code>composer install</code><br>
-
+![Screenshot from 2023-08-13 15-16-17.png](images%2FScreenshot%20from%202023-08-13%2015-16-17.png)
 2. Config  
    To setup your .env, kindly duplicate your .env.example file and rename the duplicated file to .env
-![Screenshot from 2023-08-13 15-16-17.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%20from%202023-08-13%2015-16-17.png)
+
 3. Migration  
  <code> php artisan migrate </code>  
  <code> php artisan key:generate</code>  
  <code>php  artisan serve</code>
 4. Video demo
- link:
-[Screencast from 2023-08-13 09-22-20.webm](..%2F..%2FVideos%2FScreencasts%2FScreencast%20from%202023-08-13%2009-22-20.webm)
+ link: http://www.
