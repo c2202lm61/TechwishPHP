@@ -70,7 +70,7 @@
 
                 </div>
 
-                <button class="checkout button-63">Checkout</button>
+                <a  href="/checkout" class="checkout button-63">Checkout</a>
                 <br>
 
         </div>

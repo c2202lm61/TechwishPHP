@@ -2,8 +2,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="container p-4 my-4">
-            <form action="" enctype="multipart/form-data" method="">
-
+            <form action="/checkin" enctype="multipart/form-data" method="post">
+                @csrf
 
                 <div class="shopping-cart py-5">
 
@@ -17,49 +17,47 @@
                         <label class="product-line-price text-center">Total</label>
                     </div>
 
+                    @foreach ($carts as $cart)
                     <div class="product">
                         <div class="product-image text-center p-3">
                             <img src="https://webdevtrick.com/wp-content/uploads/predator.jpg" class=" img-thumbnail">
                         </div>
                         <div class="product-details">
-                            <div class="product-title card-text text-success bold text-center ">Asus Predator</div>
-                            <p class="product-description text-center ">Predator is the new product series
-                                dedicated to PC
-                                Gaming
-                                from
-                                Acer: Desktop, Notebook, Tablet and Monitors for a complete gaming experience.</p>
+                            <div class="product-title card-text text-success bold text-center ">{{ $cart['name'] }}</div>
+                            <p class="product-description text-center ">{{ $cart['description'] }}</p>
                         </div>
-                        <div class="product-price price card-text text-center p-3 text-success">1262.00</div>
+                        <div class="product-price price card-text text-center p-3 text-success">{{ $cart['price'] }}</div>
 
                         <div class="product-quantity text-center py-4">
-                            <input type="number" value="2" min="1">
+                            <input type="number" value="{{ $cart['quantity'] }}" min="1">
                         </div>
                         <div class="product-removal text-center p-3">
                             <button class="remove-product button-62">
                                 Remove
                             </button>
                         </div>
-                        <div class="product-line-price price card-text text-center p-3 text-success ">2524.00</div>
+                        <div class="product-line-price price card-text text-center p-3 text-success ">{{ $cart['price']*$cart['quantity'] }}</div>
                     </div>
+                    @endforeach
                     {{-- --------------------------------------------------------------------------------------------------------------------- --}}
 
                     {{-- --------------------------------------------------------------------------------------------------------------------- --}}
                     <div class="totals">
                         <div class="totals-item">
                             <label>Subtotal</label>
-                            <div class="totals-value  text-success card-text" id="cart-subtotal">3696.99</div>
+                            <div class="totals-value  text-success card-text" id="cart-subtotal">{{ $total }}</div>
                         </div>
                         <div class="totals-item">
                             <label>Tax (5%)</label>
-                            <div class="totals-value  text-success card-text" id="cart-tax">3.60</div>
+                            <div class="totals-value  text-success card-text" id="cart-tax">{{ $tax }}</div>
                         </div>
                         <div class="totals-item">
                             <label>Shipping</label>
-                            <div class="totals-value  text-success card-text" id="cart-shipping">15.00</div>
+                            <div class="totals-value  text-success card-text" id="cart-shipping">{{ $ship }}</div>
                         </div>
                         <div class="totals-item totals-item-total">
                             <label>Grand Total</label>
-                            <div class="totals-value  text-success card-text" id="cart-total ">4079.16</div>
+                            <div class="totals-value  text-success card-text" id="cart-total ">{{ $grandTotal }}</div>
                         </div>
                     </div>
 
@@ -67,33 +65,25 @@
 
                 </div>
                 <div class="col-12">
-                    <form action="/CheckIn"  method="post">
                         @csrf
+                        <label for="">Delivery:</label>
+                        <select class="form-select w-25 my-3 form-control" id="inputGroupSelect01" name="delevery">
 
-                        <input class="form-control my-2" type="date" placeholder="Order Date"
-                            aria-label="default input example" name="OrderDate">
-                        <input class="form-control  my-2" type="number" placeholder="Total"
-                            aria-label="default input example" name="total">
-                            <input type="hidden" name="StatusBill" value="accept">
-                        <input class="form-control  my-2" type="text" placeholder="Status Delivery" value="done"
-                            aria-label="default input example">
-
-                        <select class="form-select w-25 my-3" id="inputGroupSelect01" name="DeliveryID">
-                           
                             @foreach($deliveries as $delivery)
 
-                                  <option value="{{$delivery->Name}}">{{$delivery->Name}}</option>
+                                  <option value="{{ $delivery->DeliveryID }}">{{$delivery->Name}}</option>
                             @endforeach
 
                         </select>
 
-
-                        <select class="form-select w-25" id="inputGroupSelect01" name="PaymentID">
+                        <label for="Payment:">Payment:</label>
+                        <select class="form-select w-25" id="inputGroupSelect01" name="payment">
 
                             @foreach($payments as $payment)
                             <option value="{{$payment->PaymentID}}">{{$payment->PaymentName}}</option>
                             @endforeach
                         </select>
+                        <input type="hidden" name="grandtotal" value="{{ $grandTotal }}">
                         <!-- <button type="submit" class="checkout button-63 mb-3">Checkout</button>-->
                         <input type="submit" class="checkout button-63 mb-3">
                         <br>

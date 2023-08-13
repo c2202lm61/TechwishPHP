@@ -28,7 +28,6 @@
                             Action
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" style="">
-                            <li><a class="dropdown-item text-success" href="/admin/update/payment/{{ $review->ReviewID }}">Edit</a></li>
                             <li>
                                 <form action="/admin/delete/review" method="post" class="mb-0">
                                     @csrf

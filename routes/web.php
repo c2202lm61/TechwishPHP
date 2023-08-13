@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartControllerBeta;
 
 use  App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\WishlistController;
 
 Route::post('review', [ReviewController::class, 'insert']);
@@ -25,7 +26,8 @@ Route::get('send-mail', [MailController::class, 'index']);
 |
 */
 //Wishlist
-
+Route::post('checkin',[checkoutController::class,'checkin']);
+Route::get('checkout',[checkoutController::class,'checkout']);
 Route::get('/wishlist', [WishlistController::class,'show']);
 Route::get('/wishlist/update/{id}', [WishlistController::class, 'changeFavorite']);
 Route::get('/wishlist/delete/{id}', [WishlistController::class, 'delete']);

@@ -64,4 +64,12 @@ class CartControllerBeta extends Controller
         Session::forget('Cart');
         return redirect('/show');
     }
+    public function CartTotal(){
+        $cart = Session::get('Cart', []);
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        return $total;
+    }
 }
