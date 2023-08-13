@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class WithlistProductController extends Controller
 {
     public function show(){
-            $wishlists = Product::with('image')->join('wishlists', 'products.Product_ID', '=','wishlists.Product_ID')
+            $wishlists = Product::with('image')->leftJoin('wishlists', 'products.Product_ID', '=','wishlists.Product_ID')
             ->where('wishlists.UserID',Auth::user()->UserID)
             ->select('products.*','wishlists.WishlistID')
             ->get();

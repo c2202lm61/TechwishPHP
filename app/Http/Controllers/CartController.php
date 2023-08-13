@@ -41,6 +41,7 @@ class CartController extends Controller
     // this function is to show cart of product because we wanna show result of choose product by user in this page
     public function cart()
     {
+        // print_r(session('cart'));
         return view('cart');
     }
 

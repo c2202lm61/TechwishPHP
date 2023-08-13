@@ -33,6 +33,28 @@ class UserController extends Controller
             return "Insert thanh cong";
         }
     }
+    public function filter(Request $request){
+        $users = User::all();
+            
+    // Loại bỏ các bản ghi trùng lặp dựa trên Product_ID
+            if($request->search != null){
+               $users= $users->where('users.name','=','like', '%' . $request->search . '%');
+            }
+                
+            if($request->sort == 'A_Z'){
+                $users = $users->sortBy(function ($item) {
+                return $item->name;
+            });
+            }elseif($request->sort == 'Z_A'){
+                $users = $users->sortByDesc(function ($item) {
+                return $item->name;
+                });
+            }
+
+        
+        return view('Admin.UserManagement',compact('users'));
+
+    }
     public function update(Request $request){
         if ($request->isMethod('get')) {
             return view('Admin.Update.UpdateUser');

@@ -42,9 +42,33 @@
                             </label>
                         </div>
 
-                        <label for="customRange1" class="form-label">Example range</label>
-                        <input type="range" class="form-range" id="customRange1">
 
+                        <hr class="divider w-100">
+
+                        <div class="">
+                            <label class="form-check-label" for="Z_A">
+                                MIN-PRICE
+                            </label>
+                            <div class="input-group mb-3">
+
+                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">0.00</span>
+                                <input type="number" name="min_Price" class="form-control"
+                                    aria-label="Dollar amount (with dot and two decimal places)">
+                            </div>
+                            <label class="form-check-label" for="Z_A">
+                                MAX-PRICE
+                            </label>
+                            <div class="input-group">
+
+                                <input type="number" name="max_Price" class="form-control"
+                                    aria-label="Dollar amount (with dot and two decimal places)">
+                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">0.00</span>
+                            </div>
+
+
+                        </div>
                         <button id="applyFilter" class="btn bg-darkgreen text-whitecoffee mt-3">Apply</button>
                     </form>
 
@@ -71,8 +95,8 @@
                         <div class="col-sm-12 col-md-4 col-lg-4 mb-4 me-0">
                             <div class="card border-card position-relative">
                                 <div class="position-absolute whishlist z-3">
-                                    @if ($product->WishlistID == null)
-                                        <a href="/wishlistp/{{ $product->Product_ID }}"><button class="button-62"><i
+                                    @if ($product->UserID == null)
+                                        <a href="/whislist/insert/{{ $product->Product_ID }}"><button class="button-62"><i
                                                     class="fa-solid fa-heart" style="color: #ffffff;"></i></button></a>
                                     @endif
 

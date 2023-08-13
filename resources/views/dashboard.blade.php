@@ -50,7 +50,7 @@
                     <div class="card border-card position-relative">
                         <div class="position-absolute whishlist z-3">
                             @if ($product->WishlistID == null)
-                                <a href="/wishlistp/{{ $product->Product_ID }}"><button class="button-62"><i
+                                <a href="/whislist/insert/{{ $product->Product_ID }}"><button class="button-62"><i
                                             class="fa-solid fa-heart" style="color: #ffffff;"></i></button></a>
                             @endif
                         </div>

@@ -28,15 +28,47 @@ class ProductController extends Controller
         return view('product',compact('products','categories'));
 
     }
-    public function show(){
 
-        $products = Product::all();
-        foreach($products as $product){
-            $product['image'] = Image::where('Product_ID', $product->Product_ID)->first('ImageLink');
-        }
-        return view('Admin.ProductManagement',compact('products'));
+    
+    public function show(Request $request){
+
+        
+            $products = Product::with('image')->distinct('products.Product_ID')
+            ->get();
+        
+        return view('Admin/ProductManagement',compact('products'));
 
     }
+    public function filterAdmin(Request $request){
+            $products = Product::with('image')
+            ->get();
+    // Loại bỏ các bản ghi trùng lặp dựa trên Product_ID
+            if($request->search != ""){
+              $products = $products->where('products.Name','like', '%' . $request->search . '%');
+            }
+                
+            if($request->sort == 'A_Z'){
+                $products = $products->sortBy(function ($item) {
+                return $item->Name;
+            });
+            }elseif($request->sort == 'Z_A'){
+                $products = $products->sortByDesc(function ($item) {
+                return $item->Name;
+                });
+            }
+            if($request->min_Price != null){
+                $products = $products->where('products.Price','>=' ,$request->min_Price);
+            }
+            if($request->max_Price != null){
+                $products = $products->where('products.Price','<=' ,$request->max_Price);
+            }
+            
+        
+        return view('Admin/ProductManagement',compact('products'));
+
+    }
+    
+   
 
     public function insert(Request $request){
 
@@ -151,16 +183,22 @@ class ProductController extends Controller
         }
             
         if($request->sort == 'A_Z'){
-            $sortedProducts = $products->sortBy(function ($item) {
-            return $item->name;
+            $products = $products->sortBy(function ($item) {
+            return $item->Name;
         });
         }elseif($request->sort == 'Z_A'){
-            $sortedProducts = $products->sortByDesc(function ($item) {
-            return $item->name;
+            $products = $products->sortByDesc(function ($item) {
+            return $item->Name;
             });
         }
-        
+        if($request->min_Price != null){
+            $products = $products->where('products.Price','>=' ,$request->min_Price);
+        }
+        if($request->max_Price != null){
+            $products = $products->where('products.Price','<=' ,$request->max_Price);
+        }
         return view('product',compact('products','categories'));
+        
     }
 
 
@@ -180,7 +218,7 @@ class ProductController extends Controller
 
         $categories = Category::all();
         $products = Product::with('image')->join('plant_categories', 'products.Product_ID', '=', 'plant_categories.Product_ID')
-        ->where('products.Name','like',$request->ProductName .'%' )
+        ->where('products.Name','like', '%' . $request->search . '%' )
         ->select('products.*')
         ->get();
 

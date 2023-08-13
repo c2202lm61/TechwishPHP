@@ -19,6 +19,81 @@
                         </ul>
                     </div>
 
+                    <div class=" ">
+                        <div class="fixed-filter border-filter border-top-none p-4 bg-filter scroll-filter ">
+                            <form id="filterForm " action="{{ route('admin.filter.product') }}" method="post">
+                                <!-- ... (các checkbox và nút Apply) ... -->
+                                @csrf
+
+
+
+
+
+                                <div class="">
+                                    <label class="form-check-label">
+                                        SEARCH
+                                    </label>
+                                    <div class="input-group mb-3">
+
+                                        <input type="text" name="search" class="form-control">
+                                    </div>
+                                </div>
+                                <hr class="divider w-100">
+                                {{-- -------------------------------------------form---------------------- --}}
+
+
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort" value="A_Z"
+                                        id="A_Z">
+                                    <label class="form-check-label" for="A_Z">
+                                        A to Z
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort" value="Z_A"
+                                        id="Z_A">
+                                    <label class="form-check-label" for="Z_A">
+                                        Z to A
+                                    </label>
+                                </div>
+
+
+                                <hr class="divider w-100">
+
+                                <div class="">
+                                    <label class="form-check-label" for="Z_A">
+                                        MIN-PRICE
+                                    </label>
+                                    <div class="input-group mb-3">
+
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input type="number" name="min_Price" class="form-control"
+                                            aria-label="Dollar amount (with dot and two decimal places)">
+                                    </div>
+                                    <label class="form-check-label" for="Z_A">
+                                        MAX-PRICE
+                                    </label>
+                                    <div class="input-group">
+
+                                        <input type="number" name="max_Price" class="form-control"
+                                            aria-label="Dollar amount (with dot and two decimal places)">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                    </div>
+
+
+                                </div>
+                                <button id="applyFilter" class="btn bg-dark text-white mt-3">Apply</button>
+                            </form>
+
+                        </div>
+
+
+
+                    </div>
                     <div class="card-body pb-0">
                         <h5 class="card-title">Products List</h5>
 
@@ -81,7 +156,8 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                            <p><span class="text-success card-title">Total quantity : <span class="text-warning card-title">
+                            <p><span class="text-success card-title">Total quantity : <span
+                                        class="text-warning card-title">
                                         {{ $totalQuantity }}</span></span>
 
                             </p>

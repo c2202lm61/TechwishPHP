@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartControllerBeta;
 use App\Http\Controllers\WithlistProductController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\OrderController;
 
 Route::post('review', [ReviewController::class, 'insert']);
 Route::get('send-mail', [MailController::class, 'index']);
@@ -30,6 +31,7 @@ Route::get('/update',[CartControllerBeta::class,'updateToCart']);
 Route::get('/delete',[CartControllerBeta::class,'deleteToCart']);
 Route::get('/deleteall',[CartControllerBeta::class,'deleteAllCart']);
 
+Route::post('/submit', [OrderController::class, 'submit']);
 
 
 
@@ -45,7 +47,6 @@ Route::get('/product',[ProductController::class, 'index'])->name('product');
 Route::post('/product',[ProductController::class, 'filter'])->name('product');
 Route::get('/product/{id}',[ProductController::class, 'DetailIndex'])->name('product/detail');
 Route::post('/search',[ProductController::class,'search'])->name('search');
-
 
 // FeedBack -------------------------------------------------------
 
@@ -105,7 +106,12 @@ Route::get('add-to-cart/{Product_ID}', [CartController::class,'addToCart']);
 
 Route::patch('update-cart', [CartController::class,'update']);
 
-Route::delete('remove-from-cart', [CartController::class,'remove']);
+Route::get('/remove/cart', [CartController::class,'remove']);
+// Route::delete('remove-from-cart', [CartController::class,'remove']);
+// Route::get('remove-from-cart', function(){
+//     session()->forget('cart');
+// });
+
 
 Route::get('ProductDetail', function(){
     return view('ProductDetail');
@@ -114,8 +120,6 @@ Route::get('ProductDetail', function(){
 
 
 
-Route::get('Checkout', function(){
-    return view('Checkout');
-})->name('checkout');
+Route::post('/checkout',[OrderController::class, 'show'] )->name('checkout');
 
 Route::get('whishlist', function(){return view('whishlist');})->name('whishlist');

@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id('OrderID');
             $table->date('OrderDate');
-            $table->float('total');
+            $table->double('total');
             $table->enum('StatusBill', ['non_accept', 'accept']);
             $table->enum('StatusDilevery', ['prepare', 'process', 'done']);
-            $table->unsignedBigInteger('UserID');
+            $table->string('UserName');
+            $table->string('Email');
+            $table->string('phone');
+            $table->string('OrderLocation');
+            $table->unsignedBigInteger('UserID')->nullable();
             $table->unsignedBigInteger('DeliveryID');
             $table->unsignedBigInteger('PaymentID');
             $table->foreign('UserID')->references('UserID')->on('users');

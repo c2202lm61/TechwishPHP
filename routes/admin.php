@@ -31,11 +31,10 @@ Route::middleware('checkadmin')->group(function () {
     Route::delete('/delete/category',[CategoryController::class,'delete']);
     Route::get('/show/category',[CategoryController::class,'show']);
 
-    Route::get('/insert/order',[OrderController::class,'insert']);
-    Route::get('/insert/order',[OrderController::class,'insert']);
+    Route::post('/insert/order',[OrderController::class,'insert']);
     Route::get('/update/order',[OrderController::class,'update']);
     Route::get('/delete/order',[OrderController::class,'delete']);
-    Route::get('/show/order',[OrderController::class,'show']);
+    Route::get('/show/order',[OrderController::class,'showAdmin']);
 
     Route::get('/insert/delivery',[DeliveryController::class,'insert']);
     Route::post('/insert/delivery',[DeliveryController::class,'insert']);
@@ -56,12 +55,14 @@ Route::middleware('checkadmin')->group(function () {
     Route::get('/delete/review',[ReviewController::class,'delete']);
     Route::get('/show/review',[ReviewController::class,'show']);
 
+    // Route::post('/show/product',[ProductController::class,'filterAdmin']);
     Route::get('/addproduct',[ProductController::class,'create'])->name('addproduct');
     Route::get('/insert/product',[ProductController::class,'insert']);
     Route::post('/insert/product',[ProductController::class,'insert']);
     Route::get('/update/product/{id}',[ProductController::class,'update']);
     Route::patch('/update/product/{id}',[ProductController::class,'update']);
     Route::delete('/delete/product',[ProductController::class,'delete']);
+    Route::post('/filter/product',[ProductController::class,'filterAdmin'])->name('admin.filter.product');
     Route::get('/show/product',[ProductController::class,'show']);
 
     Route::get('/insert/feedback',[FeedBackController::class,'insert']);
@@ -74,6 +75,7 @@ Route::middleware('checkadmin')->group(function () {
     Route::get('/update/user',[UserController::class,'update']);
     Route::post('/delete/user',[UserController::class,'delete']);
     Route::get('/show/user',[UserController::class,'show']);
+    Route::post('/filter/user',[UserController::class,'filter'])->name('admin.filter.user');
 
     Route::get('/insert/role',[RoleController::class,'insert']);
     Route::get('/update/role',[RoleController::class,'update']);
