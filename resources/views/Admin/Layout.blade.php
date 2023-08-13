@@ -143,7 +143,55 @@
     <aside id="sidebar" class="sidebar">
 
         <ul class="sidebar-nav" id="sidebar-nav">
-
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"
+                    aria-expanded="false">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>INSERT</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+                    <li>
+                        <a href="/admin/insert/product">
+                            <i class="bi bi-circle"></i><span>INSERT PRODUCT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/user">
+                            <i class="bi bi-circle"></i><span>INSERT USER</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/category">
+                            <i class="bi bi-circle"></i><span>INSERT CATEGORY</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/order">
+                            <i class="bi bi-circle"></i><span>INSERT ORDER</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/feedback">
+                            <i class="bi bi-circle"></i><span>INSERT FEEDBACK</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/review">
+                            <i class="bi bi-circle"></i><span>INSERT REVIEW</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/payment">
+                            <i class="bi bi-circle"></i><span>INSERT PAYMENT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/insert/delivery">
+                            <i class="bi bi-circle"></i><span>INSERT DELIVERY</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item">
                 <a class="nav-link " href="/admin">
                     <i class="bi bi-grid"></i>
@@ -201,62 +249,11 @@
             </li><!-- End Register Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
+                <a class="nav-link collapsed" href="/admin/show/review">
                     <i class="bi bi-file-earmark"></i>
                     <span>REVIEW MANAGEMENT</span>
                 </a>
             </li><!-- End Blank Page Nav -->
-
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"
-                    aria-expanded="false">
-                    <i class="bi bi-layout-text-window-reverse"></i><span>INSERT</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
-                    <li>
-                        <a href="/admin/insert/product">
-                            <i class="bi bi-circle"></i><span>INSERT PRODUCT</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/insert/user">
-                            <i class="bi bi-circle"></i><span>INSERT USER</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/insert/category">
-                            <i class="bi bi-circle"></i><span>INSERT CATEGORY</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/insert/order">
-                            <i class="bi bi-circle"></i><span>INSERT ORDER</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/insert/feedback">
-                            <i class="bi bi-circle"></i><span>INSERT FEEDBACK</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/insert/review">
-                            <i class="bi bi-circle"></i><span>INSERT REVIEW</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/insert/payment">
-                            <i class="bi bi-circle"></i><span>INSERT PAYMENT</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/insert/delivery">
-                            <i class="bi bi-circle"></i><span>INSERT DELIVERY</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
 
 
         </ul>

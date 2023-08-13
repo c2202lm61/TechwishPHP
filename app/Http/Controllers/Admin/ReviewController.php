@@ -23,7 +23,7 @@ class ReviewController extends Controller
             $review->UserID = Auth::user()->UserID;
             $review->Product_ID = $request->Product_ID;
             $review->save();
-            return "insert thanh cong";
+            return redirect('/admin/show/review');
         }
     }
     public function edit(Request $request){
