@@ -27,9 +27,10 @@ as plant information, plant catalog, orders, and user profiles
    To setup your .env, kindly duplicate your .env.example file and rename the duplicated file to .env
    ![Screenshot from 2023-08-13 15-16-17.png](images%2FScreenshot%20from%202023-08-13%2015-16-17.png)
 
-3. Migration  
- <code> php artisan migrate </code>  
- <code> php artisan key:generate</code>  
- <code>php  artisan serve</code>
+3. Run app  
+    Go to 'path/to/TechwishPHP'  
+ Run: <code> php artisan migrate </code>  
+ Run: <code> php artisan key:generate</code>  
+ Run: <code>php  artisan serve</code>
 4. Video demo
  link: http://www.
