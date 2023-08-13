@@ -13,7 +13,7 @@
 A plant nursery Web application involves managing various types of data, such
 as plant information, plant catalog, orders, and user profiles
 ## Time
- From Time: 09-08-2023 to 13/08/2023  
+ From: 09-08-2023 to 13/08/2023  
  Member: 4
 1. Dinh Xuan Tung
 2. Ngo Quan Duong
