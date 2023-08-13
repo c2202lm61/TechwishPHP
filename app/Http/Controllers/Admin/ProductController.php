@@ -166,6 +166,7 @@ class ProductController extends Controller
             unlink($path);
         }
         DB::table('images')->where('Product_ID', '=', $request->id)->delete();
+        DB::table('plant_categories')->where('Product_ID',  '=', $request->id)->delete();
         $product = Product::find($request->id);
         $product->delete();
 
@@ -206,9 +207,9 @@ class ProductController extends Controller
 
         $product = Product::with('images')->find($id);
         $product['categories'] = (PlantCategory::join('categories', 'plant_categories.CategoryID', '=', 'categories.CategoryID')
-    ->where('plant_categories.Product_ID', $id)
-    ->pluck('categories.CategoryName', 'categories.CategoryID')
-    ->toArray()) ;
+        ->where('plant_categories.Product_ID', $id)
+        ->pluck('categories.CategoryName', 'categories.CategoryID')
+        ->toArray()) ;
 
 
 

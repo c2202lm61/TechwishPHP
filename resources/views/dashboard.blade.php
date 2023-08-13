@@ -53,6 +53,8 @@
                                 <a href="/whislist/insert/{{ $product->Product_ID }}"><button class="button-62"><i
                                             class="fa-solid fa-heart" style="color: #ffffff;"></i></button></a>
                             @endif
+                            <button class="button-62" value="{{ $product->Product_ID }}" onclick="tym(this)"><i
+                                    class="fa-solid fa-heart" style="color: #ffffff;"></i></button>
                         </div>
                         <div class="imgBx">
                             <a href="/product/{{ $product->Product_ID }}"><img
@@ -67,8 +69,8 @@
                             <div class="color text-dark">
                                 {{ $product->Description }}
                             </div>
-                            <a href="{{ url('add-to-cart/' . $product->Product_ID) }}" class="mt-2 btn btn-success"
-                                role="button">Buy Now</a>
+                            <a href="/add/{{ $product->Product_ID }}/1" class="mt-2 btn btn-success" role="button">Buy
+                                Now</a>
 
                         </div>
                     </div>
@@ -77,4 +79,24 @@
 
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript">
+        function tym(obj) {
+            $.ajax({
+                url: "http://127.0.0.1:8000/wishlist/update/" + obj.value,
+                type: "GET",
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                    } else {
+                        alert("An error occurred.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('call api error');
+                }
+            });
+        }
+    </script>
 @endsection

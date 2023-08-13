@@ -115,7 +115,7 @@
                                     <div class="color text-dark">
                                         {{ $product->Description }}
                                     </div>
-                                    <a href="add-to-cart/{{ $product->Product_ID }}" class="mt-2 btn btn-success"
+                                    <a href="/add/{{ $product->Product_ID }}/1" class="mt-2 btn btn-success"
                                         role="btn">Buy Now</a>
 
                                 </div>
@@ -130,17 +130,7 @@
         </div>
 
     </div>
-
-
-
-    <!-- ... (phần mã JavaScript còn lại) ... -->
-
     <script>
-        // ... (các tác vụ JavaScript khác)
-
-
-
-
         const resetFilterButton = document.getElementById('resetFilter');
 
         resetFilterButton.addEventListener('click', function() {

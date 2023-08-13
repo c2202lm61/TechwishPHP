@@ -14,18 +14,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($wishlists as $wishlist)
+                        @foreach ($products as $product)
                             <tr>
-                                <td scope="col" class="text-center card-text">{{ $wishlist->Name }}</td>
+                                <td scope="col" class="text-center card-text">{{ $product->Name }}</td>
                                 <td scope="col" class="text-center "><img
-                                        src="{{ asset('storage/' . $wishlist->image->ImageLink) }}" alt=""
+                                        src="{{ asset('storage/' . $product->image->ImageLink) }}" alt=""
                                         height="60px" width="60px"></td>
-                                <td scope="col" class="text-center lobster-font">{{ $wishlist->Desciption }}</td>
-                                <td scope="col" class="text-center price text-success">{{ $wishlist->Price }}$</td>
+                                <td scope="col" class="text-center lobster-font">{{ $product->Desciption }}</td>
+                                <td scope="col" class="text-center price text-success">{{ $product->Price }}$</td>
                                 <td scope="col" class="text-center"><span class="mx-1">
-                                        <a href="whislist/delete/{{ $wishlist->WishlistID }}"
+                                        <a href="whislist/delete/{{ $product->productID }}"
                                             class="button-62">Delete</a></span>
-                                    <span class="mx-1"><a href="/add-to-cart/{{ $wishlist->Product_ID }}"
+                                    <span class="mx-1"><a href="/add-to-cart/{{ $product->Product_ID }}"
                                             class="button-63">Add to cart</a></span>
                                 </td>
                             </tr>

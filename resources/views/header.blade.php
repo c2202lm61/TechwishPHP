@@ -21,38 +21,29 @@
                                     Us</a>
                             </li>
                             <!-- code cart -->
-
-
-
                             <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font" href="{{ route('cart') }}">Your
+                                <a class="nav-link navbarlink nav-link-font" href="/show">Your
                                     cart
-                                    @if (session('cart'))
-                                        <span
-                                            class="badge bg-light ms-2
-                                         text-dark">
-                                            {{ count(session('cart')) }}</span>
+                                    {{--  @if (session('cart'))
+
+                                            {{ count(session('cart')) }}
                                     @else
                                         <span
                                             class="badge bg-light ms-2
                                          text-dark">
                                             0</span>
-                                    @endif
+                                    @endif  --}}
+                                    <span
+                                        class="badge bg-light ms-2 text-dark">{{ count(Session::get('Cart', [])) }}</span>
                                 </a>
                             </li>
-
-
-
                             <li class="nav-item navbarlink">
                                 <a class="nav-link navbarlink nav-link-font" href="{{ route('product') }}">Shop</a>
                             </li>
 
                             <li class="nav-item navbarlink">
-                                <a class="nav-link navbarlink nav-link-font"
-                                    href="{{ route('whishlist') }}">Whishlist</a>
+                                <a class="nav-link navbarlink nav-link-font" href="/wishlist">Whishlist</a>
                             </li>
-
-
                         </ul>
                         <form class="d-flex mt-2 my-lg-2 my-md-2 mt-sm-3" role="search" method="POST"
                             action="/search">
@@ -94,6 +85,4 @@
         </div>
 
     </div>
-
-
 </header>
